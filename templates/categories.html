@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/nvi_icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Scott Theer" />
+    <title>NVI Tactic Categories</title>
+    <link rel="stylesheet" type="text/css" href="/static/site.css">
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <h1 class="hide">Nonviolence International Peaceful Protest Tactic Categories</h1>
+
+  <body>
+
+    <div id="categories-navbar" class="navbar">
+      <div class="categories-buttons" id="categories-buttons-left">
+        <button class="navbar-button categories-button" id="home-link" title="Home">Home</button>
+        <button class="navbar-button categories-button" id="categories-link" title="Categories">Categories</button>
+      </div>
+      <div class="categories-buttons" id="categories-buttons-right">
+        <button class="navbar-button categories-button" id="tactics-link" title="Tactics">Tactics</button>
+        <button class="navbar-button categories-button" id="dataset-link" title="Data Set">Data Set</button>
+      </div>
+      <img id="sub-logo-img" src="/static/nvi-sub-logo.png" />
+      <button id="categories-dropdown-button" title="Pages Dropdown" class="material-icons md-36 hide">dehaze</button>
+    </div>
+
+    <div id="categories-dropdown" class="hide">
+      <button class="dropdown-button" id="home-link-dropdown" title="Home">Home</button>
+      <button class="dropdown-button" id="categories-link-dropdown" title="Categories">Categories</button>
+      <button class="dropdown-button" id="tactics-link-dropdown" title="Tactics">Tactics</button>
+      <button class="dropdown-button" id="dataset-link-dropdown" title="Data Set">Data Set</button>
+    </div>
+
+
+    <div id="categories-canvas">
+      <div id="category-view-choose">
+        <button class="category-choose-button" id="category-table-view" title="Table">Table View</button>
+        <button class="category-choose-button" id="category-list-view" title="List">List View</button>
+      </div>
+
+      <div id="list-view" class="hide">
+        <div class="category-list" id="ActsofExpression"></div>
+        <div class="category-list" id="ActsofOmission"></div>
+        <div class="category-list" id="ActsofCommission"></div>
+      </div>
+
+      <div id="table-view">
+        <div id="table-context-para"></div>
+
+        <div id="categories-table-container">
+
+          <div class="grid-item-row a" id="acts-of-expression">Acts of Expression
+            <div class="grid-item-subinfo hideExtra" id="sub-acts-of-expression">
+              <br>
+              "Saying"
+              <br>
+              <br>
+              <button class="category-learn-more" id="expression-learnmore">Learn More</button>
+            </div>
+          </div>
+          <div class="grid-item-row b omission" id="acts-of-omission">Acts of Omission
+            <div class="grid-item-subinfo hideExtra" id="sub-acts-of-omission">
+              <br>
+              "Not Doing"
+              <br>
+              <br>
+              <button class="category-learn-more" id="omission-learnmore">Learn More</button>
+            </div>
+          </div>
+          <div class="grid-item-row c commission" id="acts-of-commission">Acts of Commission
+            <div class="grid-item-subinfo hideExtra" id="sub-acts-of-commission">
+              <br>
+              "Doing and Creating"
+              <br>
+              <br>
+              <button class="category-learn-more" id="commission-learnmore">Learn More</button>
+            </div>
+          </div>
+          <div class="grid-item-col d coercive" id="coercive">Coercive
+            <div class="grid-item-col-subinfo hideExtra" id="sub-coercive">
+              &nbsp "Penalty/Confrontational" &nbsp
+              <button class="category-learn-more-col" id="coercive-learnmore">Learn More</button>
+            </div>
+          </div>
+          <div class="grid-item-col e persuasive" id="persuasive">Persuasive
+            <div class="grid-item-col-subinfo hideExtra" id="sub-persuasive">
+              &nbsp &nbsp &nbsp "Reward/Constructive" &nbsp &nbsp &nbsp
+              <button class="category-learn-more-col" id="persuasive-learnmore">Learn More</button>
+            </div>
+          </div>
+          <div class="grid-word f expression coercive" id="expression-coercive">
+            <span class="grid-top-level" id="expression-coercive-desc">Protest</span>
+            <div class="grid-word-click hideExtra" id="expression-coercive-click">
+              <span class="word-title">Protest</span><br>
+              <div class="word-desc">Communicative actions to criticize or coerce</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="coercive-expression-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="coercive-expression-tactics"></div>
+            </div>
+          </div>
+          <div class="grid-word g omission coercive" id="omission-coercive">
+            <span class="grid-top-level" id="omission-coercive-desc">Noncooperative</span>
+            <div class="grid-word-click hideExtra" id="omission-coercive-click">
+              <span class="word-title">Noncooperative</span><br>
+              <div class="word-desc">Refusal to engage in expected behavior by acts of omission</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="coercive-omission-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="coercive-omission-tactics"></div>
+            </div>
+          </div>
+          <div class="grid-word h commission coercive" id="commission-coercive">
+            <span class="grid-top-level" id="commission-coercive-desc">Disruptive Intervention</span>
+            <div class="grid-word-click hideExtra" id="commission-coercive-click">
+              <span class="word-title">Disruptive Intervention</span><br>
+              <div class="word-desc">Direct action that confronts another party to stop, disrupt, or change their behavior</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="coercive-commission-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="coercive-commission-tactics"></div>
+            </div>
+          </div>
+          <div class="grid-word i expression persuasive" id="expression-persuasive">
+            <span class="grid-top-level" id="expression-persuasive-desc">Appeal</span>
+            <div class="grid-word-click hideExtra" id="expression-persuasive-click">
+              <span class="word-title">Appeal</span><br>
+              <div class="word-desc">Communicative actions to reward or persuade</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="persuasive-expression-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="persuasive-expression-tactics"></div>
+            </div>
+          </div>
+          <div class="grid-word j omission persuasive" id="omission-persuasive">
+            <span class="grid-top-level" id="omission-persuasive-desc">Refraining</span>
+            <div class="grid-word-click hideExtra" id="omission-persuasive-click">
+              <span class="word-title">Refraining</span><br>
+              <div class="word-desc">Halting or calling off a planned or ongoing action to reward or persuade</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="persuasive-omission-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="persuasive-omission-tactics"></div>
+            </div>
+          </div>
+          <div class="grid-word k commission persuasive" id="commission-persuasive">
+            <span class="grid-top-level" id="commission-persuasive-desc">Creative Intervention</span>
+            <div class="grid-word-click hideExtra" id="commission-persuasive-click">
+              <span class="word-title">Creative Intervention</span><br>
+              <div class="word-desc">Direct action that models or constructs alternative behaviors and institutions or takes over existing institutions</div><br><br>
+            </div>
+            <div class="grid-col-click hideExtra" id="persuasive-commission-click">
+              <span class="example-title">Examples:</span><br>
+              <div class="tactic-examples" id="persuasive-commission-tactics"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id="category-modal" class="modal hideExtra">
+        <div class="modal-content">
+          <button id="modal-exit">x</button>
+          <div id="modal-header"></div>
+          <div id="modal-body"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="/static/categories.js"></script>
+
+  </body>
+</html>

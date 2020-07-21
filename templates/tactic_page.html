@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+	<head>
+	    <meta charset="UTF-8">
+	    <link rel="icon" href="/static/nvi_icon.png" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	    <meta name="author" content="Scott Theer" />
+	    <title>NVI Nonviolent Tactics</title>
+	    <link rel="stylesheet" type="text/css" href="/static/site.css">
+	    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <script type="text/javascript" src="/static/nunjucks.min.js"></script>
+	    <script type="text/javascript" src="/static/color-thief.umd.js"></script>
+
+	    <script>
+	    	pic = "{{data.picture}}";
+	    	sharpNum = "{{data.gene_sharp_num}}";
+	    </script>
+	</head>
+
+	<body>
+		<div id="tactic-container">
+			<div id="tactic-header">
+				<button id="tacticpage-exit">X</button>
+				<div id="tacticinfo-container">
+
+					<img id="tacticpagesub-logo-img" src="/static/nvi-sub-logo.png" />
+
+					<div id="tacticinfo-sub-container">
+						<div id="tacticpage-name" class="tacticheader-text">{{data.name}}</div>
+						<div id="tacticpage-description" class="tacticheader-text">{{data.description}}</div>
+					</div>
+
+				</div>
+
+				<div id="tacticpage-pic-container"></div>
+
+			</div>
+
+			<span id="tacticpage-down-arrow" class="material-icons md-48">keyboard_arrow_down</span>
+
+			<div id="tactic-bottom">
+				<div id="description-container">
+					<div id="tacticpage-example-description">{{data.ex_description}}</div>
+					<div id="tacticpage-example-link">Read More: 
+						<a href={{data.link}}>{{data.title}}</a>
+					</div>
+				</div>
+
+				<div id="tacticpage-variables">
+
+					<div id="tacticpage-categories">
+						<div id="category-container">
+							<span id="tacticpage-categories-header">Tactic Categories:</span><br>
+							{% for category in data.categories.split("; ").reverse() %}
+				  				<span class="category-list-tacticpage" style="margin-left: {{loop.index * 30}}px;">{{category}}</span><br>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div id="tacticpage-characteristics">
+						<div id="coercive-persuasive">
+							{% if (data.coercive) == 1 and (data.persuasive) == 1 %}
+								Coercive & <br>
+								Persuasive
+							{% elif (data.coercive) == 1 and (data.persuasive) == 0 %}
+								Coercive
+							{% elif (data.coercive) == 0 and (data.persuasive) == 1 %}
+								Persuasive
+							{% else %}
+								''
+							{% endif %}
+						</div>
+
+						<div id="sharp-container">
+							<span id="sharp-number">{{data.gene_sharp_num}}</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div id="tacticpage-load-screen">
+			<div class="loader"></div>
+		</div>
+
+		<!--<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>-->
+
+		<script src="/static/tactic_page.js"></script>
+
+	</body>
+
+</html>

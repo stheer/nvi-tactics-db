@@ -1,0 +1,1523 @@
+html, body{
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #fbfbfb;
+}
+
+.hide {
+  display: none;
+}
+
+.hideExtra {
+  display: none !important;
+}
+
+.hero-image {
+  background-image: url('tactics_background_small.jpg');
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    background-image: url('tactics_background_large.jpg');
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .hero-image {
+    background-attachment: scroll;
+  }
+}
+
+.centered-logo {
+  justify-content: center;
+  align-items: center;
+}
+
+#tactic-dropdown-button {
+  position: absolute;
+  right: 90%;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+#categories-dropdown-button {
+  position: absolute;
+  right: 90%;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+#tactic-filter-button {
+  position: absolute;
+  left: 95%;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+.tactic-category-filter{
+  margin: 5px;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  /*color: #033165;*/
+  color: #989898;
+  font-family: 'Arvo';
+  /*border: 1px solid;*/
+}
+
+.tactic-category-filter:active,
+.is-checked {
+  /*background-color: #033165;
+  color: white;*/
+  color: #033165;
+  border: 1px solid;
+  /*text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);*/
+}
+
+.tactic-category-filter:active,
+.was-checked {
+  /*background-color: #033165;
+  color: white;*/
+  color: #033165;
+  /*text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);*/
+}
+
+.tactic-category-filter:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+#tactic-category-search {
+  margin: 5px 5px 5px 10px;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+}
+
+#load-screen {
+  z-index: 99999;
+  width: 100%;
+  height: 300%;
+  position: absolute;
+  top: 0;
+  background-color: #033165;
+}
+
+#tacticpage-load-screen {
+  z-index: 99999;
+  width: 100%;
+  height: 300%;
+  position: absolute;
+  top: 0;
+  background-color: #033165;
+}
+
+.loader {
+  position: absolute;
+  left: 45%;
+  top: 15%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  border: 16px solid #fbfbfb;
+  border-radius: 50%;
+  border-top: 16px solid #f5c71a;
+  width: 75px;
+  height: 75px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+::placeholder {
+  color: #989898;
+  font-family: 'Arvo';
+  opacity: 1;
+}
+
+#tactic-category-search:focus::-webkit-input-placeholder {
+  color: #033165;
+}
+
+:-ms-input-placeholder {
+  color: #989898;
+  font-family: 'Arvo';
+}
+
+#tactic-category-search:focus:-ms-input-placeholder {
+  color: #033165;
+}
+
+::-ms-input-placeholder {
+  color: #989898;
+  font-family: 'Arvo';
+}
+
+#tactic-category-search, textarea{
+  color: #033165;
+  font-family: 'Arvo';
+}
+
+textarea:focus, #tactic-category-search:focus {
+  color: #033165;
+  font-family: 'Arvo';
+}
+
+#tactic-category-search:focus:-moz-placeholder {
+  color: #033165;
+}
+
+#tactic-category-search:focus::-moz-placeholder {
+  color: #033165;
+}
+
+.level0 {
+  display: inline-block;
+}
+
+#tactic-dropdown {
+  position: relative;
+  height: 0;
+  background-color: #fbfbfb;
+  transition: all .4s ease-in-out;
+}
+
+#categories-dropdown {
+  position: relative;
+  height: 0;
+  background-color: #fbfbfb;
+  transition: all .4s ease-in-out;
+  z-index: -1;
+}
+
+.showDropdown {
+  height: 125px !important;
+  z-index: 99 !important;
+}
+
+#tactic-filteer {
+  position: relative;
+  background-color: #fbfbfb;
+}
+
+.dropdown-button {
+  display: block;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #033165;
+  text-shadow: none;
+  font-family: 'Arvo';
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+}
+
+.hero-text button:hover {
+  background-color: #033165;
+  color: #fbfbfb;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+}
+
+#sub-logo-img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+@media all and (min-width: 850px) {
+  #main-logo-img {
+    max-width: 250px;
+    max-height: 300px;
+    float: left;
+    margin: 2% 2% 2% 5% !important;
+  }
+}
+
+@media all and (min-width: 575px) {
+  #main-logo-img {
+    max-width: 250px;
+    max-height: 300px;
+    float: left;
+    margin: 10px;
+  }
+}
+
+#main-logo-img {
+  float: left;
+  max-width: 250px;
+  max-height: 300px;
+  margin: 10px;
+}
+
+#tactics-navbar {
+  position: relative;
+  height: 135px;
+  background-color: #fbfbfb;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width: 800px) {
+  .tactics-buttons { flex: 1 auto; }
+  #tactics-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #tactics-buttons-right { order: 3; }
+}
+
+#categories-navbar {
+  position: relative;
+  height: 135px;
+  background-color: #fbfbfb;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width: 800px) {
+  .categories-buttons { flex: 1 auto; }
+  #categories-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #categories-buttons-right { order: 3; }
+}
+
+#main-buttons {
+  float: right;
+  margin: 3% 5% 2% 2%;
+}
+
+.navbar-button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #fbfbfb;
+  font-family: 'Arvo';
+  font-size: 1.25em;
+  text-shadow: 1px 1px 2px black;
+  margin: 0 10px 0 10px;
+}
+
+.tactic-button {
+  color: #033165 !important;
+  margin: 0 20px 0 20px !important;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 1.1em !important;
+}
+
+.categories-button {
+  color: #033165 !important;
+  margin: 0 20px 0 20px !important;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 1.1em !important;
+}
+
+.navbar-button:hover {
+  color: #033165;
+}
+
+#container {
+  position: relative;
+}
+
+.tactic-block {
+  background-repeat: no-repeat;
+  background-position: center; 
+  position: relative;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 175px;
+  display: block;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .tactic-block:hover {
+    background-size: 0 0;
+    background-color: #fbfbfb;
+    color: #033165;
+  }
+
+  .tactic-block:hover .tactic-text {
+    text-shadow: none !important;
+    font-weight: bold;
+  }
+}
+
+.material-icons.md-36 { 
+  font-size: 36px;
+}
+
+@media all and (min-width: 575px) {
+  #main-dropdown-button {
+    position: absolute;
+    right: 75px !important;
+    -ms-transform: translateX(0%) !important;
+    transform: translateX(0%) !important;
+    margin-left: 20px !important;
+    top: 3% !important;
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    color: #fbfbfb;
+  }
+
+  #main-dropdown-content {
+    text-align: center;
+    position: absolute;
+    top: 3% !important;
+    right: 100px !important;
+    margin-right: 50px !important;
+    -ms-transform: translateX(0%) !important;
+    transform: translateX(0%) !important;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+
+  .hero-text {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Arvo';
+    font-style: normal;
+    color: #fbfbfb;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 40px;
+  }
+
+  #tactics-title {
+    font-size: 3.5em !important;
+    font-weight: 600;
+    margin: 0 auto;
+  }
+
+  .hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 15px 35px;
+    color: #fbfbfb;
+    background-color: #272e40;
+    text-align: center;
+    font-family: 'Arvo';
+    font-size: 1em;
+    cursor: pointer;
+  }
+}
+
+#main-dropdown-button {
+  position: absolute;
+  right: 50%;
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  top: 15%;
+  margin-left: 0px;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  color: #fbfbfb;
+}
+
+#main-dropdown-content {
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  margin-right: 0px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.hero-text {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Arvo';
+  font-style: normal;
+  color: #fbfbfb;
+  text-shadow: 1px 1px 2px black;
+  margin-top: 40px;
+}
+
+#tactics-title h1{
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+#tactics-title h2{
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 15px 35px;
+  color: #fbfbfb;
+  background-color: #272e40;
+  text-align: center;
+  font-family: 'Arvo';
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.main-dropdown-link{
+  display: block;
+  font-family: 'Arvo';
+  color: #fbfbfb;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.material-icons.md-48 { 
+  font-size: 48px;
+}
+
+@media screen and (min-width: 800px) {
+  .tactic-block:hover .tactic-text {
+     color: #033165;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .tactic-block {
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    background-size: cover;
+    text-align: center;
+    color: #fbfbfb;
+    width: 33.3333333333%;
+    height: 250px;
+    display: block;
+    float: left;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .tactic-block {
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    background-size: cover;
+    text-align: center;
+    color: #fbfbfb;
+    width: 25%;
+    height: 250px;
+    display: block;
+    float: left;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .tactic-block {
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    background-size: cover;
+    text-align: center;
+    color: #fbfbfb;
+    width: 20%;
+    height: 250px;
+    display: block;
+    float: left;
+    cursor: pointer;
+  }
+}
+
+.tactic-text {
+  font-family: 'Arvo';
+  color: #fbfbfb;
+  display: flex;
+  text-shadow: 1px 1px 2px black;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#tactic-notfound-header {
+  font-family: 'Arvo';
+  color: #033165;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+#tactic-notfound-para {
+  font-family: 'Arvo';
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  margin-top: 100px;
+  text-align: center;
+}
+
+#link-to-tactic {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #033165;
+  font-family: 'Arvo';
+  font-size: 1em;
+}
+
+#logo-notfound {
+  max-width: 50%;
+  max-height: 50%;
+  cursor: pointer;
+}
+
+#logo-notfound-container {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+#tactic-container {
+  height: 100%;
+}
+
+@media all and (min-width: 1000px) {
+  #tactic-header {
+    display: table !important;
+    height: 100% !important;
+    width: 100%;
+  }
+
+  #tacticinfo-container {
+    background-color: #033165;
+    width: 50% !important;
+    display: table-cell !important;
+    position: relative;
+  }
+
+  #tacticpage-pic-container {
+    display: table-cell !important;
+    background-size: cover;
+    background: center no-repeat;
+  }
+
+  #tacticinfo-sub-container {
+    position: absolute;
+    top: 15%;
+  }
+
+  #tacticpage-name {
+    position: relative;
+    margin-left: 75px !important;
+    margin-right: 75px !important;
+    font-size: 3em !important;
+    font-weight: bold;
+  }
+
+  #tacticpage-description {
+    font-size: 1.75em !important;
+    margin-top: 50px !important;
+    margin-left: 75px !important;
+    margin-right: 75px !important;
+  }
+
+  .tacticheader-text {
+    color: #fbfbfb;
+    font-family: 'Arvo';
+  }
+
+  #tacticpage-down-arrow {
+    display: inline-block !important;
+    position: absolute;
+    top: 90%;
+    z-index = 2;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #fbfbfb;
+  }
+
+  #tacticpage-example-description {
+    position: relative;
+    font-family: 'Arvo';
+    font-size: 1.25em !important;
+    line-height: 1.6;
+  }
+
+  #description-container {
+    width: 50% !important;
+    margin: 50px auto;
+    position: relative;
+    margin-top: 50px !important;
+  }
+
+  #tacticpage-variables {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: table !important;
+    width: 100%;
+  }
+
+  #tacticpage-categories {
+    display: table-cell !important;
+    width: 50% !important;
+    position: relative;
+  }
+
+  #tacticpage-characteristics {
+    display: table-cell !important;
+    width: 50%;
+    position: relative;
+    margin-top: 0 !important;
+  }
+
+  .category-list-tacticpage {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #033165;
+  }
+
+  #category-container {
+    margin-right: 25px !important;
+    margin-left: 0px;
+    text-align: left !important;
+  }
+
+  #coercive-persuasive {
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 75px;
+    margin-right: 0px;
+    text-align: left !important;
+  }
+
+  #sharp-container {
+    margin-top: 0px !important;
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    left: 37.5%;
+    margin-left: 0px !important;
+    position: absolute !important;
+    bottom: 0;
+    text-align: left !important;
+  }
+
+  #sharp-number {
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+@media all and (min-width: 715px) {
+  #tactic-header {
+    height: 900px;
+    width: 100%;
+    display: block;
+  }
+
+  #tacticinfo-container {
+    background-color: #033165;
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 400px;
+  }
+
+  #tacticpage-pic-container {
+    background-size: cover;
+    display: block;
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+
+  #tacticinfo-sub-container {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  #tacticpage-name {
+    position: relative;
+    margin-left: 75px !important;
+    margin-right: 75px !important;
+    font-size: 3em !important;
+    font-weight: bold;
+  }
+
+  #tacticpage-description {
+    font-size: 1.75em !important;
+    margin-top: 50px !important;
+    margin-left: 75px !important;
+    margin-right: 75px !important;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+  }
+
+  .tacticheader-text {
+    color: #fbfbfb;
+    font-family: 'Arvo';
+  }
+
+  #tacticpage-down-arrow {
+    display: none;
+  }
+
+  #tacticpage-example-description {
+    position: relative;
+    font-family: 'Arvo';
+    font-size: 1.25em !important;
+    line-height: 1.6;
+  }
+
+  #description-container {
+    width: 50% !important;
+    margin: 50px auto;
+    position: relative;
+  }
+
+  #tacticpage-variables {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: table !important;
+    width: 100%;
+  }
+
+  #tacticpage-categories {
+    display: table-cell !important;
+    width: 50% !important;
+    position: relative;
+  }
+
+  #tacticpage-characteristics {
+    display: table-cell !important;
+    width: 50% !important;
+    position: relative;
+    margin-top: 0 !important;
+  }
+
+  .category-list-tacticpage {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #033165;
+  }
+
+  #category-container {
+    width: 75% !important;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #coercive-persuasive {
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    width: 25% !important;
+    margin: 0 auto;
+    text-align: left !important;
+  }
+
+  #sharp-container {
+    margin-top: 0px !important;
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    left: 37.5%;
+    /*margin-left: 50px !important;*/
+    position: absolute !important;
+    bottom: 0;
+    text-align: left !important;
+  }
+
+  #sharp-number {
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+#tactic-header {
+  height: 900px;
+  width: 100%;
+  display: block;
+}
+
+#tacticinfo-container {
+  background-color: #033165;
+  width: 100%;
+  position: relative;
+  display: block;
+  height: 400px;
+}
+
+#tacticpage-pic-container {
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+#tacticinfo-sub-container {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#tacticpage-name {
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#tacticpage-description {
+  font-size: 1em;
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.tacticheader-text {
+  color: #fbfbfb;
+  font-family: 'Arvo';
+}
+
+#tacticpage-down-arrow {
+  display: none;
+}
+
+#tacticpage-example-description {
+  position: relative;
+  font-family: 'Arvo';
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+#description-container {
+  width: 75%;
+  margin: 50px auto;
+  position: relative;
+}
+
+.category-list-tacticpage {
+  font-size: 1.5em;
+  margin-top: 10px;
+  color: #033165;
+}
+
+#category-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#coercive-persuasive {
+  color: #033165;
+  font-size: 2em;
+  font-weight: bold;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#tacticpagesub-logo-img {
+  max-width: 200px;
+  max-height: 200px;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 25px;
+}
+
+#tacticpage-exit {
+  position: absolute;
+  z-index: 5;
+  left: 20px;
+  font-size: 1.5em;
+  color: #fbfbfb;
+  margin-top: 25px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+#tacticpage-variables {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: block;
+  width: 100%;
+}
+
+#tacticpage-categories {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+#tacticpage-characteristics {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-top: 25px !important;
+}
+
+#sharp-container {
+  margin-top: 25px;
+  color: #033165;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 0px;
+  position: relative;
+  text-align: center;
+}
+
+#sharp-number {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+#tacticpage-categories-header {
+  color: #033165;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#tactic-bottom {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#tacticpage-example-link {
+  font-family: 'Arvo';
+  margin: 10px auto 0 auto;
+  text-align: center;
+  font-size: 1em;
+}
+
+a {
+  color: #033165;
+}
+
+#categories-canvas {
+  z-index: 99999;
+}
+
+#table-context-para {
+  font-family: 'Arvo';
+  padding: 25px;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 150px;
+  color: #033165;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+#categories-table-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  grid-template-columns: 325px 325px 325px;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-auto-rows: 0px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-family: 'Arvo';
+}
+
+.grid-item-row {
+  border-radius: 25px;
+  /*margin-right: 25px;*/
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5em;
+  background-color: #b5d6fd;
+  color: #033165;
+  height: 30px;
+  width: 300px;
+  transition: height .4s ease-in-out, width .4s ease-in-out;
+}
+
+.grid-item-col {
+  border-radius: 25px;
+  /*margin-right: 25px;*/
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5em;
+  background-color: #b5d6fd;
+  color: #033165;
+  height: 30px;
+  width: 300px;
+  transition: height .4s ease-in-out, width .4s ease-in-out;
+}
+
+.grid-item-row:hover {
+  background-color: #f5c71a;
+  color: #fbfbfb;
+  cursor: pointer;
+  border: 3px solid #033165;
+}
+
+.grid-item-col:hover {
+  background-color: #f5c71a;
+  color: #fbfbfb;
+  cursor: pointer;
+  border: 3px solid #033165;
+}
+
+.grid-word {
+  font-size: 1.25em;
+}
+
+.a {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.b {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.c {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+
+.d {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.e {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.f {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.g {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.h {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+.i {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.j {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.k {
+  grid-column: 3 / 4;
+  grid-row: 4 / 5;
+}
+
+.clicked-grid {
+  z-index: 9999;
+  height: 200px;
+  font-size: 1.75em;
+  padding-top: 80px;
+}
+
+.clicked-grid-y {
+  z-index: 9999;
+  width: 650px;
+  font-size: 1.75em;
+  padding-top: 18px;
+  padding-bottom: 22px;
+  height: 30px;
+}
+
+.grid-item-subinfo {
+  font-size: .8em !important;
+  cursor: pointer;
+}
+
+.grid-item-col-subinfo {
+  font-size: .8em !important;
+  cursor: pointer;
+}
+
+.category-learn-more {
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  color: #fbfbfb;
+  font-size: .75em;
+  font-family: 'Arvo';
+  padding: 10px;
+  pointer-events: visible !important;
+}
+
+.category-learn-more-col{
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  color: #fbfbfb;
+  font-size: .75em;
+  font-family: 'Arvo';
+  padding: 10px;
+  pointer-events: visible !important;
+  /*margin-bottom: 35px;*/
+}
+
+.category-learn-more:hover {
+  color: #033165;
+}
+
+.category-learn-more-col:hover {
+  color: #033165;
+}
+
+.word-desc {
+  margin-top: 25px;
+}
+
+.word-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#persuasive {
+  display: inline-block;
+}
+
+.example-title {
+  font-size: 1.25em;
+}
+
+.grid-col-click {
+  font-size: 1em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#sub-persuasive {
+  display: inline-block;
+}
+
+#sub-coercive {
+  display: inline-block;
+}
+
+.cant-click:active {
+  pointer-events: none;
+  background-color: #808080;
+  color: #fbfbfb;
+  border: 3px solid #033165;
+}
+
+.cant-click .grid-item-subinfo {
+  pointer-events: none;
+}
+
+.cant-click .grid-item-col-subinfo {
+  pointer-events: none;
+}
+
+.cant-click:hover {
+  background-color: #808080;
+  cursor: default !important;
+}
+
+.modal {
+  position: fixed;
+  z-index: 9999999;
+  padding-top: 75px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fbfbfb;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  margin-bottom: 50px;
+}
+
+#modal-exit {
+  font-size: 1.5em;
+  color: #033165;
+  float: right;
+  margin: 5px 8px 5px 5px;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.indent-text {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#modal-body {
+  margin: 25px 40px 25px 40px;
+  font-family: 'Arvo';
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+#modal-header {
+  color: #033165;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 35px;
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
+}
+
+strong {
+  font-size: 1.10em;
+}
+
+.wait-click {
+  pointer-events: none;
+}
+
+#category-view-choose {
+  position: relative;
+  margin-top: 15px;
+  width: 101.25%;
+  text-align: center;
+}
+
+.category-choose-button {
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  font-family: 'Arvo';
+  font-size: 1em;
+}
+
+.selected-view {
+  background-color: #f5c71a;
+  color: #fbfbfb;
+  cursor: pointer;
+  border: 3px solid #033165;
+}
+
+.selected-view:active {
+  pointer-events: none;
+}
+
+.category-list {
+  position: relative;
+  width: 30% !important;  
+  display: inline-block;
+  /*margin-left: 2.75%;*/
+  font-family: 'Arvo';
+  font-size: 1em;
+  margin: 50px 0px 15px 0px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+}
+
+#ActsofExpression-1 > span {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
+}
+
+#ActsofOmission-1 > span {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
+}
+
+#ActsofCommission-1 > span {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
+}
+
+#list-view {
+  width: 100%;
+  position: absolute;
+  margin-left: 5%;
+  margin-left: 5%;
+}

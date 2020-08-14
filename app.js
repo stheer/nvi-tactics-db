@@ -8,9 +8,9 @@ var fs = require('fs');
 var saveAs = require('file-saver');
 
 /*****************************Define Variables***************************/
-const hostname = '127.0.0.1';
-const port = 3000;
-__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
+const hostname = '0.0.0.0';
+const port = 8000;
+__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
 
 /*****************************Helper Functions***************************/
 function queryTacticsData() {

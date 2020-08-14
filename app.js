@@ -9,8 +9,11 @@ var saveAs = require('file-saver');
 
 /*****************************Define Variables***************************/
 const hostname = '0.0.0.0';
+//const hostname = '127.0.0.1';
+//const port = 3000;
 const port = 8000;
 __dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
+//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
 
 /*****************************Helper Functions***************************/
 function queryTacticsData() {
@@ -45,7 +48,7 @@ connection.connect(function(err){
 /****************************Create/Manage Server***********************/
 var app = express();
 var server = app.listen(port, hostname, function() {
-	console.log('Listening on 3000!');
+	console.log('Listening');
 });
 app.use('/static', express.static('static'));
 app.use('/static/tactic_pictures/', express.static('static'));
@@ -129,7 +132,6 @@ app.get('/tactics/:tactic', function(req, res){
 		if(err){
 			console.log(err);
 		}else{
-			console.log(result[0]);
 			if(result[0] != null){
 				res.render(__dirname + '/templates/tactic_page.html', {data: result[0]});
 			}else{

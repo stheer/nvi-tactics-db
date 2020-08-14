@@ -406,7 +406,10 @@ function toggleShowTactics(cat){
     tactics = shuffle(tactics);
     tactics.forEach((tactic) => {
       if(tactic[cat] == 1){
-        if(tactic['parent_categories'].split("; ")[2] == 'Acts of Expression' && e < 5){
+        var cats = tactic['parent_categories'].split("; ");
+        var highestCat = cats[cats.length - 1];
+        console.log(highestCat);
+        if(highestCat == 'Acts of Expression' && e < 5){
         //if(tactic['category_name'] == 'Acts of Expression' && e < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-expression-tactics").append(a);
@@ -414,7 +417,7 @@ function toggleShowTactics(cat){
             document.getElementById(cat+"-expression-tactics").append(" | ");
           }
           e++;
-        }else if(tactic['parent_categories'].split("; ")[2] == 'Acts of Omission' && e < 5){
+        }else if(highestCat == 'Acts of Omission' && o < 5){
         //}else if(tactic['category_name'] == 'Acts of Omission' && o < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-omission-tactics").append(a);
@@ -422,7 +425,7 @@ function toggleShowTactics(cat){
             document.getElementById(cat+"-omission-tactics").append(" | ");
           }
           o++;
-        }else if(tactic['parent_categories'].split("; ")[2] == 'Acts of Commission' && e < 5){
+        }else if(highestCat == 'Acts of Commission' && c < 5){
         //}else if(tactic['category_name'] == 'Acts of Commission' && c < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-commission-tactics").append(a);
@@ -697,7 +700,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     var tactics = JSON.parse(data);
 
-    console.log(tactics);
     tactics.forEach((tactic) => {
       var lastCategory = "";
       categories = tactic["categories"].split("; ").reverse();
@@ -762,8 +764,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
           if(expressionIndex != -1){
             expression.splice(expressionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
             insertAfter(newDiv, document.getElementById(expression[expressionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofExpression"));
-            console.log(level);
-            console.log(levelCategoryToTactics[level]);
             if(tacticDiv != null){
               if(levelCategoryToTactics[level] == null){
                 var array = [];
@@ -807,7 +807,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
               console.log(catLevel[i]);
             }
           }
-          console.log(level + ": " + levelCategoryToTactics[level]);
         }
       }else{
         var catLevel = Array.from(categoryLevel[level]);
@@ -840,7 +839,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     var thing = "no";
     var shit = "hey";
-    console.log(Object.keys(levelCategoryToTactics).length);
     for(var i = Object.keys(levelCategoryToTactics).length + 1; i > 1; i--){
       levelCategoryToTactics[i].forEach(function(grouping){
         insertAfter(grouping[0], grouping[1], grouping[2]);

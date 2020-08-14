@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/nvi_icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Scott Theer" />
+    <title>NVI Tactic Downloads</title>
+    <link rel="stylesheet" type="text/css" href="/static/site.css">
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="/static/filesaver.min.js"></script>
+  </head>
+
+  <h1 class="hide">Tactics of Nonviolent Resistance Data Set</h1>
+
+  <body>
+
+    <div id="dataset-navbar" class="navbar">
+      <div class="dataset-buttons" id="dataset-buttons-left">
+        <button class="navbar-button dataset-button" id="home-link" title="Home">Home</button>
+        <button class="navbar-button dataset-button" id="categories-link" title="Categories">Categories</button>
+      </div>
+      <div class="dataset-buttons" id="dataset-buttons-right">
+        <button class="navbar-button dataset-button" id="tactics-link" title="Tactics">Tactics</button>
+        <button class="navbar-button dataset-button" id="dataset-link" title="Data Set">Downloadables</button>
+      </div>
+      <img id="sub-logo-img" src="/static/nvi-sub-logo.png" />
+      <button id="dataset-dropdown-button" title="Pages Dropdown" class="material-icons md-36 hide">dehaze</button>
+    </div>
+
+    <div id="dataset-dropdown" class="hide">
+      <button class="dropdown-button" id="home-link-dropdown" title="Home">Home</button>
+      <button class="dropdown-button" id="categories-link-dropdown" title="Categories">Categories</button>
+      <button class="dropdown-button" id="tactics-link-dropdown" title="Tactics">Tactics</button>
+      <button class="dropdown-button" id="dataset-link-dropdown" title="Data Set">Downloadables</button>
+    </div>
+
+    <div id="dataset-canvas">
+      <div id="dataset-context-para"></div>
+
+      <div id="download-header">Downloads</div>
+      <div id="download-canvas">
+        <div id="download-dataset" class="download-icon">
+          <img id="dataset-img" class="download-image" src="/static/dataset.png" />
+          <div id="dataset-text" class="download-text">Dataset</div>
+        </div>
+        <div id="download-table" class="download-icon">
+          <img id="cat-table-img" class="download-image" src="/static/table.png" />
+          <div id="cat-table-text" class="download-text">Categories Table</div>
+        </div>
+      </div>
+    </div> 
+
+
+
+    <script type="text/javascript" src="/static/downloadables.js"></script>
+
+  </body>
+</html>

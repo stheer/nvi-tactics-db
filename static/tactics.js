@@ -55,7 +55,7 @@ class TacticsTable extends React.Component {
       }
     });
 
-    if(window.innerWidth < 800){
+    if(window.innerWidth < 950){
       document.getElementById("tactic-dropdown").style.display = "block";
     }
   }
@@ -201,7 +201,7 @@ function displayDropdown() {
   var filter = document.getElementById("tactic-filter-button");
   var filterDiv = document.getElementById("tactic-filter");
 
-	if(window.innerWidth < 800){
+	if(window.innerWidth < 950){
     dropdown.style.display = "block";
     dropdownDiv.style.display = "block";
     filter.style.display = "none";
@@ -255,6 +255,7 @@ function onlyUnique(value, index, self) {
 
 function loadTacticsBoxes(data){
   TACTICS = JSON.parse(data);
+  console.log(TACTICS);
 
 	ReactDOM.render(
     	React.createElement(TacticsTable, {tactics: TACTICS}, null), document.getElementById("container")
@@ -420,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   }
 
   //toggle dropdown and filter visibility based on screen width 
-	if(window.innerWidth < 800){
+	if(window.innerWidth < 950){
     dropdown.style.display = "block";
     filter.style.display = "none";
     filterDiv.style.display = "none";
@@ -461,16 +462,35 @@ document.getElementById("categories-link").addEventListener("click", function(){
 });
 
 
+document.getElementById("dataset-link").addEventListener("click", function(){
+  window.location.href="/downloadables";
+});
+
+
+document.getElementById("home-link-dropdown").addEventListener("click", function(){
+  window.location.href="/";
+});
+
+
+document.getElementById("tactics-link-dropdown").addEventListener("click", function(){
+  window.location.href="/tactics";
+});
+
+
+document.getElementById("categories-link-dropdown").addEventListener("click", function(){
+  window.location.href="/categories";
+});
+
+
+document.getElementById("dataset-link-dropdown").addEventListener("click", function(){
+  window.location.href="/downloadables";
+});
+
+
 //toggle visibility of dropdown buttons on dropdown icon click
 document.getElementById("tactic-dropdown-button").addEventListener("click", function(){
   var dropdown = document.getElementById("tactic-dropdown");
   dropdown.classList.toggle("showDropdown");
-  /*if(dropdown.style.display == "none" || dropdown.style.display == "" || dropdown.style.height == 0){
-    //dropdown.style.display = "block";
-    dropdown.classList.add("hideAnimation");
-  }else{
-    dropdown.style.display = "none";
-  }*/
 });
 
 //toggle visibility of filters on icon click

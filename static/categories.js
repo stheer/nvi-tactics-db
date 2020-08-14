@@ -11,8 +11,13 @@ function displayDropdown() {
   var dropdownDiv = document.getElementById("categories-dropdown");
   var buttons = document.getElementsByClassName("categories-buttons");
   var logo = document.getElementById("sub-logo-img");
+  var categoryChoose = document.getElementById("category-view-choose");
 
-  if(window.innerWidth < 800){
+  if(window.innerWidth < 950){
+    categoryChoose.style.display = "none";
+    document.getElementById("category-table-view").classList.remove("selected-view");
+    document.getElementById("table-view").style.display = "none";
+    document.getElementById("list-view").style.display = "block";
     dropdown.style.display = "block";
     dropdownDiv.style.display = "block";
     for (var i = 0; i < buttons.length; i++) {
@@ -20,6 +25,11 @@ function displayDropdown() {
     }
     logo.classList.add("centered-logo");
   }else{
+    categoryChoose.style.display = "block";
+    document.getElementById("category-list-view").classList.remove("selected-view");
+    document.getElementById("category-table-view").classList.add("selected-view");
+    document.getElementById("table-view").style.display = "block";
+    document.getElementById("list-view").style.display = "none";
     dropdown.style.display = "none";
     dropdownDiv.classList.remove("showDropdown");
     dropdownDiv.style.display = "none";
@@ -387,7 +397,7 @@ function waitClickAllGrid(){
   }
 }
 
-
+//For recusrive CTE query, change out the uncommented with commented if conditions
 function toggleShowTactics(cat){
   ajaxCall('/categoryTactics', function(data) {
     var e, o, c;
@@ -396,22 +406,25 @@ function toggleShowTactics(cat){
     tactics = shuffle(tactics);
     tactics.forEach((tactic) => {
       if(tactic[cat] == 1){
-        if(tactic['category_name'] == 'Acts of Expression' && e < 5){
+        if(tactic['parent_categories'].split("; ")[2] == 'Acts of Expression' && e < 5){
+        //if(tactic['category_name'] == 'Acts of Expression' && e < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-expression-tactics").append(a);
           if(e != 4){ 
             document.getElementById(cat+"-expression-tactics").append(" | ");
           }
           e++;
-        }else if(tactic['category_name'] == 'Acts of Omission' && o < 5){
+        }else if(tactic['parent_categories'].split("; ")[2] == 'Acts of Omission' && e < 5){
+        //}else if(tactic['category_name'] == 'Acts of Omission' && o < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-omission-tactics").append(a);
           if(e != 4){ 
             document.getElementById(cat+"-omission-tactics").append(" | ");
           }
           o++;
-        }else if(tactic['category_name'] == 'Acts of Commission' && c < 5){
-          console.log(tactic.name);
+        }else if(tactic['parent_categories'].split("; ")[2] == 'Acts of Commission' && e < 5){
+        //}else if(tactic['category_name'] == 'Acts of Commission' && c < 5){
+          var a = createLink(tactic.name);
           document.getElementById(cat+"-commission-tactics").append(a);
           if(e != 4){ 
             document.getElementById(cat+"-commission-tactics").append(" | ");
@@ -450,23 +463,23 @@ function categoryModal(event){
   event.stopPropagation();
   switch(event.target.id.split("-")[0]){
     case "expression":
-      ajaxPost('/categoryText', "Acts of Expression", appendModalText, errorCategoryText);
+      ajaxPost('/siteText', ["categories", "Acts of Expression"], appendModalText, errorCategoryText);
       document.getElementById("modal-header").innerHTML = "Acts of Expression";
       break;
     case "omission":
-      ajaxPost('/categoryText', "Acts of Omission", appendModalText, errorCategoryText);
+      ajaxPost('/siteText', ["categories", "Acts of Omission"], appendModalText, errorCategoryText);
       document.getElementById("modal-header").innerHTML = "Acts of Omission";
       break;
     case "commission":
-      ajaxPost('/categoryText', "Acts of Commission", appendModalText, errorCategoryText);
+      ajaxPost('/siteText', ["categories", "Acts of Commission"], appendModalText, errorCategoryText);
       document.getElementById("modal-header").innerHTML = "Acts of Commission";
       break;
     case "coercive":
-      ajaxPost('/categoryText', "Coercive", appendModalText, errorCategoryText);
+      ajaxPost('/siteText', ["categories", "Coercive"], appendModalText, errorCategoryText);
       document.getElementById("modal-header").innerHTML = "Coercive";
       break;
     case "persuasive":
-      ajaxPost('/categoryText', "Persuasive", appendModalText, errorCategoryText);
+      ajaxPost('/siteText', ["categories", "Persuasive"], appendModalText, errorCategoryText);
       document.getElementById("modal-header").innerHTML = "Persuasive";
       break;
     default:
@@ -495,9 +508,7 @@ function chooseView(event){
 
 function populateCategoryList(categoryLevel, parentCategory){
   Object.keys(categoryLevel).forEach(function(level) {
-    //categoryLevel[level].length
     for(var i = 0; i < categoryLevel[level].length; i++){
-      console.log(categoryLevel[level][i]);
       document.getElementById("category-"+(i+1)).innerHTML = categoryLevel[level][i];
     }
   });
@@ -578,7 +589,13 @@ function errorCategoryText(){
 
 
 function insertAfter(newNode, existingNode, parent) {
+
   parent.insertBefore(newNode, existingNode.nextSibling);
+}
+
+
+function visitTacticPage(event){
+  window.location.href="/tactics/"+encodeURIComponent(event.target.innerText);
 }
 
 
@@ -588,6 +605,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var dropdownDiv = document.getElementById("categories-dropdown");
   var buttons = document.getElementsByClassName("categories-buttons");
   var logo = document.getElementById("sub-logo-img");
+  var categoryChoose = document.getElementById("category-view-choose");
 
   //box categories navbar button if current page is categories
   if (window.location.href.indexOf("categories") > -1){
@@ -595,7 +613,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
   }
 
   //toggle dropdown and filter visibility based on screen width 
-	if(window.innerWidth < 800){
+	if(window.innerWidth < 950){
+    categoryChoose.style.display = "none";
+    document.getElementById("category-table-view").classList.remove("selected-view");
+    document.getElementById("table-view").style.display = "none";
+    document.getElementById("list-view").style.display = "block";
     dropdown.style.display = "block";
     dropdownDiv.style.display = "block";
     for (var i = 0; i < buttons.length; i++) {
@@ -603,6 +625,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
     logo.classList.add("centered-logo");
 	}else{
+    categoryChoose.style.display = "block";
+    //document.getElementById("category-list-view").classList.remove("selected-view");
+    //document.getElementById("category-table-view").classList.add("selected-view");
+    document.getElementById("table-view").style.display = "block";
+    document.getElementById("list-view").style.display = "none";
     dropdown.style.display = "none";
     dropdownDiv.style.display = "none";
     for (var i = 0; i < buttons.length; i++) {
@@ -623,6 +650,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var learnMoreButtonsCol = document.getElementsByClassName("category-learn-more-col");
   var learnMoreButtonsRow = document.getElementsByClassName("category-learn-more");
   var categoryChooseButton = document.getElementsByClassName("category-choose-button");
+  var listTacticButton = document.getElementsByClassName("category-list-tactic-button");
   for (var i = 0; i < gridRowElements.length; i++) {
     gridRowElements[i].addEventListener('click', toggleGridRowClick, false);
   }
@@ -646,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   }
 
   //add main category page intoduction text
-  ajaxPost('/categoryText', "main_page", function(data) {
+  ajaxPost('/siteText', ["categories", "main_page"], function(data) {
     var content = JSON.parse(data);
     var text = content[0]['text'];
     var firstSentence = content[0]['text'].split(".")[0]+".";
@@ -655,6 +683,178 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("table-context-para").innerHTML += "<br>";
     document.getElementById("table-context-para").append(secondSentence);
     }, errorCategoryText);
+
+  ajaxCall('/categoryList', function(data) {
+    var uniqueCategories = new Set();
+    var categoryLevel = {};
+    var parentCategory = {};
+    var categoryTactics = {};
+    var levelCategoryToTactics = {};
+    var categories = [];
+    var expression = ["ActsofExpression"];
+    var commission = ["ActsofCommission"];
+    var omission = ["ActsofOmission"];
+
+    var tactics = JSON.parse(data);
+
+    console.log(tactics);
+    tactics.forEach((tactic) => {
+      var lastCategory = "";
+      categories = tactic["categories"].split("; ").reverse();
+
+      categories.forEach((category, i) => {
+        if(lastCategory != ""){
+          parentCategory[category] = lastCategory;
+        }
+        uniqueCategories.add(category);
+        if(categoryLevel[i+1] != null){
+          categoryLevel[i+1].add(category);
+        }else{
+          let categoryContainer = new Set();
+          categoryLevel[i+1] = categoryContainer.add(category);
+        }
+        if(i+1 == categories.length){
+          if(categoryTactics[category] == null){
+            categoryTactics[category] = [tactic["name"]];
+          }else{
+            categoryTactics[category].push(tactic["name"]);
+          }
+        }
+        lastCategory = category;
+      });
+    });
+
+    Object.keys(categoryLevel).forEach(function(level) {
+      var taticDiv = null;
+      var tacticRow = null;
+      var tacticButton = null;
+      if(level != 1){
+        var catLevel = Array.from(categoryLevel[level]);
+        for(var i = 0; i < catLevel.length; i++){
+          var newDiv = document.createElement("div"); 
+          var newContent = document.createTextNode(catLevel[i]);
+          newDiv.appendChild(newContent);
+          newDiv.id = catLevel[i].replace(/\s/g, '')+"-"+level;
+          newDiv.style.marginLeft = ((level-1)*30)+"px";
+          newDiv.style.fontSize = 1+((1/(.9*(level))))+"em";
+          if(categoryTactics[catLevel[i]] != null){
+            tacticDiv = document.createElement("div");
+            var tacticRow = document.createElement("div");
+            tacticRow.className = "category-list-tactic";
+            var len = categoryTactics[catLevel[i]].length;
+            categoryTactics[catLevel[i]].forEach((tactic, i) => {
+              var tacticButton = document.createElement("BUTTON");
+              var tacticText = document.createTextNode(tactic);
+              tacticButton.appendChild(tacticText);
+              tacticButton.className = "category-list-tactic-button";
+              tacticRow.appendChild(tacticButton);
+              if(i+1 != len){
+                tacticRow.innerHTML += " ---/--- ";
+              }
+            });
+            tacticDiv.appendChild(tacticRow);
+            tacticDiv.style.marginLeft = ((level)*35)+"px";
+          }else{
+            tacticDiv = null;
+          }
+          var parent = parentCategory[catLevel[i]];
+          var expressionIndex = expression.indexOf(parent.replace(/\s/g, ''));
+          if(expressionIndex != -1){
+            expression.splice(expressionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
+            insertAfter(newDiv, document.getElementById(expression[expressionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofExpression"));
+            console.log(level);
+            console.log(levelCategoryToTactics[level]);
+            if(tacticDiv != null){
+              if(levelCategoryToTactics[level] == null){
+                var array = [];
+                array.push([tacticDiv, newDiv, document.getElementById("ActsofExpression")]);
+                levelCategoryToTactics[level] = array;
+              }else{
+                levelCategoryToTactics[level].push([tacticDiv, newDiv, document.getElementById("ActsofExpression")]);
+              }
+              //insertAfter(tacticDiv, newDiv, document.getElementById("ActsofExpression"));
+            }
+          }else{
+            var omissionIndex = omission.indexOf(parent.replace(/\s/g, ''));
+            var commissionIndex = commission.indexOf(parent.replace(/\s/g, ''));
+            if(omissionIndex != -1){
+              omission.splice(omissionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
+              insertAfter(newDiv, document.getElementById(omission[omissionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofOmission"));
+              if(tacticDiv != null){
+                if(levelCategoryToTactics[level] == null){
+                  var array = [];
+                  array.push([tacticDiv, newDiv, document.getElementById("ActsofOmission")]);
+                  levelCategoryToTactics[level] = array;
+                }else{
+                  levelCategoryToTactics[level].push([tacticDiv, newDiv, document.getElementById("ActsofOmission")]);
+                }
+                //insertAfter(tacticDiv, newDiv, document.getElementById("ActsofOmission"));
+              }
+            }else if(commissionIndex != -1){
+              commission.splice(commissionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
+              insertAfter(newDiv, document.getElementById(commission[commissionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofCommission"));
+              if(tacticDiv != null){
+                if(levelCategoryToTactics[level] == null){
+                  var array = [];
+                  array.push([tacticDiv, newDiv, document.getElementById("ActsofCommission")]);
+                  levelCategoryToTactics[level] = array;
+                }else{
+                  levelCategoryToTactics[level].push([tacticDiv, newDiv, document.getElementById("ActsofCommission")]);
+                }
+                //insertAfter(tacticDiv, newDiv, document.getElementById("ActsofCommission"));
+              }
+            }else{
+              console.log(catLevel[i]);
+            }
+          }
+          console.log(level + ": " + levelCategoryToTactics[level]);
+        }
+      }else{
+        var catLevel = Array.from(categoryLevel[level]);
+        for(var i = 0; i < catLevel.length; i++){
+          var newDiv = document.createElement("div"); 
+          var newSpan = document.createElement("span");
+          var newContent = document.createTextNode(catLevel[i]);
+          newSpan.appendChild(newContent);
+          newDiv.appendChild(newSpan);
+          newDiv.id = catLevel[i].replace(/\s/g, '')+"-"+level;
+
+          if(catLevel[i] == "Acts of Expression"){
+            document.getElementById("ActsofExpression").appendChild(newDiv);
+          }else if(catLevel[i] == "Acts of Omission"){
+            document.getElementById("ActsofOmission").appendChild(newDiv);
+          }else{
+            document.getElementById("ActsofCommission").appendChild(newDiv);
+          }
+
+        tacticDiv = null;
+        tacticRow = null;
+        tacticButton = null;
+        }
+      }
+
+    tacticDiv = null;
+    tacticRow = null;
+    tacticButton = null;
+    });
+
+    var thing = "no";
+    var shit = "hey";
+    console.log(Object.keys(levelCategoryToTactics).length);
+    for(var i = Object.keys(levelCategoryToTactics).length + 1; i > 1; i--){
+      levelCategoryToTactics[i].forEach(function(grouping){
+        insertAfter(grouping[0], grouping[1], grouping[2]);
+      });
+    }
+
+    var listTacticButton = document.getElementsByClassName("category-list-tactic-button");
+    for(var i = 0; i < listTacticButton.length; i++) {
+      listTacticButton[i].addEventListener('click', visitTacticPage, false);
+    }
+
+    /*document.getElementById("table-view").style.display = "none";
+    document.getElementById("list-view").style.display = "block";*/
+  }, errorCategoryText);
 });
 
 
@@ -679,6 +879,31 @@ document.getElementById("categories-dropdown-button").addEventListener("click", 
 });
 
 
+document.getElementById("dataset-link").addEventListener("click", function(){
+  window.location.href="/downloadables";
+});
+
+
+document.getElementById("home-link-dropdown").addEventListener("click", function(){
+  window.location.href="/";
+});
+
+
+document.getElementById("tactics-link-dropdown").addEventListener("click", function(){
+  window.location.href="/tactics";
+});
+
+
+document.getElementById("categories-link-dropdown").addEventListener("click", function(){
+  window.location.href="/categories";
+});
+
+
+document.getElementById("dataset-link-dropdown").addEventListener("click", function(){
+  window.location.href="/downloadables";
+});
+
+
 window.onclick = function(event) {
   if (event.target == document.getElementById("category-modal")) {
     document.getElementById("category-modal").classList.toggle("hideExtra");
@@ -694,96 +919,13 @@ document.getElementById("modal-exit").addEventListener("click", function(){
 document.getElementById("category-table-view").addEventListener("click", function(){
   document.getElementById("list-view").style.display = "none";
   document.getElementById("table-view").style.display = "block";
-  document.getElementById("ActsofExpression").innerHTML = "";
+  /*document.getElementById("ActsofExpression").innerHTML = "";
   document.getElementById("ActsofOmission").innerHTML = "";
-  document.getElementById("ActsofCommission").innerHTML = "";
+  document.getElementById("ActsofCommission").innerHTML = "";*/
 });
 
 
 document.getElementById("category-list-view").addEventListener("click", function(){
-  ajaxCall('/categoryList', function(data) {
-    var uniqueCategories = new Set();
-    var categoryLevel = {};
-    var parentCategory = {};
-    var categories = [];
-    var expression = ["ActsofExpression"];
-    var commission = ["ActsofCommission"];
-    var omission = ["ActsofOmission"];
-
-    var tactics = JSON.parse(data);
-
-    tactics.forEach((tactic) => {
-      var lastCategory = "";
-      categories = tactic["categories"].split("; ").reverse();
-
-      categories.forEach((category, i) => {
-        if(lastCategory != ""){
-          parentCategory[category] = lastCategory;
-        }
-        uniqueCategories.add(category);
-        if(categoryLevel[i+1] != null){
-          categoryLevel[i+1].add(category);
-        }else{
-          let categoryContainer = new Set();
-          categoryLevel[i+1] = categoryContainer.add(category);
-        }
-        lastCategory = category;
-      });
-    });
-
-
-    Object.keys(categoryLevel).forEach(function(level) {
-      if(level != 1){
-        var catLevel = Array.from(categoryLevel[level]);
-        for(var i = 0; i < catLevel.length; i++){
-          var newDiv = document.createElement("div"); 
-          var newContent = document.createTextNode(catLevel[i]);
-          newDiv.appendChild(newContent);
-          newDiv.id = catLevel[i].replace(/\s/g, '')+"-"+level;
-          newDiv.style.marginLeft = ((level-1)*15)+"px";
-          newDiv.style.fontSize = 1+((1/(2*level)))+"em";
-
-          var parent = parentCategory[catLevel[i]];
-          var expressionIndex = expression.indexOf(parent.replace(/\s/g, ''));
-          if(expressionIndex != -1){
-            expression.splice(expressionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
-            insertAfter(newDiv, document.getElementById(expression[expressionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofExpression"));
-          }else{
-            var omissionIndex = omission.indexOf(parent.replace(/\s/g, ''));
-            var commissionIndex = commission.indexOf(parent.replace(/\s/g, ''));
-            if(omissionIndex != -1){
-              omission.splice(omissionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
-              insertAfter(newDiv, document.getElementById(omission[omissionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofOmission"));
-            }else if(commissionIndex != -1){
-              commission.splice(commissionIndex+1, 0, catLevel[i].replace(/\s/g, ''));
-              insertAfter(newDiv, document.getElementById(commission[commissionIndex].replace(/\s/g, '')+"-"+(level-1)), document.getElementById("ActsofCommission"));
-            }else{
-              console.log(catLevel[i]);
-            }
-          }
-        }
-      }else{
-        var catLevel = Array.from(categoryLevel[level]);
-        for(var i = 0; i < catLevel.length; i++){
-          var newDiv = document.createElement("div"); 
-          var newSpan = document.createElement("span");
-          var newContent = document.createTextNode(catLevel[i]);
-          newSpan.appendChild(newContent);
-          newDiv.appendChild(newSpan);
-          newDiv.id = catLevel[i].replace(/\s/g, '')+"-"+level;
-
-          if(catLevel[i] == "Acts of Expression"){
-            document.getElementById("ActsofExpression").appendChild(newDiv);
-          }else if(catLevel[i] == "Acts of Omission"){
-            document.getElementById("ActsofOmission").appendChild(newDiv);
-          }else{
-            document.getElementById("ActsofCommission").appendChild(newDiv);
-          }
-        }
-      }
-    });
-
-    document.getElementById("table-view").style.display = "none";
-    document.getElementById("list-view").style.display = "block";
-  }, errorCategoryText);
+  document.getElementById("table-view").style.display = "none";
+  document.getElementById("list-view").style.display = "block";
 });

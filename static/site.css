@@ -46,20 +46,50 @@ html, body{
   align-items: center;
 }
 
+@media (min-width: 450px) {
+#tactic-dropdown-button {
+    position: absolute;
+    right: 90% !important;
+    top: 37% !important;
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: none;
+    outline: none;
+  }
+}
+
 #tactic-dropdown-button {
   position: absolute;
-  right: 90%;
+  left: 5px;
+  top: 5px;
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
   overflow: hidden;
   border: none;
   outline: none;
+}
+
+@media (min-width: 450px) {
+  #categories-dropdown-button {
+    position: absolute;
+    right: 90% !important;
+    top: 37% !important;
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: none;
+    outline: none;
+  }
 }
 
 #categories-dropdown-button {
   position: absolute;
-  right: 90%;
+  left: 5px;
+  top: 5px;
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -68,9 +98,24 @@ html, body{
   outline: none;
 }
 
+@media (min-width: 450px) {
+  #dataset-dropdown-button {
+    position: absolute;
+    right: 90% !important;
+    top: 37% !important;
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: none;
+    outline: none;
+  }
+}
+
 #dataset-dropdown-button {
   position: absolute;
-  right: 90%;
+  left: 5px;
+  top: 5px;
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -78,6 +123,18 @@ html, body{
   border: none;
   outline: none;
 }
+
+/*#dataset-dropdown-button {
+  position: absolute;
+  top: 0%;
+  right: 100%;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}*/
 
 #download-dataset {
   cursor: pointer;
@@ -267,6 +324,7 @@ textarea:focus, #tactic-category-search:focus {
 .showDropdown {
   height: 125px !important;
   z-index: 99 !important;
+  margin-bottom: 10px;
 }
 
 #tactic-filteer {
@@ -1265,11 +1323,23 @@ a {
   margin: 25px auto;
 }
 
+@media all and (min-width: 600px) {
+  .download-icon {
+    height: 100px;
+    font-family: 'Arvo';
+    color: #033165;
+    display: inline-block !important;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 .download-icon {
-  height: 75px;
+  height: 100px;
   font-family: 'Arvo';
   color: #033165;
-  display: inline-block;
+  display: block;
   text-align: center;
   margin-left: 25px;
   margin-right: 25px;

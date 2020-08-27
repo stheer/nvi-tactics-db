@@ -1004,7 +1004,7 @@ textarea:focus, #tactic-category-search:focus {
     margin-left: 75px;
     margin-right: 0px;
     text-align: left !important;
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
   }
 
   #sharp-container {
@@ -1140,6 +1140,7 @@ textarea:focus, #tactic-category-search:focus {
     width: 25% !important;
     margin: 0 auto;
     text-align: left !important;
+    margin-bottom: 15px !important;
   }
 
   #sharp-container {
@@ -1254,6 +1255,7 @@ textarea:focus, #tactic-category-search:focus {
   width: 50%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 #tacticpagesub-logo-img {

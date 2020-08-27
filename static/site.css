@@ -970,6 +970,7 @@ textarea:focus, #tactic-category-search:focus {
     margin-bottom: 25px;
     display: table !important;
     width: 100%;
+    height: auto !important;
   }
 
   #tacticpage-categories {
@@ -1105,6 +1106,7 @@ textarea:focus, #tactic-category-search:focus {
     margin-bottom: 25px;
     display: table !important;
     width: 100%;
+    height: auto !important;
   }
 
   #tacticpage-categories {

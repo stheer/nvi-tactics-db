@@ -1004,6 +1004,7 @@ textarea:focus, #tactic-category-search:focus {
     margin-left: 75px;
     margin-right: 0px;
     text-align: left !important;
+    margin-bottom: 15px;
   }
 
   #sharp-container {

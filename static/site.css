@@ -324,7 +324,7 @@ textarea:focus, #tactic-category-search:focus {
 .showDropdown {
   height: 125px !important;
   z-index: 99 !important;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 #tactic-filteer {
@@ -576,11 +576,11 @@ textarea:focus, #tactic-category-search:focus {
 @media all and (min-width: 575px) {
   #main-dropdown-button {
     position: absolute;
-    right: 75px !important;
+    right: 10px !important;
     -ms-transform: translateX(0%) !important;
     transform: translateX(0%) !important;
     margin-left: 20px !important;
-    top: 3% !important;
+    top: 2% !important;
     cursor: pointer;
     background-color: Transparent;
     background-repeat: no-repeat;
@@ -590,7 +590,7 @@ textarea:focus, #tactic-category-search:focus {
     color: #fbfbfb;
   }
 
-  #main-dropdown-content {
+  /*#main-dropdown-content {
     text-align: center;
     position: absolute;
     top: 3% !important;
@@ -606,7 +606,7 @@ textarea:focus, #tactic-category-search:focus {
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
-  }
+  }*/
 
   .hero-text {
     text-align: center;
@@ -642,6 +642,24 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
+@media all and (min-width: 400px) {
+  #main-dropdown-button {
+    position: absolute;
+    right: 10px !important;
+    -ms-transform: translateX(0%) !important;
+    transform: translateX(0%) !important;
+    top: 2% !important;
+    margin-left: 0px;
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    color: #fbfbfb;
+  }
+}
+
 #main-dropdown-button {
   position: absolute;
   right: 50%;
@@ -656,6 +674,26 @@ textarea:focus, #tactic-category-search:focus {
   border: none;
   outline: none;
   color: #fbfbfb;
+}
+
+@media all and (min-width: 645px) {
+  #main-dropdown-content {
+    text-align: center;
+    position: absolute;
+    top: 3% !important;
+    right: 100px !important;
+    margin-right: 50px !important;
+    -ms-transform: translateX(0%) !important;
+    transform: translateX(0%) !important;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
 }
 
 #main-dropdown-content {

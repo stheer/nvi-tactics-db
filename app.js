@@ -271,8 +271,7 @@ function syncFromDive(){
     }
 }
 
-cron.schedule("*/5 * * * *", function() {
+cron.schedule("*/2 * * * *", function() {
       syncFromDive();
     });
-
 

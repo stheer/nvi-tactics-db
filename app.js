@@ -5,10 +5,11 @@ var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var exceljs = require('exceljs');
 var fs = require('fs');
-var saveAs = require('file-saver');
+var cron = require('node-cron');
+const {google} = require('googleapis');
+const key = require('./nvi-tactics-test-d4263bf06b32.json');
 
 /*****************************Define Variables***************************/
-//test
 const hostname = '0.0.0.0';
 //const hostname = '127.0.0.1';
 //const port = 3000;
@@ -214,5 +215,64 @@ app.get('/downloadDataset', function(req, res) {
 app.get('/downloadCategoriesTable', function(req, res) {
 	res.send(__dirname + '/static/table.png');
 });
+
+function syncFromDive(){
+	const SCOPES = ['https://www.googleapis.com/auth/drive'];
+
+	authorize(null, downloadPictures);
+
+    function authorize(credentials, callback) {
+        const scopes = 'https://www.googleapis.com/auth/drive';
+        const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
+
+        jwt.authorize((err, response) => {
+            if (err) console.log("yes" + err);
+            if (response) callback(jwt);
+        })
+    }
+
+    function downloadPictures(jwt){
+    	const drive = google.drive({version: 'v3', 
+    		auth: jwt,
+    		params: {
+			    key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ'
+			}});
+    	drive.files.list({
+    		auth: jwt,
+    		corpora: 'drive',
+			supportsAllDrives: true,
+			includeItemsFromAllDrives: true,
+			driveId: '0AF0hsatILwu6Uk9PVA',
+			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'"
+		}, (err, res) => {
+			if (err) return console.log('The API returned an error: ' + err);
+			const files = res.data.files;
+			if (files.length) {
+		    	files.forEach(async function(file) {
+		    		var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
+		    		await getPictures(drive, jwt, file.id, dest).catch(console.error);
+		    	});
+		    } else {
+		    	console.log('No files found.');
+		    }
+		});
+    }
+
+    async function getPictures(drive, jwt, id, dest){
+        	const res = await drive.files.get({fileId: id, alt: 'media', mimeType: 'image/jpeg', supportsAllDrives: true},
+        		{responseType: 'stream'});
+        	await new Promise((resolve, reject) => {
+			    res.data
+			      .on('error', reject)
+			      .pipe(dest)
+			      .on('error', reject)
+			      .on('finish', resolve);
+			  });
+    }
+}
+
+cron.schedule("* * * * *", function() {
+      syncFromDive();
+    });
 
 

@@ -243,7 +243,8 @@ function syncFromDive(){
 			supportsAllDrives: true,
 			includeItemsFromAllDrives: true,
 			driveId: '0AF0hsatILwu6Uk9PVA',
-			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'"
+			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'",
+			fields: 'files(name, mimeType, id, modifiedTime, createdTime)'
 		}, (err, res) => {
 			if (err) return console.log('The API returned an error: ' + err);
 			const files = res.data.files;
@@ -257,8 +258,18 @@ function syncFromDive(){
 
     async function loopAllPictures(files, drive, jwt){
 		for(const file of files){
-    		var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
-    		await getPictures(drive, jwt, file.id, dest).catch(console.error);
+			var fileEditedTime;
+			if(file.modifiedTime > file.createdTime){
+				fileEditedTime = new Date(Date.parse(file.modifiedTime));
+			}else{
+				fileEditedTime = new Date(Date.parse(file.createdTime));
+			}
+			var today = new Date();
+			var date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes());
+			if(fileEditedTime > date){
+    			var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
+    			await getPictures(drive, jwt, file.id, dest).catch(console.error);
+    		}
     	};
     }
 

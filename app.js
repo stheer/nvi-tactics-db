@@ -10,7 +10,6 @@ const {google} = require('googleapis');
 const key = require('./nvi-tactics-test-d4263bf06b32.json');
 
 /*****************************Define Variables***************************/
-//test
 const hostname = '0.0.0.0';
 //const hostname = '127.0.0.1';
 //const port = 3000;
@@ -249,20 +248,24 @@ function syncFromDive(){
 			if (err) return console.log('The API returned an error: ' + err);
 			const files = res.data.files;
 			if (files.length) {
-		    	files.forEach(async function(file) {
-		    		var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
-		    		await getPictures(drive, jwt, file.id, dest).catch(console.error);
-		    	});
+				loopAllPictures(files, drive, jwt);
 		    } else {
 		    	console.log('No files found.');
 		    }
 		});
     }
 
+    async function loopAllPictures(files, drive, jwt){
+		for(const file of files){
+    		var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
+    		await getPictures(drive, jwt, file.id, dest).catch(console.error);
+    	};
+    }
+
     async function getPictures(drive, jwt, id, dest){
         	const res = await drive.files.get({fileId: id, alt: 'media', mimeType: 'image/jpeg', supportsAllDrives: true},
         		{responseType: 'stream'});
-        	await new Promise((resolve, reject) => {
+        	return new Promise((resolve, reject) => {
 			    res.data
 			      .on('error', reject)
 			      .pipe(dest)
@@ -273,6 +276,6 @@ function syncFromDive(){
 }
 
 cron.schedule("0 0 * * 0", function() {
-      syncFromDive();
-    });
+	syncFromDive();
+});
 

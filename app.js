@@ -1,12 +1,22 @@
 /******************************Load Packages*****************************/
-var express = require('express');
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
-var nunjucks = require('nunjucks');
-var exceljs = require('exceljs');
-var fs = require('fs');
-var cron = require('node-cron');
+const express = require('express');
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const nunjucks = require('nunjucks');
+const exceljs = require('exceljs');
+const fs = require('fs');
+const cron = require('node-cron');
 const {google} = require('googleapis');
+const pino = require('pino');
+
+const pinoms = require('pino-multi-stream');
+var prettyStream = pinoms.prettyStream();
+var streams = [
+  {level: 'error', stream: fs.createWriteStream('./logs/error.log', {flags: 'a'})},
+  {level: 'info', stream: fs.createWriteStream('./logs/files.log', {flags: 'a'})},
+  {stream: prettyStream }
+]
+var logger = pinoms(pinoms.multistream(streams));
 const key = require('./nvi-tactics-test-d4263bf06b32.json');
 
 /*****************************Define Variables***************************/
@@ -44,7 +54,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err){
 	if (err) throw err;
-	console.log("Connected!");
 });
 
 /****************************Create/Manage Server***********************/
@@ -76,7 +85,7 @@ app.get('/categoryTactics', function(req, res) {
 			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			res.send(result);
 		}
@@ -87,7 +96,7 @@ app.post('/siteText', function(req, res) {
 	connection.query(
 		'SELECT text FROM site_text WHERE page = ? AND section = ?', [req.body['value'][0], req.body['value'][1]], (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			res.send(result);
 		}
@@ -100,7 +109,7 @@ app.get('/categoryList', function(req, res) {
 			'(SELECT t.name, t.tactic_id, t.picture, t.summary, t.category_submedium FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			res.send(result);
 		}		
@@ -118,7 +127,7 @@ app.get('/tacticsDB', function(req, res) {
 			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			res.send(result);
 		}
@@ -132,7 +141,7 @@ app.get('/tactics/:tactic', function(req, res){
 			'(t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ON ' +
 			'a.category_submedium = c.category_id', [req.params.tactic], (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			if(result[0] != null){
 				res.render(__dirname + '/templates/tactic_page.html', {data: result[0]});
@@ -154,7 +163,7 @@ app.get('/downloadDataset', function(req, res) {
 			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) ' +
 			'a LEFT JOIN categories c ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
-			console.log(err);
+			logger.error("Error: " + err);
 		}else{
 			const workbook = new exceljs.Workbook();
 			workbook.creator = 'Nonviolence International';
@@ -226,7 +235,7 @@ function syncFromDive(){
         const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
 
         jwt.authorize((err, response) => {
-            if (err) console.log("yes" + err);
+            if (err) logger.error("Error: " + err);
             if (response) callback(jwt);
         })
     }
@@ -246,12 +255,12 @@ function syncFromDive(){
 			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'",
 			fields: 'files(name, mimeType, id, modifiedTime, createdTime)'
 		}, (err, res) => {
-			if (err) return console.log('The API returned an error: ' + err);
+			if (err) return logger.error("Drive API Error: " + err);
 			const files = res.data.files;
 			if (files.length) {
 				loopAllPictures(files, drive, jwt);
 		    } else {
-		    	console.log('No files found.');
+		    	logger.error("No Files Found in Drive Folder");
 		    }
 		});
     }
@@ -267,8 +276,15 @@ function syncFromDive(){
 			var today = new Date();
 			var date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes());
 			if(fileEditedTime > date){
+				logger.info(file.name);
     			var dest = fs.createWriteStream('./static/tactic_pictures/'+file.name);
-    			await getPictures(drive, jwt, file.id, dest).catch(console.error);
+    			try {
+    				await getPictures(drive, jwt, file.id, dest);
+    			}
+    			catch(error){
+    				logger.error("Drive API Error: " + err);
+    			}
+    			//await getPictures(drive, jwt, file.id, dest).catch(console.error);
     		}
     	};
     }
@@ -286,7 +302,10 @@ function syncFromDive(){
     }
 }
 
-cron.schedule("0 0 * * 0", function() {
+cron.schedule("0 0 * * 6", function() {
+//cron.schedule("*/2 * * * *", function() {
 	syncFromDive();
 });
+
+
 

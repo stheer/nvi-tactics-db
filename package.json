@@ -17,6 +17,9 @@
     "googleapis": "^59.0.0",
     "mysql": "^2.18.1",
     "node-cron": "^2.0.3",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "pino": "^6.6.1",
+    "pino-multi-stream": "^5.1.1",
+    "pino-pretty": "^4.2.1"
   }
 }

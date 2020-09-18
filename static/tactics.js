@@ -15,7 +15,7 @@ class TacticBlock extends React.Component {
     var categoryString = "";
     const tactic = this.props.tactic;
     tactic.categories.split("; ").forEach((category) => {
-      categoryString = categoryString + " " + category.replace(/\/|\s/g, '');
+      categoryString = categoryString + " " + category.replace(/\/|\s|\,|\'|\;/g, '');
     });
     return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: "tactic-block" + categoryString, onClick: tacticClick,
       style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 
@@ -83,7 +83,7 @@ class CategoryFilter extends React.Component {
 
 
     if(parentCategory != null){
-      return React.createElement("button", {id: "tactic-category-filter"+id, className: "tactic-category-filter" + " " + extraClass + " " + parentCategory.replace(/\/|\s/g, ''), 
+      return React.createElement("button", {id: "tactic-category-filter"+id, className: "tactic-category-filter" + " " + extraClass + " " + parentCategory.replace(/\/|\s|\,|\'|\;/g, ''), 
         "data-filter": category, onClick: isotopeFilter}, display);
     }else{
       return React.createElement("button", {id: "tactic-category-filter"+id, className: "tactic-category-filter" + " " + extraClass, 
@@ -128,7 +128,7 @@ class CategoryLevel extends React.Component {
     }
 
     categories.forEach((category) => {
-      categorySelectors.push(React.createElement(CategoryFilter, {category: "." + category.replace(/\/|\s/g, ''), categoryDisplay: category, 
+      categorySelectors.push(React.createElement(CategoryFilter, {category: "." + category.replace(/\/|\s|\,|\'|\;/g, ''), categoryDisplay: category, 
         id: id.toString()+i, key: category, extraSelectorClass: "", parentCategory: parentCategory[category]}, null));
       i++;
     });

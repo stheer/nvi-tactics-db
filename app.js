@@ -122,7 +122,7 @@ app.get('/tactics', function(req, res) {
 
 app.get('/tacticsDB', function(req, res) {
 	connection.query(
-		'SELECT a.name, a.tactic_id, a.picture, a.summary, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' + 
+		'SELECT DISTINCT(a.name), a.tactic_id, a.picture, a.summary, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' + 
 			'(SELECT t.name, t.tactic_id, t.picture, t.summary, t.category_submedium FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
 			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id', (err, result) => {

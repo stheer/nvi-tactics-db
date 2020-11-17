@@ -302,8 +302,9 @@ function syncFromDive(){
     }
 }
 
-cron.schedule("0 0 * * 6", function() {
-//cron.schedule("*/2 * * * *", function() {
+cron.schedule("0 0 * * 3", function() {
+//cron.schedule("0 0 * * 6", function() {
+//cron.schedule("*/3 * * * *", function() {
 	syncFromDive();
 });
 

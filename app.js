@@ -10,6 +10,7 @@ const {google} = require('googleapis');
 const pino = require('pino');
 
 const pinoms = require('pino-multi-stream');
+const stream = require('stream');
 var prettyStream = pinoms.prettyStream();
 var streams = [
   {level: 'error', stream: fs.createWriteStream('./logs/error.log', {flags: 'a'})},
@@ -20,12 +21,12 @@ var logger = pinoms(pinoms.multistream(streams));
 const key = require('./nvi-tactics-test-d4263bf06b32.json');
 
 /*****************************Define Variables***************************/
-const hostname = '0.0.0.0';
-//const hostname = '127.0.0.1';
-//const port = 3000;
-const port = 8000;
-__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
-//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
+//const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
+const port = 3000;
+//const port = 8000;
+//__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
+__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
 
 /*****************************Helper Functions***************************/
 function queryTacticsData() {
@@ -223,7 +224,15 @@ app.get('/downloadDataset', function(req, res) {
 
 
 app.get('/downloadCategoriesTable', function(req, res) {
-	res.send(__dirname + '/static/table.png');
+   const r = fs.createReadStream(__dirname + '/static/NVI Nonviolent Tactic Categories Table.png');
+   const ps = new stream.PassThrough();
+   stream.pipeline(r, ps, (err) => {
+   	if (err) {
+   		console.log(err)
+   		return res.sendStatus(400); 
+    }
+  });
+  ps.pipe(res);
 });
 
 function syncFromDive(){

@@ -110,6 +110,7 @@ function errorCategoryText(){
 
 
 function loadExcel(data){
+  console.log(data);
   var blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
   saveAs(blob, "NVI Tactics Dataset.xlsx");
 }
@@ -122,8 +123,7 @@ function loadExcelError(data){
 
 function loadTable(data){
   console.log(data);
-  //var blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
-  saveAs(blob, "NVI Tactics Categories Table.png");
+  saveAs(data, "NVI Tactics Categories Table.png");
 }
 
 

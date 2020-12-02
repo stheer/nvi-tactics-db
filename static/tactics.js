@@ -16,13 +16,6 @@ class TacticBlock extends React.Component {
     const tactic = this.props.tactic;
     tactic.categories.split("; ").forEach((category) => {
       categoryString = categoryString + " " + category.replace(/\/|\s|\,|\'|\;|\-/g, '');
-      if(categoryString.includes("1")){
-        categoryString.replace("1", "one");
-      }else if(categoryString.includes("2")){
-        categoryString.replace("2", "two");
-      }else if(categoryString.includes("3")){
-        categoryString.replace("3", "three");
-      }
     });
     return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: "tactic-block" + categoryString, onClick: tacticClick,
       style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 

@@ -73,7 +73,6 @@ nunjucks.configure('templates/', {
 });
 
 app.get('/', function(req, res) {
-	logger.info(JSON.stringify(req.headers));
 	res.sendFile(__dirname + '/templates/index.html');
 });
 

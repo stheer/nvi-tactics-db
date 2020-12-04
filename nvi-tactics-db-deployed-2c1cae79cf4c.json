@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nvi-tactics-db-deployed",
+  "private_key_id": "2c1cae79cf4c79b1b44b0c00740bb0880f568672",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDWhrUVO1ZxCd14\nMGMlWNevmjQ6bHF5axNW/nfMr5veC6Q0X8qonHvV7H4d+0DwWVM/gZ5q70EmPE6k\ne4SOpl4CX9+SI+YZRq8LGoHrrytQqerkDfVeZFER1DmbVgqlskctp2VTzhVm20SZ\nkwv0x+yVY01hWptNLEmXr+43cca+r8gbvVy7+f+9duF4/A77yNLECqbS9hRP/fF0\nMW/7iTIIIXHmM26a73mcURdy3tA0jVxgD+qU42tQwgtTTQ1IMx4UvDDHdgpRUVRF\nrPUejmfD3ryf/INztV1cPlpGIPZ9oVOolXfFkQyZdPNKqX3/stKfUeOPRoPbY5zh\n+JnT/jx3AgMBAAECggEAA6A/0E3HghcO/E3pEcOzDLGC1NDb3e08q9YIeq17oiDH\nBcxE6ySO24GFh4aI79jXHG7ZmXaOIksI/eu6/XYKFUxNcEOjZ56FgpCXTQZ1cFs1\nGx55Dr9S/ls1cytOhm5WtRjk9A2eZqd/IIEsYiwur1uADLdfEINdu0s8duzj47Kh\n+wsk3Cbkw8k1yJ0AVOxANKdF3+oLJdkGMPFLxP2tX0qIVWL8UCI7HiserC/TryCI\nTBRetSD/oPsSMg0Gzsi+coLD8xzF5p7w9JWvpIpXQb3D06vC0NB+W46do31peyVT\nxb2Ai/C2+4DNtFbWrWu9yc5xYexsVxcpMUQcXRzluQKBgQD4lag4vocVttAYLjh9\nH5xA7kFz4qstRoqVHTz+B63bL7aG+B5F6U/ZDmpzES+9hS8Buk82Bru1JHddnBqj\n5TSmYJy+rK3o/eCdXk0hJxGlmwHQnSYYMDBySAv2ldRpaI504c4hZ1BNuN7rX2I+\nakofWtxbqjEZwMrPKWO2IwLNjwKBgQDc7PWrHjUJK7lV6/Hx1mPnBPZCCGKJshd8\nzgPudvGvcWE1SZPpj9IanR/nKgoBCrUqEFsvFGRrd3ulGRh1N37vID5b1MuejtUM\nNspT3pVKIg2eMeYCQrCy1OfqYrNFZphnTisYdU2QadJquM97GO0qNhB3+r/r+AVR\nqQcJvwt+mQKBgQDzdNb5JBh2usGZPQNT//ZvXSi7T16oi/LD0YvfmzO5fEQ+cZhs\njfEGuuikY0unSF3eSlKzrep+oQVKp80rgRqMbAh3cfUtQB+Q4D+X3YSZ9XLUlmQt\nwlxgQJF+4gTTa3RBorjX3DA4vnuMd7FnQX/wr3MrT0ahW0EFnRqr0iQ3nwKBgAVZ\ni51oLtqY/3TwMLytd1/Zw+jXcSNqd50jE/9LTBD2iucScA2A2RKh6Wrcnr9ltftd\nyAd80+2ySAE4eVolTOKXgksQ/RlK1ifkj8O2KSFRb8j75lj5qnO6Kh+H4lV05Y3i\n27JM7OLpXRoOfZ+6e8vA4Wc2YD1jlSVkFXKL+MhJAoGBAOz4/NHX3Py5Gmbp3fQK\nI1dimRiy7zgEbAEH4MfIC7eZw3v8sr3q/8Eh/b8qsqXRuqG2i/LzQfXoyKqUgDxl\n6WP7Rk4HXyIndefZz5k4M1N09rLeauYO3Va1frTRW8du3k3SWBd6YEyvyl43z0lg\nJrmLQyrMIHaGzcZrAZ6WLZzQ\n-----END PRIVATE KEY-----\n",
+  "client_email": "tactic-picture-sync@nvi-tactics-db-deployed.iam.gserviceaccount.com",
+  "client_id": "112431752592582417207",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tactic-picture-sync%40nvi-tactics-db-deployed.iam.gserviceaccount.com"
+}

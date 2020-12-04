@@ -18,15 +18,17 @@ var streams = [
   {stream: prettyStream }
 ]
 var logger = pinoms(pinoms.multistream(streams));
-const key = require('./nvi-tactics-test-d4263bf06b32.json');
+//const key = require('./nvi-tactics-test-d4263bf06b32.json');
+const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json');
 
 /*****************************Define Variables***************************/
-const hostname = '0.0.0.0';
-//const hostname = '127.0.0.1';
-//const port = 3000;
-const port = 8000;
-__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
-//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
+//const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
+const port = 3000;
+//const port = 8000;
+//__dirname = '/home/dh_/tacticstest.nonviolenceinternational.net';
+//__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
+__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
 
 /*****************************Helper Functions***************************/
 function queryTacticsData() {
@@ -253,7 +255,8 @@ function syncFromDive(){
     	const drive = google.drive({version: 'v3', 
     		auth: jwt,
     		params: {
-			    key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ'
+			    //key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ'
+			    key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0'
 			}});
     	drive.files.list({
     		auth: jwt,
@@ -314,7 +317,7 @@ function syncFromDive(){
 cron.schedule("0 0 * * 6", function() {
 //cron.schedule("*/3 * * * *", function() {
 	syncFromDive();
-});
+}); 
 
 
 

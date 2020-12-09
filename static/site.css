@@ -154,9 +154,20 @@ html, body{
   outline: none;
 }
 
+#tactic-search-button {
+  position: absolute;
+  left: 94%;
+  cursor: pointer;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
 #tactic-filter-button {
   position: absolute;
-  left: 95%;
+  right: 95%;
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -201,7 +212,7 @@ html, body{
 }
 
 #tactic-category-search {
-  margin: 5px 5px 5px 10px;
+  margin: 5px 0 10px 24px;
   overflow: hidden;
   border: none;
   outline: none;
@@ -279,6 +290,7 @@ html, body{
 #tactic-category-search, textarea{
   color: #033165;
   font-family: 'Arvo';
+  font-size: 14px;
 }
 
 textarea:focus, #tactic-category-search:focus {
@@ -327,8 +339,19 @@ textarea:focus, #tactic-category-search:focus {
   margin-bottom: 15px;
 }
 
-#tactic-filteer {
+.showTacticFilters {
+  height: 50px !important;
+  z-index: 99 !important;
+}
+
+#tactic-filter-container {
   position: relative;
+  background-color: #fbfbfb;
+}
+
+#tactic-filter {
+  position: relative;
+  transition: all .4s ease-in-out;
   background-color: #fbfbfb;
 }
 
@@ -837,6 +860,7 @@ textarea:focus, #tactic-category-search:focus {
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  transition: font-weight .4s ease;
 }
 
 #tactic-notfound-header {
@@ -951,11 +975,12 @@ textarea:focus, #tactic-category-search:focus {
     color: #fbfbfb;
   }
 
-  #tacticpage-example-description {
+  .tacticpage-example-description {
     position: relative;
     font-family: 'Arvo';
     font-size: 1.25em !important;
     line-height: 1.6;
+    display: none;
   }
 
   #description-container {
@@ -1088,7 +1113,7 @@ textarea:focus, #tactic-category-search:focus {
     display: none;
   }
 
-  #tacticpage-example-description {
+  .tacticpage-example-description {
     position: relative;
     font-family: 'Arvo';
     font-size: 1.25em !important;
@@ -1223,7 +1248,7 @@ textarea:focus, #tactic-category-search:focus {
     display: none;
   }
 
-  #tacticpage-example-description {
+  .tacticpage-example-description {
     position: relative;
     font-family: 'Arvo';
     font-size: 1.25em !important;
@@ -1355,7 +1380,7 @@ textarea:focus, #tactic-category-search:focus {
   display: none;
 }
 
-#tacticpage-example-description {
+.tacticpage-example-description {
   position: relative;
   font-family: 'Arvo';
   font-size: 1em;
@@ -1461,11 +1486,67 @@ textarea:focus, #tactic-category-search:focus {
   position: relative;
 }
 
-#tacticpage-example-link {
+.example-pointer {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin: 0 10px 0 10px;
+  padding: 16px;
+  color: #033165;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+#prev-tactic-example {
+  left: -75px; 
+}
+
+#next-tactic-example {
+  right: -75px;
+}
+
+.example-pointer:hover {
+  background-color: #b5d6fd;
+}
+
+.tacticpage-example-link {
   font-family: 'Arvo';
   margin: 10px auto 0 auto;
   text-align: center;
   font-size: 1em;
+  display: none;
+}
+
+#tactic-example-dot-container {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tacticpage-example-select-dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.tacticpage-example-select-dot:hover {
+  background-color: #f5c71a;
+}
+
+.active-dot {
+  background-color: #033165;
 }
 
 a {
@@ -1605,7 +1686,7 @@ a {
   color: #033165;
   height: 30px;
   width: 300px;
-  transition: height .4s ease-in-out, width .4s ease-in-out;
+  transition: height .4s ease-in-out, width .4s ease-in-out, background-color .6s ease, border .6s ease;
 }
 
 .grid-item-col {
@@ -1618,7 +1699,7 @@ a {
   color: #033165;
   height: 30px;
   width: 300px;
-  transition: height .4s ease-in-out, width .4s ease-in-out;
+  transition: height .4s ease-in-out, width .4s ease-in-out, background-color .6s ease, border .6s ease;
 }
 
 .grid-item-row:hover {
@@ -2010,6 +2091,7 @@ strong {
   color: #708090;
   font-family: 'Arvo';
   font-size: 1em;
+  transition: color .4s ease, text-shadow .4s ease;
 }
 
 .category-list-tactic-button:hover {

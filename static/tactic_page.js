@@ -1,5 +1,6 @@
 var pic;
 var sharpNum;
+var currentTacticDes = 0;
 const colorThief = new ColorThief();
 
 document.addEventListener("DOMContentLoaded", function(e) {
@@ -27,6 +28,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		document.getElementById("sharp-container").insertAdjacentHTML("afterbegin", "Sharp Tactic ID: ");
 	}
 
+	//tactic description preparation
+	//unhide the first description and link
+	document.getElementById("tacticpage-example-text-0").style.display = "block";
+	document.getElementById("tacticpage-example-link-0").style.display = "block";
+	document.getElementById("tacticpage-example-dot-0").className += " active-dot";
+
+	//unhide the description arrows if multiple descriptions exist
+	if(num_examples > 1){
+		var tacticPointers = document.getElementsByClassName("example-pointer");
+		tacticPointers[0].classList.toggle("hide");
+		tacticPointers[1].classList.toggle("hide");
+	}
+
 	var categories = document.getElementsByClassName("category-list-tacticpage");
 	if(window.innerWidth > 1000){
 		for(var i = 0; i < categories.length; i++){
@@ -41,6 +55,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 });
 
+document.getElementById("prev-tactic-example").addEventListener("click", function(){
+	currentTacticDes += -1;
+	showTacticDescription(currentTacticDes);
+});
+
+document.getElementById("next-tactic-example").addEventListener("click", function(){
+	currentTacticDes += 1;
+	showTacticDescription(currentTacticDes);
+});
 
 document.getElementById("tacticpage-exit").addEventListener("click", function(){
 	if(document.referrer.includes('/categories')){
@@ -91,4 +114,26 @@ function loadPage(){
 	document.getElementById("tacticpage-load-screen").style.display = "none";
 }
 
+function getTacticDescription(n){
+	showTacticDescription(currentTacticDes = n);
+}
+
+function showTacticDescription(n) {
+	var i;
+	var tactic_examples = document.getElementsByClassName("tacticpage-example-description");
+	var tactic_link = document.getElementsByClassName("tacticpage-example-link");
+	var dots = document.getElementsByClassName("tacticpage-example-select-dot");
+	if (n > tactic_examples.length-1) {currentTacticDes = 0}
+	if (n < 0) {currentTacticDes = tactic_examples.length-1}
+	for (i = 0; i < tactic_examples.length; i++) {
+    	tactic_examples[i].style.display = "none";
+    	tactic_link[i].style.display = "none";
+	}
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active-dot", "");
+	}
+	tactic_examples[currentTacticDes].style.display = "block";
+	tactic_link[currentTacticDes].style.display = "block";
+	dots[currentTacticDes].className += " active-dot";
+}
 

@@ -13,8 +13,9 @@
 	    <script type="text/javascript" src="/static/color-thief.umd.js"></script>
 
 	    <script>
-	    	pic = "{{data.picture}}";
-	    	sharpNum = "{{data.gene_sharp_num}}";
+	    	pic = "{{data[0].picture}}";
+	    	sharpNum = "{{data[0].gene_sharp_num}}";
+	    	num_examples = "{{data.length}}";
 	    </script>
 	</head>
 
@@ -27,8 +28,8 @@
 					<img id="tacticpagesub-logo-img" src="/static/nvi-sub-logo.png" />
 
 					<div id="tacticinfo-sub-container">
-						<div id="tacticpage-name" class="tacticheader-text">{{data.name}}</div>
-						<div id="tacticpage-description" class="tacticheader-text">{{data.description}}</div>
+						<div id="tacticpage-name" class="tacticheader-text">{{data[0].name}}</div>
+						<div id="tacticpage-description" class="tacticheader-text">{{data[0].description}}</div>
 					</div>
 
 				</div>
@@ -41,18 +42,30 @@
 
 			<div id="tactic-bottom">
 				<div id="description-container">
-					<div id="tacticpage-example-description">{{data.ex_description}}</div>
+					{% for i in range(data.length) %}
+					<div id="tacticpage-example-text-{{i}}" class="tacticpage-example-description hide">{{data[i].ex_description}}</div>
+					<div id="tacticpage-example-link-{{i}}" class="tacticpage-example-link hide">Read More: 
+						<a href={{data[i].link}}>{{data[i].title}}</a>
+					</div>
+					{% endfor %}
+					<!--<div id="tacticpage-example-description">{{data[0].ex_description}}</div>
 					<div id="tacticpage-example-link">Read More: 
-						<a href={{data.link}}>{{data.title}}</a>
+						<a href={{data[0].link}}>{{data[0].title}}</a>
+					</div>-->
+					<button id="prev-tactic-example" class="example-pointer hide">&#10094;</button>
+					<button id="next-tactic-example" class="example-pointer hide">&#10095;</button>
+					<div id="tactic-example-dot-container">
+						{% for i in range(data.length) %}
+						<span id="tacticpage-example-dot-{{i}}" class="tacticpage-example-select-dot" onclick="getTacticDescription({{i}})"></span>
+						{% endfor %}
 					</div>
 				</div>
-
 				<div id="tacticpage-variables">
 
 					<div id="tacticpage-categories">
 						<div id="category-container">
 							<span id="tacticpage-categories-header">Tactic Categories:</span><br>
-							{% for category in data.categories.split("; ").reverse() %}
+							{% for category in data[0].categories.split("; ").reverse() %}
 				  				<span class="category-list-tacticpage" style="margin-left: {{loop.index * 30}}px;">{{category}}</span><br>
 							{% endfor %}
 						</div>
@@ -60,12 +73,12 @@
 
 					<div id="tacticpage-characteristics">
 						<div id="coercive-persuasive">
-							{% if (data.coercive) == 1 and (data.persuasive) == 1 %}
+							{% if (data[0].coercive) == 1 and (data[0].persuasive) == 1 %}
 								Coercive & <br>
 								Persuasive
-							{% elif (data.coercive) == 1 and (data.persuasive) == 0 %}
+							{% elif (data[0].coercive) == 1 and (data[0].persuasive) == 0 %}
 								Coercive
-							{% elif (data.coercive) == 0 and (data.persuasive) == 1 %}
+							{% elif (data[0].coercive) == 0 and (data[0].persuasive) == 1 %}
 								Persuasive
 							{% else %}
 								''
@@ -73,7 +86,7 @@
 						</div>
 
 						<div id="sharp-container">
-							<span id="sharp-number">{{data.gene_sharp_num}}</span>
+							<span id="sharp-number">{{data[0].gene_sharp_num}}</span>
 						</div>
 					</div>
 

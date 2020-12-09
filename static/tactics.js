@@ -133,9 +133,11 @@ class CategoryLevel extends React.Component {
       i++;
     });
 
+    /*
     if(id == 1){
       categorySelectors.push(React.createElement(CategorySearch, {key: "search"}, null));
     }
+    */
 
     if(extraGroupClass != ""){
       return React.createElement("div", {id: "button-group"+id, className: extraGroupClass, style: {margin: "0 0 5px 20px"}}, categorySelectors);
@@ -147,7 +149,6 @@ class CategoryLevel extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return false;
   }
-
 }
 
 
@@ -169,6 +170,27 @@ class CategoryTable extends React.Component {
     }
 
     return React.createElement("div", {id: "filter-container"}, levels);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
+
+  /*
+  componentDidMount() {
+    quickSearch = document.querySelector('.quickSearch');
+  }
+  */
+
+}
+
+
+class TacticSearch extends React.Component {
+
+  render(){ 
+    var searchBar = React.createElement(CategorySearch, {key: "search"}, null)
+
+    return React.createElement("div", {id: "search-container"}, searchBar);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -199,13 +221,15 @@ function displayDropdown() {
   var buttons = document.getElementsByClassName("tactic-button");
   var logo = document.getElementById("sub-logo-img");
   var filter = document.getElementById("tactic-filter-button");
-  var filterDiv = document.getElementById("tactic-filter");
+  var search = document.getElementById("tactic-search-button");
+  var filterContainerDiv = document.getElementById("tactic-filter-container");
 
 	if(window.innerWidth < 950){
     dropdown.style.display = "block";
     dropdownDiv.style.display = "block";
     filter.style.display = "none";
-    filterDiv.style.display = "none";
+    search.style.display = "none";
+    filterContainerDiv.style.display = "none";
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "none";
 		}
@@ -214,7 +238,9 @@ function displayDropdown() {
     dropdown.style.display = "none";
     dropdownDiv.classList.remove("showDropdown");
     dropdownDiv.style.display = "none";
+    filterContainerDiv.style.display = "block";
     filter.style.display = "inline-block";
+    search.style.display = "inline-block";
 	  for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "inline-block";
     }
@@ -302,6 +328,11 @@ function loadCategories(){
   ReactDOM.render(
       React.createElement(CategoryTable, {tacticCategories: Array.from(uniqueCategories), categoryLevel: categoryLevel, parentCategory: parentCategory}, 
         null), document.getElementById("tactic-filter")
+  );
+
+  ReactDOM.render(
+      React.createElement(TacticSearch, 
+        null), document.getElementById("tactic-search")
   );
 }
 
@@ -413,7 +444,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var buttons = document.getElementsByClassName("tactic-button");
   var logo = document.getElementById("sub-logo-img");
   var filter = document.getElementById("tactic-filter-button");
-  var filterDiv = document.getElementById("tactic-filter");
+  var search = document.getElementById("tactic-search-button");
+  var filterContainerDiv = document.getElementById("tactic-filter-container");
 
   //box tactics navbar button if current page is tactics
   if (window.location.href.indexOf("tactics") > -1){
@@ -424,7 +456,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	if(window.innerWidth < 950){
     dropdown.style.display = "block";
     filter.style.display = "none";
-    filterDiv.style.display = "none";
+    search.style.display = "none";
+    filterContainerDiv.style.display = "none";
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "none";
     }
@@ -433,6 +466,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     dropdown.style.display = "none";
     dropdownDiv.style.display = "none";
     filter.style.display = "inline-block";
+    search.style.display = "inline-block";
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "inline-block";
 		}
@@ -495,10 +529,39 @@ document.getElementById("tactic-dropdown-button").addEventListener("click", func
 
 //toggle visibility of filters on icon click
 document.getElementById("tactic-filter-button").addEventListener("click", function(){
+  var filterContainer = document.getElementById("tactic-filter-container");
   var filter = document.getElementById("tactic-filter");
-  if(filter.style.display == "none" || filter.style.display == "" || filter.style.display == "hidden"){
+  var search = document.getElementById("tactic-search");
+  if(filterContainer.style.display == "none" || filterContainer.style.display == "" || filterContainer.style.display == "hidden"){
+    filterContainer.style.display = "block";
     filter.style.display = "block";
   }else{
-    filter.style.display = "none";
+    if(filter.style.display == "none" || filter.style.display == "" || filter.style.display == "hidden"){
+      filter.style.display = "block";
+    }else{
+      filter.style.display = "none";
+      if(search.style.display == "none" || search.style.display == "" || search.style.display == "hidden"){
+        filterContainer.style.display = "none";
+      }
+    }
+  }
+});
+
+document.getElementById("tactic-search-button").addEventListener("click", function(){
+  var filterContainer = document.getElementById("tactic-filter-container");
+  var filter = document.getElementById("tactic-filter");
+  var search = document.getElementById("tactic-search");
+  if(filterContainer.style.display == "none" || filterContainer.style.display == "" || filterContainer.style.display == "hidden"){
+    filterContainer.style.display = "block";
+    search.style.display = "block";
+  }else{
+    if(search.style.display == "none" || search.style.display == "" || search.style.display == "hidden"){
+      search.style.display = "block";
+    }else{
+      search.style.display = "none";
+      if(filter.style.display == "none" || filter.style.display == "" || filter.style.display == "hidden"){
+        filterContainer.style.display = "none";
+      }
+    }
   }
 });

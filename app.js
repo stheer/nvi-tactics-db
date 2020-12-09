@@ -18,41 +18,25 @@ var streams = [
   {stream: prettyStream }
 ]
 var logger = pinoms(pinoms.multistream(streams));
-//const key = require('./nvi-tactics-test-d4263bf06b32.json');
-const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json');
+const key = require('./nvi-tactics-test-d4263bf06b32.json'); //tactics-test service account
+//const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json'); //tactics-deployed service account
 
 /*****************************Define Variables***************************/
 //const hostname = '0.0.0.0';
 const hostname = '127.0.0.1';
-const port = 3000;
-//const port = 8000;
-//__dirname = '/home/dh_/tacticstest.nonviolenceinternational.net';
-//__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
-__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB';
-
-/*****************************Helper Functions***************************/
-function queryTacticsData() {
-	const query = new Promise((resolve, reject) => {
-		connection.query(
-			'SELECT name FROM tactics',
-	      	(err, result) => {
-	    		if(err){
-	    			reject(err);
-	    		}else{
-	    			resolve(result);
-	    		}
-	    	}
-	    );
-	}).catch(alert);
-	return query;
-}
+//const port = 3000;
+const port = 8000;
+//__dirname = '/home/dh_b9ujea/tacticstest.nonviolenceinternational.net'; //tactics-deployed address
+__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
+//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //tactics-deployed address
 
 /****************************Manage DB Connection***********************/
 var connection = mysql.createConnection({
 	host: '208.97.163.43',
 	user: 'michaelbeer',
 	password: 'Gr33npen',
-	database: 'nvi_tactics'
+	database: 'nvi_tactics' //tactics-test db
+	//database: 'nvi_tactics_deployed' //tactics-deployed db
 });
 
 connection.connect(function(err){
@@ -69,19 +53,33 @@ app.use('/static/tactic_pictures/', express.static('static'));
 app.set('views', './templates');
 app.use(bodyParser.json());
 
+//load nunjucks html templating
 nunjucks.configure('templates/', {
     autoescape: true,
     express: app
 });
 
+//home page
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/templates/index.html');
 });
 
+//categories page
 app.get('/categories', function(req, res) {
 	res.sendFile(__dirname + '/templates/categories.html');
 });
 
+//tactics page
+app.get('/tactics', function(req, res) {
+	res.sendFile(__dirname + '/templates/tactics.html');
+});
+
+//downloads page
+app.get('/downloadables', function(req, res) {
+	res.sendFile(__dirname + '/templates/downloadables.html');
+});
+
+//query example 
 app.get('/categoryTactics', function(req, res) {
 	connection.query(
 		'SELECT a.name, a.persuasive, a.coercive, c.parent_categories FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
@@ -95,6 +93,7 @@ app.get('/categoryTactics', function(req, res) {
 	});
 });
 
+//grab relevant site text (i.e. categories table text, downloads page text, home page text)
 app.post('/siteText', function(req, res) {
 	connection.query(
 		'SELECT text FROM site_text WHERE page = ? AND section = ?', [req.body['value'][0], req.body['value'][1]], (err, result) => {
@@ -106,6 +105,7 @@ app.post('/siteText', function(req, res) {
 	});
 })
 
+//query tactic information for the 'list view' on categories page
 app.get('/categoryList', function(req, res) {
 	connection.query(
 		'SELECT DISTINCT(a.name), a.tactic_id, a.picture, a.summary, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' + 
@@ -119,16 +119,13 @@ app.get('/categoryList', function(req, res) {
 	});
 })
 
-app.get('/tactics', function(req, res) {
-	res.sendFile(__dirname + '/templates/tactics.html');
-});
-
+//query all relevant tactic information for display on tactic block page
 app.get('/tacticsDB', function(req, res) {
 	connection.query(
 		'SELECT DISTINCT(a.name), a.tactic_id, a.picture, a.summary, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' + 
 			'(SELECT t.name, t.tactic_id, t.picture, t.summary, t.category_submedium FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
 			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
-			'ON a.category_submedium = c.category_id', (err, result) => {
+			'ON a.category_submedium = c.category_id ORDER BY a.name ASC', (err, result) => {
 		if(err){
 			logger.error("Error: " + err);
 		}else{
@@ -137,6 +134,7 @@ app.get('/tacticsDB', function(req, res) {
 	});
 });
 
+//query tactic specific information for display on tactic page
 app.get('/tactics/:tactic', function(req, res){
 	connection.query(
 		'SELECT a.*, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM (SELECT t.*, tl.title, tl.ex_description, tl.link FROM tactics t LEFT JOIN tactic_links tl ' +
@@ -146,8 +144,8 @@ app.get('/tactics/:tactic', function(req, res){
 		if(err){
 			logger.error("Error: " + err);
 		}else{
-			if(result[0] != null){
-				res.render(__dirname + '/templates/tactic_page.html', {data: result[0]});
+			if(result != null){
+				res.render(__dirname + '/templates/tactic_page.html', {data: result});
 			}else{
 				res.render(__dirname + '/templates/tactic_page_not_found.html');
 			}
@@ -155,10 +153,7 @@ app.get('/tactics/:tactic', function(req, res){
 	});
 });
 
-app.get('/downloadables', function(req, res) {
-	res.sendFile(__dirname + '/templates/downloadables.html');
-});
-
+//query displayed tactic information, dump in excel, and download on client side
 app.get('/downloadDataset', function(req, res) {
 	connection.query(
 		'SELECT a.*, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' +
@@ -223,7 +218,7 @@ app.get('/downloadDataset', function(req, res) {
 	});
 });
 
-
+//download categories table picture 
 app.get('/downloadCategoriesTable', function(req, res) {
    const r = fs.createReadStream(__dirname + '/static/NVI Nonviolent Tactic Categories Table.png');
    const ps = new stream.PassThrough();
@@ -236,6 +231,7 @@ app.get('/downloadCategoriesTable', function(req, res) {
   ps.pipe(res);
 });
 
+//cron job to asynchronously pull new/updated pictures from google drive folder to server for display on site
 function syncFromDive(){
 	const SCOPES = ['https://www.googleapis.com/auth/drive'];
 
@@ -255,8 +251,8 @@ function syncFromDive(){
     	const drive = google.drive({version: 'v3', 
     		auth: jwt,
     		params: {
-			    //key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ'
-			    key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0'
+			    key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ' //tactic_test key
+			    //key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0' //tactic_deployed key
 			}});
     	drive.files.list({
     		auth: jwt,
@@ -296,7 +292,6 @@ function syncFromDive(){
     			catch(error){
     				logger.error("Drive API Error: " + err);
     			}
-    			//await getPictures(drive, jwt, file.id, dest).catch(console.error);
     		}
     	};
     }
@@ -315,7 +310,7 @@ function syncFromDive(){
 }
 
 cron.schedule("0 0 * * 6", function() {
-//cron.schedule("*/3 * * * *", function() {
+//cron.schedule("*/3 * * * *", function() { //for testing purposes
 	syncFromDive();
 }); 
 

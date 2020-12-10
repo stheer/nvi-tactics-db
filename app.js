@@ -22,13 +22,13 @@ const key = require('./nvi-tactics-test-d4263bf06b32.json'); //tactics-test serv
 //const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json'); //tactics-deployed service account
 
 /*****************************Define Variables***************************/
-const hostname = '0.0.0.0';
-//const hostname = '127.0.0.1';
-//const port = 3000;
-const port = 8000;
+//const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
+const port = 3000;
+//const port = 8000;
 //__dirname = '/home/dh_b9ujea/tacticstest.nonviolenceinternational.net'; //tactics-deployed address
-__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net';
-//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //tactics-deployed address
+//__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net'; //tactics-test address
+__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; 
 
 /****************************Manage DB Connection***********************/
 var connection = mysql.createConnection({

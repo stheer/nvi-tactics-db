@@ -22,7 +22,7 @@
 	<body>
 		<div id="tactic-container">
 			<div id="tactic-header">
-				<button id="tacticpage-exit">X</button>
+				<span id="tacticpage-back-top" class="tacticpage-exit material-icons">arrow_back</span>
 				<div id="tacticinfo-container">
 
 					<img id="tacticpagesub-logo-img" src="/static/nvi-sub-logo.png" />
@@ -40,8 +40,21 @@
 
 			<span id="tacticpage-down-arrow" class="material-icons md-48">keyboard_arrow_down</span>
 
+			<!--<div id="tacticpage-scroll-header" class="">
+				<span id="tacticpage-back-header" class="tacticpage-exit material-icons">arrow_back</span>
+
+				<img id="tacticpagesub-header-img" src="/static/nvi-sub-logo.png" />
+
+				<div id="social-media-container-tactcipage">
+					<img id="facebook-link" src="/static/fb.png" />
+			        <img id="twitter-link" src="/static/twitter.png" />
+			        <img id="youtube-link" src="/static/youtube.png" />
+				</div>
+			</div>-->
+
 			<div id="tactic-bottom">
 				<div id="description-container">
+					<!--<span id="description-title">{{data[i].title}}</span>-->
 					{% for i in range(data.length) %}
 					<div id="tacticpage-example-text-{{i}}" class="tacticpage-example-description hide">{{data[i].ex_description}}</div>
 					<div id="tacticpage-example-link-{{i}}" class="tacticpage-example-link hide">Read More: 

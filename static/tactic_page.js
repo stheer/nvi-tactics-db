@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
 	}
 	window.onresize = categoryDisplay;
-
 });
 
 document.getElementById("prev-tactic-example").addEventListener("click", function(){
@@ -65,13 +64,28 @@ document.getElementById("next-tactic-example").addEventListener("click", functio
 	showTacticDescription(currentTacticDes);
 });
 
-document.getElementById("tacticpage-exit").addEventListener("click", function(){
+document.getElementById("tacticpage-back-top").addEventListener("click", function(){
 	if(document.referrer.includes('/categories')){
 		window.location.href = "/categories";
 	}else{
 		window.location.href = "/tactics";
 	}
 });
+
+/*document.onscroll = function(){ 
+	var pos = document.body.parentNode.scrollTop;
+	tacticpageHeader = document.getElementById("tacticpage-scroll-header");
+	if(pos > 637){
+		if(header == true){
+			unfade(tacticpageHeader);
+			header = false;
+		}
+	}else{
+		if(header == false){
+			fade(tacticpageHeader);
+		}
+	}
+};*/
 
 //change background of header to random color in image palette
 function changeInfoColor(img){
@@ -82,7 +96,7 @@ function changeInfoColor(img){
 		return a + b;
 	}, 0);
 	if(sum > 500){
-		var exitButton = document.getElementById("tacticpage-exit");
+		var exitButton = document.getElementById("tacticpage-back-top");
 		exitButton.style.color = "#033165";
 		if(sum > 600){
 			var headerText = document.getElementById("tacticinfo-sub-container");
@@ -136,4 +150,16 @@ function showTacticDescription(n) {
 	tactic_link[currentTacticDes].style.display = "block";
 	dots[currentTacticDes].className += " active-dot";
 }
+
+/*window.addEventListener("scroll", () => {
+	var checkpoint = 675;
+	var endOfTop = 637;
+	const currentScroll = window.pageYOffset;
+	if (currentScroll >= endOfTop) {
+		opacity = 0 + ((currentScroll - 637) / (checkpoint - 637));
+	} else {
+		opacity = 0;
+	}
+	document.getElementById("tacticpage-scroll-header").style.opacity = opacity;
+});*/
 

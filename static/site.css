@@ -303,7 +303,7 @@ a, u {
   }
 
   #tacticpagesub-header-img {
-    left: 42%;
+    left: 39%;
   }
 }
 
@@ -313,7 +313,7 @@ a, u {
   }
 
   #tacticpagesub-header-img {
-    left: 42%;
+    left: 39%;
   }
 }
 
@@ -323,7 +323,7 @@ a, u {
   }
 
   #tacticpagesub-header-img {
-    left: 42%;
+    display: none;
   }
 }
 
@@ -333,7 +333,7 @@ a, u {
   }
 
   #tacticpagesub-header-img {
-    left: 42%;
+    display: none;
   }
 }
 
@@ -343,7 +343,7 @@ a, u {
   }
 
   #tacticpagesub-header-img {
-    left: 42%;
+    display: none;
   }
 }
 
@@ -1156,6 +1156,7 @@ textarea:focus, #tactic-category-search:focus {
 
 #tactic-container {
   height: 100%;
+  width: 100%;
 }
 
 /*@media all and (min-width: 1000px) {*/
@@ -1171,6 +1172,7 @@ textarea:focus, #tactic-category-search:focus {
     width: 50% !important;
     display: table-cell !important;
     position: relative;
+    height: auto !important;
   }
 
   #tacticpage-pic-container {
@@ -1182,8 +1184,8 @@ textarea:focus, #tactic-category-search:focus {
   #tacticinfo-sub-container {
     position: absolute;
     top: 15%;
-    left: 0;
-    right: 0;
+    /*left: 0;
+    right: 0;*/
     margin: auto;
     /*-ms-transform: translateY(-50%) translateX(50%) !important;
     transform: translateY(-50%) translateX(50%) !important;
@@ -1196,8 +1198,10 @@ textarea:focus, #tactic-category-search:focus {
 
   #tacticpage-name {
     position: relative;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     font-size: 3em !important;
     font-weight: bold;
   }
@@ -1205,8 +1209,10 @@ textarea:focus, #tactic-category-search:focus {
   #tacticpage-description {
     font-size: 1.75em !important;
     margin-top: 50px !important;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
   }
 
   .tacticheader-text {
@@ -1259,9 +1265,10 @@ textarea:focus, #tactic-category-search:focus {
   }
 
   #tactic-bottom {
-    height: 100%;
+    height: auto !important;
     width: 100%;
     position: relative;
+    padding-bottom: 10px !important;
   }
 
   #tacticpage-variables {
@@ -1340,14 +1347,14 @@ textarea:focus, #tactic-category-search:focus {
     width: 100%;
     position: relative;
     display: block;
-    height: 400px;
+    height: 100%;
   }
 
   #tacticpage-pic-container {
     background-size: cover;
     display: block;
     width: 100%;
-    height: 500px;
+    height: 100%;
     position: relative;
   }
 
@@ -1356,8 +1363,8 @@ textarea:focus, #tactic-category-search:focus {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 0;
-    right: 0;
+    /*left: 0;
+    right: 0;*/
     margin: auto;
     text-align: center;
     margin-top: 50px;
@@ -1366,17 +1373,21 @@ textarea:focus, #tactic-category-search:focus {
 
   #tacticpage-name {
     position: relative;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     font-size: 3em !important;
     font-weight: bold;
   }
 
   #tacticpage-description {
     font-size: 1.75em !important;
-    margin-top: 50px !important;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    margin-top: 25px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     margin-bottom: 25px;
     text-align: center;
     position: relative;
@@ -1413,9 +1424,10 @@ textarea:focus, #tactic-category-search:focus {
   }
 
   #tactic-bottom {
-    height: 100%;
+    height: auto !important;
     width: 100%;
     position: relative;
+    padding-bottom: 10px !important;
   }
 
   #tacticpage-variables {
@@ -1480,7 +1492,7 @@ textarea:focus, #tactic-category-search:focus {
 /*@media all and (min-width: 715px) {*/
 @media all and (min-width: 715px) and (max-width: 999px){
   #tactic-header {
-    height: 900px;
+    height: 100%;
     width: 100%;
     display: block;
   }
@@ -1490,14 +1502,14 @@ textarea:focus, #tactic-category-search:focus {
     width: 100%;
     position: relative;
     display: block;
-    height: 400px;
+    height: 50% !important;
   }
 
   #tacticpage-pic-container {
     background-size: cover;
     display: block;
     width: 100%;
-    height: 500px;
+    height: 50%;
     position: relative;
   }
 
@@ -1506,8 +1518,8 @@ textarea:focus, #tactic-category-search:focus {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 0;
-    right: 0;
+    /*left: 0;
+    right: 0;*/
     margin: auto;
     text-align: center;
     margin-top: 50px;
@@ -1516,17 +1528,21 @@ textarea:focus, #tactic-category-search:focus {
 
   #tacticpage-name {
     position: relative;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     font-size: 3em !important;
     font-weight: bold;
   }
 
   #tacticpage-description {
     font-size: 1.75em !important;
-    margin-top: 50px !important;
-    margin-left: 75px !important;
-    margin-right: 75px !important;
+    margin-top: 25px !important;
+    /*margin-left: 75px !important;
+    margin-right: 75px !important;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     margin-bottom: 25px;
     text-align: center;
     position: relative;
@@ -1563,9 +1579,10 @@ textarea:focus, #tactic-category-search:focus {
   }
 
   #tactic-bottom {
-    height: 100%;
+    height: auto !important;
     width: 100%;
     position: relative;
+    padding-bottom: 10px !important;
   }
 
   #tacticpage-variables {
@@ -1627,7 +1644,7 @@ textarea:focus, #tactic-category-search:focus {
 
 /*@media all and (min-width: 0px) and (max-width: 714px){*/
   #tactic-header {
-    height: 900px;
+    height: 100%;
     width: 100%;
     display: block;
   }
@@ -1637,14 +1654,14 @@ textarea:focus, #tactic-category-search:focus {
     width: 100%;
     position: relative;
     display: block;
-    height: 400px;
+    height: 50%;
   }
 
   #tacticpage-pic-container {
     background-size: cover;
     display: block;
     width: 100%;
-    height: 500px;
+    height: 50%;
     position: relative;
   }
 
@@ -1654,27 +1671,29 @@ textarea:focus, #tactic-category-search:focus {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto 50px auto;
+    /*margin-top: 50px;
+    margin-bottom: 50px;*/
   }
 
   #tacticpage-name {
     position: relative;
-    margin-left: 0px;
-    margin-right: 0px;
+    /*margin-left: 0px;
+    margin-right: 0px;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     font-size: 2em;
     font-weight: bold;
   }
 
   #tacticpage-description {
-    font-size: 1em;
-    margin-top: 25px;
+    font-size: 1.25em;
+    margin-top: 15px;
     margin-left: 75px;
-    margin-right: 75px;
-    margin-bottom: 25px;
+    /*margin-right: 75px;
+    margin-bottom: 25px;*/
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     text-align: center;
     position: relative;
   }
@@ -1705,14 +1724,15 @@ textarea:focus, #tactic-category-search:focus {
 
   #description-container {
     width: 75%;
-    margin: 25px auto 50px auto;
+    margin: 65px auto 50px auto;
     position: relative;
   }
 
   #tactic-bottom {
-    height: 100%;
+    height: auto;
     width: 100%;
     position: relative;
+    padding-bottom: 10px;
   }
 
   #tacticpage-variables {
@@ -1803,10 +1823,38 @@ textarea:focus, #tactic-category-search:focus {
   transform: translateY(-50%);
 }
 
+/*@media all and (min-width: 715px) {
+  #social-media-bottom {
+    width: 50% !important;
+    margin: 50px auto 30px auto;
+    position: relative;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 714px){
+  #social-media-bottom {
+    width: 50% !important;
+    margin: 50px auto 30px auto;
+    position: relative;
+  }
+}*/
+
 #social-media-bottom {
-  width: 50% !important;
-  margin: 50px auto 30px auto;
+  margin-bottom: 30px;
+  margin-top: 50px;
   position: relative;
+}
+
+@media all and (min-width: 750px) {
+  #social-media-bottom {
+    display: block;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 749px){
+  #social-media-bottom {
+    display: none;
+  }
 }
 
 .mail-iframe {
@@ -1814,9 +1862,8 @@ textarea:focus, #tactic-category-search:focus {
   position: absolute;
 }
 
-.fb_iframe_widget span 
-{
-    vertical-align: baseline !important;
+.fb_iframe_widget span {
+  vertical-align: baseline !important;
 }
 
 .fb-share-button {
@@ -1831,7 +1878,7 @@ textarea:focus, #tactic-category-search:focus {
 
 .mail-share-button {
   display: inline-block;
-  margin: 0 4px 0 4px;
+  margin: 0 0 0 4px;
 }
 
 #tacticpage-back-top {
@@ -1970,12 +2017,16 @@ textarea:focus, #tactic-category-search:focus {
   position: relative;
   margin-top: 20px;
   text-align: center;
+  width: 100%;
 }
 
 .tacticpage-example-select-dot {
   cursor: pointer;
   height: 15px;
   width: 15px;
+  /*height: 100%;
+  width: 100%;*/
+  /*margin: 0 2px;*/
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;

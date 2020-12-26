@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 			categories[i].style.marginLeft = "auto";
 		}
 	}
+
+	document.getElementById("fb-share").setAttribute('data-href', "www.tacticstest.nonviolenceinternational.net"+link);
+	document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tacticstest.nonviolenceinternational.net"+link+"&amp;src=sdkpreparse";
 	window.onresize = categoryDisplay;
 });
 

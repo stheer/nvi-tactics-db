@@ -50,7 +50,7 @@ a, u {
   align-items: center;
 }
 
-@media (min-width: 450px) {
+@media only screen and (min-width: 450px) {
 #tactic-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -76,7 +76,7 @@ a, u {
   outline: none;
 }
 
-@media (min-width: 450px) {
+@media only screen and  (min-width: 450px) {
   #categories-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -102,7 +102,7 @@ a, u {
   outline: none;
 }
 
-@media (min-width: 450px) {
+@media only screen and  (min-width: 450px) {
   #dataset-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -257,7 +257,7 @@ a, u {
   animation: spin 1s linear infinite;
 }
 
-@media all and (min-width: 1250px) {
+@media only screen and (min-width: 1250px) {
   .loader {
     left: 46.5%;
   }
@@ -267,7 +267,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 1050px) and (max-width: 1249px){
+@media only screen and (min-width: 1050px) and (max-width: 1249px){
   .loader {
     left: 45.5%;
   }
@@ -277,7 +277,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 950px) and (max-width: 1050px){
+@media only screen and (min-width: 950px) and (max-width: 1050px){
   .loader {
     left: 45%;
   }
@@ -287,7 +287,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 750px) and (max-width: 949px){
+@media only screen and (min-width: 750px) and (max-width: 949px){
   .loader {
     left: 44%;
   }
@@ -297,7 +297,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 650px) and (max-width: 749px){
+@media only screen and (min-width: 650px) and (max-width: 749px){
   .loader {
     left: 43%;
   }
@@ -307,7 +307,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 550px) and (max-width: 649px){
+@media only screen and (min-width: 550px) and (max-width: 649px){
   .loader {
     left: 42%;
   }
@@ -317,7 +317,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 450px) and (max-width: 549px){
+@media only screen and (min-width: 450px) and (max-width: 549px){
   .loader {
     left: 41%;
   }
@@ -327,7 +327,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 350px) and (max-width: 449px){
+@media only screen and (min-width: 350px) and (max-width: 449px){
   .loader {
     left: 38%;
   }
@@ -337,7 +337,7 @@ a, u {
   }
 }
 
-@media all and (min-width: 0px) and (max-width: 349px){
+@media only screen and (min-width: 0px) and (max-width: 349px){
   .loader {
     left: 36%;
   }

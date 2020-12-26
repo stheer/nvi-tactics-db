@@ -6,6 +6,7 @@ var clickedCategories = [0];
 var qsRegex;
 var quickSearch;
 var buttonFilter = "";
+var tacticOrdering = [];
 
 
 /***************************REACT FUNCTIONS**********************************/
@@ -290,8 +291,14 @@ function onlyUnique(value, index, self) {
 
 
 function loadTacticsBoxes(data){
+  //MySQL json containing all tactic information
   TACTICS = JSON.parse(data);
   console.log(TACTICS);
+
+  //get order of tactics for next and prev button
+  TACTICS.forEach(function(tactic){
+      tacticOrdering.push(tactic.name);
+  });
 
 	ReactDOM.render(
     	React.createElement(TacticsTable, {tactics: TACTICS}, null), document.getElementById("container")

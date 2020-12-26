@@ -5,6 +5,10 @@ html, body{
   background-color: #fbfbfb;
 }
 
+a, u {
+    text-decoration: none;
+}
+
 .hide {
   display: none;
 }
@@ -240,8 +244,8 @@ html, body{
 
 .loader {
   position: absolute;
-  left: 45%;
   top: 4.25%;
+  left: 46%;
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   border: 16px solid #fbfbfb;
@@ -251,6 +255,96 @@ html, body{
   height: 75px;
   -webkit-animation: spin 1s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
+}
+
+@media all and (min-width: 1250px) {
+  .loader {
+    left: 46.5%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 44%;
+  }
+}
+
+@media all and (min-width: 1050px) and (max-width: 1249px){
+  .loader {
+    left: 45.5%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
+}
+
+@media all and (min-width: 950px) and (max-width: 1050px){
+  .loader {
+    left: 45%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 41%;
+  }
+}
+
+@media all and (min-width: 750px) and (max-width: 949px){
+  .loader {
+    left: 44%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 39%;
+  }
+}
+
+@media all and (min-width: 650px) and (max-width: 749px){
+  .loader {
+    left: 43%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
+}
+
+@media all and (min-width: 550px) and (max-width: 649px){
+  .loader {
+    left: 42%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
+}
+
+@media all and (min-width: 450px) and (max-width: 549px){
+  .loader {
+    left: 41%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
+}
+
+@media all and (min-width: 350px) and (max-width: 449px){
+  .loader {
+    left: 38%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 349px){
+  .loader {
+    left: 36%;
+  }
+
+  #tacticpagesub-header-img {
+    left: 42%;
+  }
 }
 
 @-webkit-keyframes spin {
@@ -407,7 +501,7 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-@media all and (min-width: 1050px) and (max-width: 1249px){
+@media all and (min-width: 1150px) and (max-width: 1249px){
   #social-media-container-tactics {
     left: 48%;
   }
@@ -451,7 +545,7 @@ textarea:focus, #tactic-category-search:focus {
 
 @media all and (min-width: 0px) and (max-width: 949px){
   #social-media-container-tactics {
-    left: 50.5%;
+    left: 50%;
   }
 
   #social-media-container-category {
@@ -547,7 +641,49 @@ textarea:focus, #tactic-category-search:focus {
   margin-left: 2.5%;
 }
 
-@media all and (min-width: 950px) {
+/*@media all and (min-width: 1250px) {
+  .tactics-buttons { flex: 1 auto; }
+  #tactics-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #tactics-buttons-right { order: 3; }
+}
+
+@media all and (min-width: 1050px) and (max-width: 1249px){
+  .tactics-buttons { flex: 1 auto; }
+  #tactics-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #tactics-buttons-right { order: 3; }
+}
+
+@media all and (min-width: 1050px) and (max-width: 1149px){
+  .tactics-buttons { flex: 1 auto; }
+  #tactics-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #tactics-buttons-right { order: 3; }
+}
+
+@media all and (min-width: 950px) and (max-width: 1049px){
+  .tactics-buttons { flex: 1 auto; }
+  #tactics-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #tactics-buttons-right { order: 3; }
+}
+
+@media all and (min-width: 0px) and (max-width: 949px){
+  #social-media-container-tactics {
+    left: 50%;
+  }
+
+  #social-media-container-category {
+    left: 50%;
+  }
+
+  #social-media-container-downloads {
+    left: 50%;
+  }
+}*/
+
+@media all and (min-width: 950px){
   .tactics-buttons { flex: 1 auto; }
   #tactics-buttons-left { order: 1; } 
   #sub-logo-img   { order: 2; }
@@ -591,6 +727,13 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
+@media all and (min-width: 800px) {
+  .dataset-buttons { flex: 1 auto; }
+  #dataset-buttons-left { order: 1; } 
+  #sub-logo-img   { order: 2; }
+  #dataset-buttons-right { order: 3; }
+}
+
 #dataset-navbar {
   position: relative;
   height: 135px;
@@ -607,13 +750,6 @@ textarea:focus, #tactic-category-search:focus {
   text-align: center;
   justify-content: center;
   align-items: center;
-}
-
-@media all and (min-width: 800px) {
-  .dataset-buttons { flex: 1 auto; }
-  #dataset-buttons-left { order: 1; } 
-  #sub-logo-img   { order: 2; }
-  #dataset-buttons-right { order: 3; }
 }
 
 #main-buttons {
@@ -677,8 +813,8 @@ textarea:focus, #tactic-category-search:focus {
   background-repeat: no-repeat;
   background-position: center; 
   position: relative;
-  /*background-size: cover;*/
-  border: 2px solid black;
+  background-size: cover;
+  /*border: 2px solid black;*/
   text-align: center;
   width: 100%;
   height: 175px;
@@ -1022,7 +1158,8 @@ textarea:focus, #tactic-category-search:focus {
   height: 100%;
 }
 
-@media all and (min-width: 1000px) {
+/*@media all and (min-width: 1000px) {*/
+@media all and (min-width: 1000px){
   #tactic-header {
     display: table !important;
     height: 100% !important;
@@ -1053,6 +1190,10 @@ textarea:focus, #tactic-category-search:focus {
     text-align: center !important;*/
   }
 
+  .tacticpage-direction {
+    z-index: 9999;
+  }
+
   #tacticpage-name {
     position: relative;
     margin-left: 75px !important;
@@ -1077,11 +1218,17 @@ textarea:focus, #tactic-category-search:focus {
     display: inline-block !important;
     position: absolute;
     top: 90%;
-    z-index = 2;
+    z-index: 9999;
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     color: #fbfbfb;
+    cursor: pointer;
+    transition: all .4s ease;
+  }
+
+  #tacticpage-down-arrow:hover {
+    background-color: #b5d6fd;
   }
 
   .tacticpage-example-description {
@@ -1090,16 +1237,20 @@ textarea:focus, #tactic-category-search:focus {
     font-size: 1.25em !important;
     line-height: 1.6;
     display: none;
-    margin-top: 60px;
-    text-align: justify;
-    text-justify: inter-word;
+    margin-top: 20px;
+  }
+
+  .tacticpage-example-title {
+    font-family: 'Arvo';
+    font-size: 1.25em !important;
+    font-weight: 1000;
+    margin-top: 20px;
   }
 
   #description-container {
     width: 50% !important;
-    margin: 50px auto;
+    margin: 25px auto 50px auto;
     position: relative;
-    margin-top: 50px !important;
   }
 
   #description-title {
@@ -1134,12 +1285,15 @@ textarea:focus, #tactic-category-search:focus {
   }
 
   #category-container {
+    position: relative;
+    left: 25%;
     margin-right: 25px !important;
-    margin-left: 0px;
     text-align: left !important;
   }
 
   #coercive-persuasive {
+    position: absolute;
+    left: 37.5% !important;
     color: #033165;
     font-size: 2em;
     font-weight: bold;
@@ -1167,7 +1321,8 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-@media all and (min-width: 900px) {
+/*@media all and (min-width: 900px) {*/
+@media all and (min-width: 900px) and (max-width: 999px){
   #tactic-header {
     height: 900px;
     width: 100%;
@@ -1235,11 +1390,19 @@ textarea:focus, #tactic-category-search:focus {
     font-family: 'Arvo';
     font-size: 1.25em !important;
     line-height: 1.6;
+    margin-top: 20px;
+  }
+
+  .tacticpage-example-title {
+    font-family: 'Arvo';
+    font-size: 1.25em !important;
+    font-weight: 1000;
+    margin-top: 20px;
   }
 
   #description-container {
     width: 50% !important;
-    margin: 50px auto;
+    margin: 25px auto 50px auto;
     position: relative;
   }
 
@@ -1302,7 +1465,8 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-@media all and (min-width: 715px) {
+/*@media all and (min-width: 715px) {*/
+@media all and (min-width: 715px) and (max-width: 999px){
   #tactic-header {
     height: 900px;
     width: 100%;
@@ -1370,11 +1534,19 @@ textarea:focus, #tactic-category-search:focus {
     font-family: 'Arvo';
     font-size: 1.25em !important;
     line-height: 1.6;
+    margin-top: 20px;
+  }
+
+  .tacticpage-example-title {
+    font-family: 'Arvo';
+    font-size: 1.25em !important;
+    font-weight: 1000;
+    margin-top: 20px;
   }
 
   #description-container {
     width: 50% !important;
-    margin: 50px auto;
+    margin: 25px auto 50px auto;
     position: relative;
   }
 
@@ -1502,11 +1674,19 @@ textarea:focus, #tactic-category-search:focus {
   font-family: 'Arvo';
   font-size: 1em;
   line-height: 1.6;
+  margin-top: 20px;
+}
+
+.tacticpage-example-title {
+  font-family: 'Arvo';
+  font-size: 1em;
+  font-weight: 1000;
+  margin-top: 20px;
 }
 
 #description-container {
   width: 75%;
-  margin: 50px auto;
+  margin: 25px auto 50px auto;
   position: relative;
 }
 
@@ -1542,23 +1722,74 @@ textarea:focus, #tactic-category-search:focus {
 }
 
 #tacticpagesub-header-img {
-  max-width: 10%;
-  max-height: 75%;
+  /*max-width: 12%;
+  max-height: 90%;*/
+  height: 35px;
+  width: 170px;
   position: absolute;
-  left: 50%;
-  top: 50%;
+  /*left: 43%;*/
+  top: 46%;
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
+#social-media-header {
+  position: absolute;
+  right: 2%;
+  top: 52%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#social-media-bottom {
+  width: 50% !important;
+  margin: 50px auto 30px auto;
+  position: relative;
+}
+
+.mail-iframe {
+  visibility: hidden;
+  position: absolute;
+}
+
+.fb_iframe_widget span 
+{
+    vertical-align: baseline !important;
+}
+
+.fb-share-button {
+  display: inline-block;
+  margin: 0 4px 0 0;
+}
+
+.twitter-share-button {
+  display: inline-block;
+  margin: 0 4px 0 4px;
+}
+
+.mail-share-button {
+  display: inline-block;
+  margin: 0 4px 0 4px;
+}
+
 #tacticpage-back-top {
   position: absolute;
-  z-index: 5;
+  z-index: 9999;
   left: 20px;
-  font-size: 1.5em;
+  font-size: 2.25em;
   margin-top: 25px;
+}
+
+#tacticpage-back-header {
+  position: absolute;
+  left: 2%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 1.5em;
+  color: #033165;
 }
 
 .tacticpage-exit {
@@ -1570,13 +1801,14 @@ textarea:focus, #tactic-category-search:focus {
   overflow: hidden;
   outline: none;
   color: #fbfbfb;
+  z-index: 9999;
 }
 
 .tacticpage-exit:hover {
   background-color: #b5d6fd;
 }
 
-#tacticpage-exit:active {
+.tacticpage-exit:active {
   color: #033165;
 }
 
@@ -1605,15 +1837,15 @@ textarea:focus, #tactic-category-search:focus {
   top: 0px;
   height: 38px;
   width: 100%;
-  border: 1px solid;
-  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid #B8B8B8;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  box-sizing: 
   border-color: #A9A9A9;
   background-color: #fbfbfb;
   transition: opacity 0.1s;
+  z-index: -1;
 }
 
 #sharp-container {
@@ -1667,6 +1899,40 @@ textarea:focus, #tactic-category-search:focus {
 
 #next-tactic-example {
   right: -75px;
+}
+
+#next-tacticpage {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 3em;
+  top: 50%;
+  right: 2%;
+  -ms-transform: translateY(-50%) translateY(-50%);
+  transform: translateY(-50%) translateY(-50%);
+  transition: background-color opacity 0.6s ease;
+  z-index: 9999;
+}
+
+#prev-tacticpage {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 3em;
+  top: 50%;
+  left: 2%;
+  -ms-transform: translateY(-50%) translateY(-50%);
+  transform: translateY(-50%) translateY(-50%);
+  transition: background-color opacity 0.6s ease;
+  z-index: 9999;
+}
+
+#next-tacticpage:hover {
+  background-color: #033165;
+}
+
+#prev-tacticpage:hover {
+  background-color: #033165;
 }
 
 .example-pointer:hover {

@@ -20,6 +20,9 @@
 	</head>
 
 	<body>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="00AB96lV"></script>
+
 		<div id="tactic-container">
 			<div id="tactic-header">
 				<span id="tacticpage-back-top" class="tacticpage-exit material-icons">arrow_back</span>
@@ -32,30 +35,44 @@
 						<div id="tacticpage-description" class="tacticheader-text">{{data[0].description}}</div>
 					</div>
 
+					<span id="prev-tacticpage" class="tacticpage-exit material-icons">keyboard_arrow_left</span>
+
 				</div>
 
-				<div id="tacticpage-pic-container"></div>
-
+				<div id="tacticpage-pic-container">
+					<span id="next-tacticpage" class="tacticpage-exit material-icons">keyboard_arrow_right</span>
+				</div>
 			</div>
 
 			<span id="tacticpage-down-arrow" class="material-icons md-48">keyboard_arrow_down</span>
 
-			<!--<div id="tacticpage-scroll-header" class="">
+			<div id="tacticpage-scroll-header" class="">
 				<span id="tacticpage-back-header" class="tacticpage-exit material-icons">arrow_back</span>
 
 				<img id="tacticpagesub-header-img" src="/static/nvi-sub-logo.png" />
 
-				<div id="social-media-container-tactcipage">
-					<img id="facebook-link" src="/static/fb.png" />
-			        <img id="twitter-link" src="/static/twitter.png" />
-			        <img id="youtube-link" src="/static/youtube.png" />
+				<div id="social-media-header">
+					<div class="fb-share-button" data-href="https://www.tacticstest.nonviolenceinternational.net/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Ftactics%2FMarches&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+			        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this tactic of nonviolent resistance from Nonviolence International" data-url="https://www.tacticstest.nonviolenceinternational.net/" data-via="NVIntl" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			        <a class="mail-share-button" href="mailto:?subject=Nonviolence International Tactic of Resistance&amp;body=Check out this tactic of nonviolent resistance from Nonviolence International https://www.tacticstest.nonviolenceinternational.net/" title="Share by Email" target="hidden-iframe">
+			        	<iframe class="mail-iframe" name="hidden-iframe"></iframe>
+			        	<span class="material-icons">alternate_email</span>
+			    	</a>
 				</div>
-			</div>-->
+			</div>
 
 			<div id="tactic-bottom">
+				<div id="social-media-bottom">
+					<div class="fb-share-button" data-href="https://www.tacticstest.nonviolenceinternational.net/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Ftactics%2FMarches&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+			        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this tactic of nonviolent resistance from Nonviolence International" data-url="https://www.tacticstest.nonviolenceinternational.net/" data-via="NVIntl" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			        <a class="mail-share-button" href="mailto:?subject=Nonviolence International Tactic of Resistance&amp;body=Check out this tactic of nonviolent resistance from Nonviolence International https://www.tacticstest.nonviolenceinternational.net/" title="Share by Email" target="hidden-iframe">
+			        	<iframe class="mail-iframe" name="hidden-iframe"></iframe>
+			        	<span class="material-icons">alternate_email</span>
+			    	</a>
+				</div>
 				<div id="description-container">
-					<!--<span id="description-title">{{data[i].title}}</span>-->
 					{% for i in range(data.length) %}
+					<span id="description-title-{{i}}" class="tacticpage-example-title hide">{{data[i].title}}</span>
 					<div id="tacticpage-example-text-{{i}}" class="tacticpage-example-description hide">{{data[i].ex_description}}</div>
 					<div id="tacticpage-example-link-{{i}}" class="tacticpage-example-link hide">Read More: 
 						<a href={{data[i].link}}>{{data[i].title}}</a>

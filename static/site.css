@@ -39,7 +39,7 @@ a, u {
   }
 }
 
-@media only screen and (max-device-width: 1366px) {
+@media all and (max-device-width: 1366px) {
   .hero-image {
     background-attachment: scroll;
   }
@@ -50,7 +50,7 @@ a, u {
   align-items: center;
 }
 
-@media only screen and (min-width: 450px) {
+@media all and (min-width: 450px) {
 #tactic-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -76,7 +76,7 @@ a, u {
   outline: none;
 }
 
-@media only screen and  (min-width: 450px) {
+@media all and  (min-width: 450px) {
   #categories-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -102,7 +102,7 @@ a, u {
   outline: none;
 }
 
-@media only screen and  (min-width: 450px) {
+@media all and  (min-width: 450px) {
   #dataset-dropdown-button {
     position: absolute;
     right: 90% !important;
@@ -257,7 +257,7 @@ a, u {
   animation: spin 1s linear infinite;
 }
 
-@media only screen and (min-width: 1250px) {
+@media all and (min-width: 1250px) {
   .loader {
     left: 46.5%;
   }
@@ -267,7 +267,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 1050px) and (max-width: 1249px){
+@media all and (min-width: 1050px) and (max-width: 1249px){
   .loader {
     left: 45.5%;
   }
@@ -277,7 +277,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 950px) and (max-width: 1050px){
+@media all and (min-width: 950px) and (max-width: 1050px){
   .loader {
     left: 45%;
   }
@@ -287,7 +287,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 750px) and (max-width: 949px){
+@media all and (min-width: 750px) and (max-width: 949px){
   .loader {
     left: 44%;
   }
@@ -297,7 +297,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 650px) and (max-width: 749px){
+@media all and (min-width: 650px) and (max-width: 749px){
   .loader {
     left: 43%;
   }
@@ -307,7 +307,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 550px) and (max-width: 649px){
+@media all and (min-width: 550px) and (max-width: 649px){
   .loader {
     left: 42%;
   }
@@ -317,7 +317,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 450px) and (max-width: 549px){
+@media all and (min-width: 450px) and (max-width: 549px){
   .loader {
     left: 41%;
   }
@@ -327,7 +327,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 350px) and (max-width: 449px){
+@media all and (min-width: 350px) and (max-width: 449px){
   .loader {
     left: 38%;
   }
@@ -337,7 +337,7 @@ a, u {
   }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 349px){
+@media all and (min-width: 0px) and (max-width: 349px){
   .loader {
     left: 36%;
   }
@@ -824,7 +824,7 @@ textarea:focus, #tactic-category-search:focus {
   cursor: pointer;
 }
 
-@media screen and (min-width: 800px) {
+@media all and (min-width: 800px) {
   .tactic-block:hover {
     background-size: 0 0;
     background-color: #fbfbfb;
@@ -1040,13 +1040,13 @@ textarea:focus, #tactic-category-search:focus {
   font-size: 48px;
 }
 
-@media screen and (min-width: 800px) {
+@media all and (min-width: 800px) {
   .tactic-block:hover .tactic-text {
      color: #033165;
   }
 }
 
-@media screen and (min-width: 400px) {
+@media all and (min-width: 400px) {
   .tactic-block {
     background-repeat: no-repeat;
     background-position: center; 
@@ -1062,7 +1062,7 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-@media screen and (min-width: 800px) {
+@media all and (min-width: 800px) {
   .tactic-block {
     background-repeat: no-repeat;
     background-position: center; 
@@ -1078,7 +1078,7 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media all and (min-width: 1000px) {
   .tactic-block {
     background-repeat: no-repeat;
     background-position: center; 
@@ -1258,6 +1258,12 @@ textarea:focus, #tactic-category-search:focus {
     margin-bottom: 20px;
   }
 
+  #tactic-bottom {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
   #tacticpage-variables {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -1406,6 +1412,12 @@ textarea:focus, #tactic-category-search:focus {
     position: relative;
   }
 
+  #tactic-bottom {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
   #tacticpage-variables {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -1550,6 +1562,12 @@ textarea:focus, #tactic-category-search:focus {
     position: relative;
   }
 
+  #tactic-bottom {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
   #tacticpage-variables {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -1607,109 +1625,151 @@ textarea:focus, #tactic-category-search:focus {
   }
 }
 
-#tactic-header {
-  height: 900px;
-  width: 100%;
-  display: block;
-}
+/*@media all and (min-width: 0px) and (max-width: 714px){*/
+  #tactic-header {
+    height: 900px;
+    width: 100%;
+    display: block;
+  }
 
-#tacticinfo-container {
-  background-color: #033165;
-  width: 100%;
-  position: relative;
-  display: block;
-  height: 400px;
-}
+  #tacticinfo-container {
+    background-color: #033165;
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 400px;
+  }
 
-#tacticpage-pic-container {
-  background-size: cover;
-  display: block;
-  width: 100%;
-  height: 500px;
-  position: relative;
-}
+  #tacticpage-pic-container {
+    background-size: cover;
+    display: block;
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
 
-#tacticinfo-sub-container {
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
+  #tacticinfo-sub-container {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-#tacticpage-name {
-  position: relative;
-  margin-left: 0px;
-  margin-right: 0px;
-  font-size: 2em;
-  font-weight: bold;
-}
+  #tacticpage-name {
+    position: relative;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 2em;
+    font-weight: bold;
+  }
 
-#tacticpage-description {
-  font-size: 1em;
-  margin-top: 25px;
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-bottom: 25px;
-  text-align: center;
-  position: relative;
-}
+  #tacticpage-description {
+    font-size: 1em;
+    margin-top: 25px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+  }
 
-.tacticheader-text {
-  color: #fbfbfb;
-  font-family: 'Arvo';
-}
+  .tacticheader-text {
+    color: #fbfbfb;
+    font-family: 'Arvo';
+  }
 
-#tacticpage-down-arrow {
-  display: none;
-}
+  #tacticpage-down-arrow {
+    display: none;
+  }
 
-.tacticpage-example-description {
-  position: relative;
-  font-family: 'Arvo';
-  font-size: 1em;
-  line-height: 1.6;
-  margin-top: 20px;
-}
+  .tacticpage-example-description {
+    position: relative;
+    font-family: 'Arvo';
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
 
-.tacticpage-example-title {
-  font-family: 'Arvo';
-  font-size: 1em;
-  font-weight: 1000;
-  margin-top: 20px;
-}
+  .tacticpage-example-title {
+    font-family: 'Arvo';
+    font-size: 1em;
+    font-weight: 1000;
+    margin-top: 20px;
+  }
 
-#description-container {
-  width: 75%;
-  margin: 25px auto 50px auto;
-  position: relative;
-}
+  #description-container {
+    width: 75%;
+    margin: 25px auto 50px auto;
+    position: relative;
+  }
 
-.category-list-tacticpage {
-  font-size: 1.5em;
-  margin-top: 10px;
-  color: #033165;
-}
+  #tactic-bottom {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
 
-#category-container {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
+  #tacticpage-variables {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: block;
+    width: 100%;
+  }
 
-#coercive-persuasive {
-  color: #033165;
-  font-size: 2em;
-  font-weight: bold;
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-}
+  #tacticpage-categories {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  #tacticpage-characteristics {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin-top: 25px !important;
+  }
+
+  .category-list-tacticpage {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #033165;
+  }
+
+  #category-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #coercive-persuasive {
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #sharp-container {
+    margin-top: 25px;
+    color: #033165;
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 0px;
+    position: relative;
+    text-align: center;
+  }
+
+  #sharp-number {
+    font-size: 1em;
+    font-weight: normal;
+  }
 
 #tacticpagesub-logo-img {
   max-width: 200px;
@@ -1812,26 +1872,6 @@ textarea:focus, #tactic-category-search:focus {
   color: #033165;
 }
 
-#tacticpage-variables {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: block;
-  width: 100%;
-}
-
-#tacticpage-categories {
-  display: block;
-  width: 100%;
-  position: relative;
-}
-
-#tacticpage-characteristics {
-  display: block;
-  width: 100%;
-  position: relative;
-  margin-top: 25px !important;
-}
-
 #tacticpage-scroll-header {
   position: fixed;
   top: 0px;
@@ -1848,31 +1888,10 @@ textarea:focus, #tactic-category-search:focus {
   z-index: -1;
 }
 
-#sharp-container {
-  margin-top: 25px;
-  color: #033165;
-  font-size: 2em;
-  font-weight: bold;
-  margin-left: 0px;
-  position: relative;
-  text-align: center;
-}
-
-#sharp-number {
-  font-size: 1em;
-  font-weight: normal;
-}
-
 #tacticpage-categories-header {
   color: #033165;
   font-size: 2em;
   font-weight: bold;
-}
-
-#tactic-bottom {
-  height: 100%;
-  width: 100%;
-  position: relative;
 }
 
 .example-pointer {

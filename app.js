@@ -145,7 +145,7 @@ app.get('/tactics/:tactic', function(req, res){
 			logger.error("Error: " + err);
 		}else{
 			if(result != null){
-				res.render(__dirname + '/templates/tactic_page.html', {data: result, link: "/tactics/"+encodeURIComponent(req.params.tactic)});
+				res.render(__dirname + '/templates/tactic_page.html', {data: result});
 			}else{
 				res.render(__dirname + '/templates/tactic_page_not_found.html');
 			}

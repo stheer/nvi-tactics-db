@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	document.getElementById("fb-share").setAttribute('data-href', window.location.href);
 	console.log(window.location.href);
 	document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
+	//document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u=https://www.tacticstest.nonviolenceinternational.net/&amp;src=sdkpreparse";
 	window.onresize = categoryDisplay;
 });
 

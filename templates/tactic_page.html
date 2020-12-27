@@ -21,7 +21,7 @@
 	    	pic = "{{data[0].picture}}";
 	    	sharpNum = "{{data[0].gene_sharp_num}}";
 	    	num_examples = "{{data.length}}";
-	    	link = "{{link}}";
+	    	tactic = "{{data[0].name}}";
 	    </script>
 	</head>
 
@@ -60,7 +60,7 @@
 				<div id="social-media-header">
 					<div class="fb-share-button" data-layout="button" data-size="small"><a target="_blank"class="fb-xfbml-parse-ignore">Share</a></div>
 			        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this tactic of nonviolent resistance from Nonviolence International" data-url="https://www.tacticstest.nonviolenceinternational.net/" data-via="NVIntl" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			        <a class="mail-share-button" href="mailto:?subject=Nonviolence International Tactic of Resistance&amp;body=Check out this tactic of nonviolent resistance from Nonviolence International https://www.tacticstest.nonviolenceinternational.net/" title="Share by Email" target="hidden-iframe">
+			        <a class="mail-share-button" href="mailto:?subject=Nonviolence International Tactic of Resistance&amp;body=Check out this tactic of nonviolent resistance from Nonviolence International \n https://www.tacticstest.nonviolenceinternational.net/" title="Share by Email" target="hidden-iframe">
 			        	<iframe class="mail-iframe" name="hidden-iframe"></iframe>
 			        	<span class="material-icons">alternate_email</span>
 			    	</a>
@@ -70,9 +70,9 @@
 			<div id="tactic-bottom">
 				<div id="description-container">
 					<div id="social-media-bottom">
-						<div id="fb-share" data-href="https://www.tacticstest.nonviolenceinternational.net/" class="fb-share-button" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Ftactics%2FMarches&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+						<div id="fb-share" class="fb-share-button" data-layout="button" data-size="small"><a target="_blank" class="fb-xfbml-parse-ignore">Share</a></div>
 				        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this tactic of nonviolent resistance from Nonviolence International" data-url="https://www.tacticstest.nonviolenceinternational.net/" data-via="NVIntl" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-				        <a class="mail-share-button" href="mailto:?subject=Nonviolence International Tactic of Resistance&amp;body=Check out this tactic of nonviolent resistance from Nonviolence International https://www.tacticstest.nonviolenceinternational.net/" title="Share by Email" target="hidden-iframe">
+				        <a id="mail-share" class="mail-share-button" title="Share by Email" target="hidden-iframe">
 				        	<iframe class="mail-iframe" name="hidden-iframe"></iframe>
 				        	<span class="material-icons">alternate_email</span>
 				    	</a>

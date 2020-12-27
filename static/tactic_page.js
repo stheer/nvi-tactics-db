@@ -1,6 +1,7 @@
 var pic;
 var sharpNum;
 var currentTacticDes = 0;
+var tactic;
 const colorThief = new ColorThief();
 
 if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
@@ -69,9 +70,17 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	}
 
 	document.getElementById("fb-share").setAttribute('data-href', window.location.href);
-	console.log(window.location.href);
 	document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
-	//document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u=https://www.tacticstest.nonviolenceinternational.net/&amp;src=sdkpreparse";
+	document.getElementById("mail-share").href = "mailto:?subject=Nonviolence International Tactic of Resistance&body=Check out this tactic of nonviolent resistance from Nonviolence International: "+tactic+" - "+encodeURIComponent(window.location.href);
+	document.getElementById("twitter-share").setAttribute('data-url', window.location.href);
+	document.getElementById("twitter-share").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
+
+	document.getElementById("fb-share-header").setAttribute('data-href', window.location.href);
+	document.getElementById("fb-share-header").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
+	document.getElementById("mail-share-header").href = "mailto:?subject=Nonviolence International Tactic of Resistance&body=Check out this tactic of nonviolent resistance from Nonviolence International: "+tactic+" - "+encodeURIComponent(window.location.href);
+	document.getElementById("twitter-share-header").setAttribute('data-url', window.location.href);
+	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
+
 	window.onresize = categoryDisplay;
 });
 

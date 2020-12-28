@@ -26,7 +26,7 @@ const hostname = '0.0.0.0';
 //const hostname = '127.0.0.1';
 //const port = 3000;
 const port = 8000;
-__dirname = '/home/dh_b9ujea/tacticstest.nonviolenceinternational.net'; //tactics-deployed address
+__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
 //__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net'; //tactics-test address
 //__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; 
 

@@ -32,14 +32,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	  });
 	}
 
-	//add next-tactic button over tactic image
-	/*var span = document.createElement("span");
-	span.setAttribute("class", "tacticpage-exit material-icons");
-	span.setAttribute("id", "next-tacticpage");
-	span.innerHTML = "keyboard_arrow_right";
-
-	tacticPictureDiv.appendChild(span);*/
-
 	if(sharpNum != ""){
 		document.getElementById("sharp-container").insertAdjacentHTML("afterbegin", "Sharp Tactic ID: ");
 	}
@@ -59,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	}
 
 	var categories = document.getElementsByClassName("category-list-tacticpage");
-	if(window.innerWidth > 1000){
+	if(window.innerWidth >= 1000){
 		for(var i = 0; i < categories.length; i++){
 			categories[i].style.marginLeft = ((i+1)*30)+"px";
 		}
@@ -69,6 +61,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
 	}
 
+	//add next tactic button to page - location of button dependent on width of screen
+	var next = document.createElement("span");
+	next.id = "next-tacticpage";
+	next.className = "tacticpage-exit material-icons";
+	next.innerHTML = "keyboard_arrow_right";
+	if(window.innerWidth >= 1000){
+		document.getElementById("tacticpage-pic-container").appendChild(next);
+	}else{
+		document.getElementById("tacticinfo-container").appendChild(next);
+	}
+
+	//Update sharing links to add specific tactic page attributes
 	document.getElementById("fb-share").setAttribute('data-href', window.location.href);
 	document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
 	document.getElementById("mail-share").href = "mailto:?subject=Nonviolence International Tactic of Resistance&body=Check out this tactic of nonviolent resistance from Nonviolence International: "+tactic+" - "+encodeURIComponent(window.location.href);
@@ -81,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	document.getElementById("twitter-share-header").setAttribute('data-url', window.location.href);
 	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
 
-	window.onresize = categoryDisplay;
+	window.onresize = resizeAdjustments;
 });
 
 document.getElementById("prev-tactic-example").addEventListener("click", function(){
@@ -95,7 +99,7 @@ document.getElementById("next-tactic-example").addEventListener("click", functio
 });
 
 document.getElementById("tacticpage-down-arrow").addEventListener("click", () => window.scrollTo({
-  top: 500,
+  top: 700,
   behavior: 'smooth',
 }));
 
@@ -157,9 +161,10 @@ function changeInfoColor(img){
 	}
 }
 
-function categoryDisplay(){
+function resizeAdjustments(){
+	//Change category list layout for smaller screen - vertical stack instead of indented list
 	var categories = document.getElementsByClassName("category-list-tacticpage");
-	if(window.innerWidth > 1000){
+	if(window.innerWidth >= 1000){
 		for(var i = 0; i < categories.length; i++){
 			categories[i].style.marginLeft = ((i+1)*30)+"px";
 		}
@@ -168,6 +173,18 @@ function categoryDisplay(){
 			categories[i].style.marginLeft = "auto";
 		}
 	}
+
+	//Update location of next-tactic button to header and not picture div
+	/*if(window.innerWidth >= 1000){
+		for(var i = 0; i < categories.length; i++){
+			categories[i].style.marginLeft = ((i+1)*30)+"px";
+		}
+	}else{
+	    for(var i = 0; i < categories.length; i++){
+			categories[i].style.marginLeft = "auto";
+		}
+	}*/
+
 }
 
 function loadPage(){
@@ -221,20 +238,38 @@ document.body.addEventListener("mousemove", function(e) {
     var next = document.getElementById("next-tacticpage");
     var width = window.innerWidth;
     var ratio = e.pageX/width;
-    if(ratio < .08 && (e.pageY > 230 && e.pageY < 365)) {
-    	prev.style.visibility = "visible";
-    	prev.style.opacity = "100";
-    }else{
-    	prev.style.visibility = "hidden";
-    	prev.style.opacity = "0";
-    }
+    if(width >= 1000){
+	    if(ratio < .08 && (e.pageY > 230 && e.pageY < 365)) {
+	    	prev.style.visibility = "visible";
+	    	prev.style.opacity = "100";
+	    }else{
+	    	prev.style.visibility = "hidden";
+	    	prev.style.opacity = "0";
+	    }
 
-    if(ratio > .92 && (e.pageY > 230 && e.pageY < 365)) {
-    	next.style.visibility = "visible";
-    	next.style.opacity = "100";
-    }else{
-    	next.style.visibility = "hidden";
-    	next.style.opacity = "0";
-    }
+	    if(ratio > .92 && (e.pageY > 230 && e.pageY < 365)) {
+	    	next.style.visibility = "visible";
+	    	next.style.opacity = "100";
+	    }else{
+	    	next.style.visibility = "hidden";
+	    	next.style.opacity = "0";
+	    }
+	}else{
+		if(ratio < .12 && (e.pageY > 65 && e.pageY < 200)) {
+	    	prev.style.visibility = "visible";
+	    	prev.style.opacity = "100";
+	    }else{
+	    	prev.style.visibility = "hidden";
+	    	prev.style.opacity = "0";
+	    }
+
+	    if(ratio > .88 && (e.pageY > 65 && e.pageY < 200)) {
+	    	next.style.visibility = "visible";
+	    	next.style.opacity = "100";
+	    }else{
+	    	next.style.visibility = "hidden";
+	    	next.style.opacity = "0";
+	    }
+	}
 });
 

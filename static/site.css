@@ -408,14 +408,14 @@ textarea:focus, #tactic-category-search:focus {
   position: relative;
   height: 0;
   background-color: #fbfbfb;
-  transition: all .4s ease-in-out;
+  /*transition: all .4s ease-in-out;*/
 }
 
 #categories-dropdown {
   position: relative;
   height: 0;
   background-color: #fbfbfb;
-  transition: all .4s ease-in-out;
+  /*transition: all .4s ease-in-out;*/
   z-index: -1;
 }
 
@@ -423,7 +423,7 @@ textarea:focus, #tactic-category-search:focus {
   position: relative;
   height: 0;
   background-color: #fbfbfb;
-  transition: all .4s ease-in-out;
+  /*transition: all .4s ease-in-out;*/
   z-index: -1;
 }
 
@@ -445,7 +445,7 @@ textarea:focus, #tactic-category-search:focus {
 
 #tactic-filter {
   position: relative;
-  transition: all .4s ease-in-out;
+  /*transition: all .4s ease-in-out;*/
   background-color: #fbfbfb;
 }
 
@@ -477,14 +477,15 @@ textarea:focus, #tactic-category-search:focus {
 }
 
 .social-media{
-  margin-top: 90px;
-  position: absolute;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
   margin-right: 1% !important;
   text-align: center;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: 0;
+  margin-bottom: 10px;
 }
 
 @media all and (min-width: 1250px) {
@@ -563,7 +564,6 @@ textarea:focus, #tactic-category-search:focus {
   margin-right: 10px;
   width: 20px;
   height: 20px;
-  transition: all .4s ease-in-out;
 }
 
 #twitter-link{
@@ -572,7 +572,6 @@ textarea:focus, #tactic-category-search:focus {
   margin-right: 10px;
   width: 20px;
   height: 20px;
-  transition: all .4s ease-in-out;
 }
 
 #youtube-link{
@@ -581,7 +580,6 @@ textarea:focus, #tactic-category-search:focus {
   margin-right: 10px;
   width: 30px;
   height: 20px;
-  transition: all .4s ease-in-out;
 }
 
 #sub-logo-img {
@@ -682,6 +680,9 @@ textarea:focus, #tactic-category-search:focus {
     left: 50%;
   }
 }*/
+#social-media-container-tactics {
+  margin-top: 15px;
+}
 
 @media all and (min-width: 950px){
   .tactics-buttons { flex: 1 auto; }
@@ -1105,7 +1106,7 @@ textarea:focus, #tactic-category-search:focus {
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  transition: font-weight .4s ease;
+  transition: font-weight color .6s ease;
 }
 
 #tactic-notfound-header {
@@ -1230,7 +1231,7 @@ textarea:focus, #tactic-category-search:focus {
     transform: translateX(-50%);
     color: #fbfbfb;
     cursor: pointer;
-    transition: all .4s ease;
+    transition: background-color .4s ease;
   }
 
   #tacticpage-down-arrow:hover {
@@ -1490,7 +1491,7 @@ textarea:focus, #tactic-category-search:focus {
 }
 
 /*@media all and (min-width: 715px) {*/
-@media all and (min-width: 715px) and (max-width: 999px){
+@media all and (min-width: 750px) and (max-width: 999px){
   #tactic-header {
     height: 100%;
     width: 100%;
@@ -1900,7 +1901,7 @@ textarea:focus, #tactic-category-search:focus {
 }
 
 .tacticpage-exit {
-  transition: all .4s ease-in-out;
+  transition: background-color .4s ease-in-out;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
@@ -1955,7 +1956,7 @@ textarea:focus, #tactic-category-search:focus {
   outline: none;
   font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
+  transition: background-color 0.6s ease;
   user-select: none;
 }
 
@@ -2089,6 +2090,13 @@ a {
   text-align: center;
   margin-left: 25px;
   margin-right: 25px;
+  text-shadow: none;
+  transition: color text-shadow 0.6s ease;
+}
+
+.download-icon:hover {
+  color: #033165;
+  text-shadow: 1px 1px #f5c71a;
 }
 
 .download-image {
@@ -2101,16 +2109,6 @@ a {
 .download-text {
   margin: 0 auto;
   display: block;
-}
-
-#download-dataset:hover {
-  color: #033165;
-  text-shadow: 1px 1px #f5c71a;
-}
-
-#download-table:hover {
-  color: #033165;
-  text-shadow: 1px 1px #f5c71a;
 }
 
 #table-context-para {

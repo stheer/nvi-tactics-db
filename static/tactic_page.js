@@ -61,6 +61,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
 	}
 
+	//Do not show next/previous tactic buttons if page width is less than 750px
+	if(window.innerWidth < 750){
+		document.getElementById("prev-tacticpage").style.display = "none";
+		document.getElementById("next-tacticpage").style.display = "none";
+	}
+
 	//add next tactic button to page - location of button dependent on width of screen
 	var next = document.createElement("span");
 	next.id = "next-tacticpage";
@@ -85,7 +91,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	document.getElementById("twitter-share-header").setAttribute('data-url', window.location.href);
 	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
 
-	window.onresize = resizeAdjustments;
+	window.onresize = resizeCategories;
+	window.onresize = resizeTacticSelectors;
 });
 
 document.getElementById("prev-tactic-example").addEventListener("click", function(){
@@ -98,10 +105,14 @@ document.getElementById("next-tactic-example").addEventListener("click", functio
 	showTacticDescription(currentTacticDes);
 });
 
-document.getElementById("tacticpage-down-arrow").addEventListener("click", () => window.scrollTo({
+/*document.getElementById("tacticpage-down-arrow").addEventListener("click", () => window.scrollTo({
   top: 700,
   behavior: 'smooth',
-}));
+}));*/
+
+document.getElementById("tacticpage-down-arrow").addEventListener("click", function(){
+	SmoothVerticalScrolling(this, 300, "center");
+});	
 
 document.getElementById("tacticpage-back-top").addEventListener("click", function(){
 	if(document.referrer.includes('/categories')){
@@ -118,21 +129,6 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 		window.location.href = "/tactics";
 	}
 });
-
-/*document.onscroll = function(){ 
-	var pos = document.body.parentNode.scrollTop;
-	tacticpageHeader = document.getElementById("tacticpage-scroll-header");
-	if(pos > 637){
-		if(header == true){
-			unfade(tacticpageHeader);
-			header = false;
-		}
-	}else{
-		if(header == false){
-			fade(tacticpageHeader);
-		}
-	}
-};*/
 
 //change background of header to random color in image palette
 function changeInfoColor(img){
@@ -161,7 +157,7 @@ function changeInfoColor(img){
 	}
 }
 
-function resizeAdjustments(){
+function resizeCategories(){
 	//Change category list layout for smaller screen - vertical stack instead of indented list
 	var categories = document.getElementsByClassName("category-list-tacticpage");
 	if(window.innerWidth >= 1000){
@@ -173,18 +169,34 @@ function resizeAdjustments(){
 			categories[i].style.marginLeft = "auto";
 		}
 	}
+}
 
+function resizeTacticSelectors(){
 	//Update location of next-tactic button to header and not picture div
-	/*if(window.innerWidth >= 1000){
-		for(var i = 0; i < categories.length; i++){
-			categories[i].style.marginLeft = ((i+1)*30)+"px";
+	var next = document.getElementById("next-tacticpage");
+	var prev = document.getElementById("prev-tacticpage");
+	if(window.innerWidth >= 750){
+		next.style.display = "inline-block";
+		prev.style.display = "inline-block";
+		if(window.innerWidth >= 1000){
+			var bool = document.getElementById("tacticinfo-container").contains(next);
+			console.log(bool);
+			if(bool){
+				document.getElementById("tacticinfo-container").removeChild(next);
+			}
+			document.getElementById("tacticpage-pic-container").appendChild(next);
+		}else{
+			var bool = document.getElementById("tacticpage-pic-container").contains(next);
+			console.log(bool);
+			if(bool){
+				document.getElementById("tacticpage-pic-container").removeChild(next);
+			}
+		    document.getElementById("tacticinfo-container").appendChild(next);
 		}
 	}else{
-	    for(var i = 0; i < categories.length; i++){
-			categories[i].style.marginLeft = "auto";
-		}
-	}*/
-
+		next.style.display = "none";
+		prev.style.display = "none";
+	}
 }
 
 function loadPage(){
@@ -218,6 +230,24 @@ function showTacticDescription(n) {
 	dots[currentTacticDes].className += " active-dot";
 }
 
+function SmoothVerticalScrolling(e, time, where) {
+    var eTop = e.getBoundingClientRect().top;
+    console.log(eTop);
+    var eAmt = ((eTop + 200)/ 100);
+    var curTime = 0;
+    while (curTime <= time) {
+        window.setTimeout(SVS_B, curTime, eAmt, where);
+        curTime += time / 100;
+    }
+}
+
+function SVS_B(eAmt, where) {
+    if(where == "center"){
+    	eAmt = eAmt;
+        window.scrollBy(0, eAmt);
+    }
+}
+
 window.addEventListener("scroll", () => {
 	var checkpoint = 675;
 	var endOfTop = 637;
@@ -238,38 +268,40 @@ document.body.addEventListener("mousemove", function(e) {
     var next = document.getElementById("next-tacticpage");
     var width = window.innerWidth;
     var ratio = e.pageX/width;
-    if(width >= 1000){
-	    if(ratio < .08 && (e.pageY > 230 && e.pageY < 365)) {
-	    	prev.style.visibility = "visible";
-	    	prev.style.opacity = "100";
-	    }else{
-	    	prev.style.visibility = "hidden";
-	    	prev.style.opacity = "0";
-	    }
+    if(width >= 750){
+	    if(width >= 1000){
+		    if(ratio < .08 && (e.pageY > 230 && e.pageY < 365)) {
+		    	prev.style.visibility = "visible";
+		    	prev.style.opacity = "100";
+		    }else{
+		    	prev.style.visibility = "hidden";
+		    	prev.style.opacity = "0";
+		    }
 
-	    if(ratio > .92 && (e.pageY > 230 && e.pageY < 365)) {
-	    	next.style.visibility = "visible";
-	    	next.style.opacity = "100";
-	    }else{
-	    	next.style.visibility = "hidden";
-	    	next.style.opacity = "0";
-	    }
-	}else{
-		if(ratio < .12 && (e.pageY > 65 && e.pageY < 200)) {
-	    	prev.style.visibility = "visible";
-	    	prev.style.opacity = "100";
-	    }else{
-	    	prev.style.visibility = "hidden";
-	    	prev.style.opacity = "0";
-	    }
+		    if(ratio > .92 && (e.pageY > 230 && e.pageY < 365)) {
+		    	next.style.visibility = "visible";
+		    	next.style.opacity = "100";
+		    }else{
+		    	next.style.visibility = "hidden";
+		    	next.style.opacity = "0";
+		    }
+		}else{
+			if(ratio < .12 && (e.pageY > 65 && e.pageY < 200)) {
+		    	prev.style.visibility = "visible";
+		    	prev.style.opacity = "100";
+		    }else{
+		    	prev.style.visibility = "hidden";
+		    	prev.style.opacity = "0";
+		    }
 
-	    if(ratio > .88 && (e.pageY > 65 && e.pageY < 200)) {
-	    	next.style.visibility = "visible";
-	    	next.style.opacity = "100";
-	    }else{
-	    	next.style.visibility = "hidden";
-	    	next.style.opacity = "0";
-	    }
+		    if(ratio > .88 && (e.pageY > 65 && e.pageY < 200)) {
+		    	next.style.visibility = "visible";
+		    	next.style.opacity = "100";
+		    }else{
+		    	next.style.visibility = "hidden";
+		    	next.style.opacity = "0";
+		    }
+		}
 	}
 });
 

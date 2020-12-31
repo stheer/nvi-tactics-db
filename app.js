@@ -244,15 +244,15 @@ function syncFromDive(){
         jwt.authorize((err, response) => {
             if (err) logger.error("Error: " + err);
             if (response) callback(jwt);
-        })
+        });
     }
 
     function downloadPictures(jwt){
     	const drive = google.drive({version: 'v3', 
     		auth: jwt,
     		params: {
-			    key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ' //tactic_test key
-			    //key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0' //tactic_deployed key
+			    //key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ' //tactic_test key
+			    key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0' //tactic_deployed key
 			}});
     	drive.files.list({
     		auth: jwt,

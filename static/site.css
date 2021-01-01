@@ -158,6 +158,20 @@ a, u {
   outline: none;
 }
 
+.tactic-scroll {
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: #033165;
+  cursor: pointer;
+  transition: background-color .6s ease;
+}
+
+.tactic-scroll:hover{
+  background-color: #b5d6fd;
+}
+
 #tactic-search-button {
   position: absolute;
   left: 94%;
@@ -488,7 +502,7 @@ textarea:focus, #tactic-category-search:focus {
   margin-bottom: 10px;
 }
 
-@media all and (min-width: 1250px) {
+/*@media all and (min-width: 1250px) {
   #social-media-container-tactics {
     left: 48.5%;
   }
@@ -543,19 +557,18 @@ textarea:focus, #tactic-category-search:focus {
     left: 47.75%;
   }
 }
+*/
 
-@media all and (min-width: 0px) and (max-width: 949px){
-  #social-media-container-tactics {
-    left: 50%;
-  }
+#social-media-container-tactics {
+  left: 50%;
+}
 
-  #social-media-container-category {
-    left: 50%;
-  }
+#social-media-container-category {
+  left: 50%;
+}
 
-  #social-media-container-downloads {
-    left: 50%;
-  }
+#social-media-container-downloads {
+  left: 50%;
 }
 
 #facebook-link{
@@ -636,7 +649,7 @@ textarea:focus, #tactic-category-search:focus {
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin-left: 2.5%;
+  /*margin-left: 2.5%;*/
 }
 
 /*@media all and (min-width: 1250px) {
@@ -2466,6 +2479,7 @@ strong {
   margin-top: 15px;
   width: 100%;
   text-align: center;
+  margin-left: 1.25%;
 }
 
 .category-choose-button {
@@ -2510,8 +2524,8 @@ strong {
   display: block;
   vertical-align: top;
   padding: 15px;
-  padding-left: 6%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 8%;
   color: #033165;
 }
 

@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var logo = document.getElementById("sub-logo-img");
 
   //box categories navbar button if current page is categories
-  if (window.location.href.indexOf("downloadables") > -1){
+  if (window.location.href.indexOf("downloads") > -1){
     dataLink.setAttribute("style", "border: 2px solid");
   }
 
@@ -191,7 +191,7 @@ document.getElementById("categories-link").addEventListener("click", function(){
 
 
 document.getElementById("dataset-link").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 
@@ -211,7 +211,7 @@ document.getElementById("categories-link-dropdown").addEventListener("click", fu
 
 
 document.getElementById("dataset-link-dropdown").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 

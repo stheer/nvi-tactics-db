@@ -878,7 +878,7 @@ document.getElementById("categories-dropdown-button").addEventListener("click", 
 
 
 document.getElementById("dataset-link").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 
@@ -898,7 +898,7 @@ document.getElementById("categories-link-dropdown").addEventListener("click", fu
 
 
 document.getElementById("dataset-link-dropdown").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 

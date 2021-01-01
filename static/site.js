@@ -39,7 +39,7 @@ document.getElementById("categories-link").addEventListener("click", function(){
 
 
 document.getElementById("dataset-link").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 

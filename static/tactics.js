@@ -7,6 +7,7 @@ var qsRegex;
 var quickSearch;
 var buttonFilter = "";
 var tacticOrdering = [];
+var numberOfDisplayedTactics = 20;
 
 
 /***************************REACT FUNCTIONS**********************************/
@@ -15,10 +16,12 @@ class TacticBlock extends React.Component {
   render() {
     var categoryString = "";
     const tactic = this.props.tactic;
+    //const displayed = this.props.displayed;
+    const number = this.props.number;
     tactic.categories.split("; ").forEach((category) => {
       categoryString = categoryString + " " + category.replace(/\/|\s|\,|\'|\;|\-/g, '');
     });
-    return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: "tactic-block" + categoryString, onClick: tacticClick,
+    return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
       style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 
       React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
   }
@@ -34,14 +37,14 @@ class TacticsTable extends React.Component {
 
   render() {
     const tacticBoxes = [];
-    this.props.tactics.forEach((tactic) => {
-      tacticBoxes.push(React.createElement(TacticBlock, {tactic: tactic, key: tactic.tactic_id}, null))
+    //const displayed = this.props.displayed;
+    //var tacticsToDisplay;
+    this.props.tactics.forEach((tactic, i) => {
+      tacticBoxes.push(React.createElement(TacticBlock, {tactic: tactic, key: tactic.tactic_id, number: i}, null))
     });
+    //tacticsToDisplay = tacticBoxes.splice(displayed - numberOfDisplayedTactics, displayed);
+    //return React.createElement("div", {id: "tactics-container"}, tacticsToDisplay);
     return React.createElement("div", {id: "tactics-container"}, tacticBoxes);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return false;
   }
 
   componentDidMount() {
@@ -63,6 +66,43 @@ class TacticsTable extends React.Component {
         document.getElementById("tactic-dropdown").style.display = "block";
       }
     }
+  }
+
+}
+
+
+class TacticsContainer extends React.Component {
+  
+  /*constructor(props) {
+    super(props);
+    this.state = {
+      displayed: numberOfDisplayedTactics,
+    };
+  }
+
+  handleUpArrowClick() {
+    const displayed = this.state.displayed;
+    this.setState({displayed: displayed - numberOfDisplayedTactics});
+  }
+
+  handleDownArrowClick() {
+    console.log("hey");
+    const displayed = this.state.displayed;
+    this.setState({displayed: displayed + numberOfDisplayedTactics});
+  }*/
+
+  render() {
+    const tacticContainer = [];
+    tacticContainer.push(React.createElement(TacticsTable, {key: 1, tactics: this.props.tactics}, null));
+    //tacticContainer.push(React.createElement(TacticsTable, {key: 1, tactics: this.props.tactics, displayed: this.state.displayed}, null));
+    /*return React.createElement("div", {id: "tactics-all"}, tacticContainer,
+      React.createElement("div", {id: "more-tactics-below"}, 
+      React.createElement("span", {id: "more-tactics-below-button", className: "tactic-scroll material-icons md-48", onClick: this.handleDownArrowClick.bind(this)}, "keyboard_arrow_down")));*/
+    return React.createElement("div", {id: "tactics-all"}, tacticContainer);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
   }
 
 }
@@ -301,7 +341,7 @@ function loadTacticsBoxes(data){
   });
 
 	ReactDOM.render(
-    	React.createElement(TacticsTable, {tactics: TACTICS}, null), document.getElementById("container")
+    	React.createElement(TacticsContainer, {tactics: TACTICS}, null), document.getElementById("container")
   );
 
   //load category filters
@@ -518,7 +558,7 @@ document.getElementById("categories-link").addEventListener("click", function(){
 
 
 document.getElementById("dataset-link").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 
@@ -538,7 +578,7 @@ document.getElementById("categories-link-dropdown").addEventListener("click", fu
 
 
 document.getElementById("dataset-link-dropdown").addEventListener("click", function(){
-  window.location.href="/downloadables";
+  window.location.href="/downloads";
 });
 
 

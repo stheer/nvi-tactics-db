@@ -123,3 +123,235 @@
 {"level":30,"time":1606952567511,"pid":60259,"hostname":"Scotts-MBP.lan","msg":"inflatables.jpg"}
 {"level":30,"time":1606952568792,"pid":60259,"hostname":"Scotts-MBP.lan","msg":"stickers_tn.jpg"}
 {"level":30,"time":1606952569575,"pid":60259,"hostname":"Scotts-MBP.lan","msg":"stickers.jpg"}
+{"level":50,"time":1607332152359,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1607332272236,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1607332362211,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608483416687,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1608483504272,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608483624273,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608630165374,"pid":6980,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1608719683947,"pid":9676,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609005009573,"pid":25462,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609016554894,"pid":26047,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609282331508,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609282332885,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282335860,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282337025,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282337028,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282338287,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282370499,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282372911,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282375187,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282375188,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282376803,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282378246,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282399448,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282408362,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282409889,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282409889,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282491777,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282491777,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282714936,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282723071,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":30,"time":1609377900842,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"groupormasspetitions_tn.jpg"}
+{"level":30,"time":1609377901727,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"groupormasspetitions.jpg"}
+{"level":30,"time":1609377902678,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"silence_tn.jpg"}
+{"level":30,"time":1609377903424,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"silence.jpg"}
+{"level":30,"time":1609377904182,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"destructionofpublicproperty_tn.jpg"}
+{"level":30,"time":1609377905059,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"destructionofpublicproperty.jpg"}
+{"level":30,"time":1609377905799,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"marriageinclusion_tn.jpg"}
+{"level":30,"time":1609377906594,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"marriageinclusion.jpg"}
+{"level":30,"time":1609377907477,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"coinhoarding_tn.jpg"}
+{"level":30,"time":1609377908220,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"coinhoarding.jpg"}
+{"level":30,"time":1609377908963,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"digitalgames_tn.jpg"}
+{"level":30,"time":1609377909616,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"digitalgames.jpg"}
+{"level":30,"time":1609377910636,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"relayhungerstrikes_tn.jpg"}
+{"level":30,"time":1609377911414,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"relayhungerstrikes.jpg"}
+{"level":30,"time":1609377912182,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"teachins_tn.jpg"}
+{"level":30,"time":1609377912948,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"teachins.jpg"}
+{"level":30,"time":1609377913806,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"nonviolentlyhijackingsocialmedia_tn.jpg"}
+{"level":30,"time":1609377914573,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"nonviolentlyhijackingsocialmedia.jpg"}
+{"level":30,"time":1609377915320,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"influencinginternetsearchengines_tn.jpg"}
+{"level":30,"time":1609377915958,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"influencinginternetsearchengines.jpg"}
+{"level":30,"time":1609377916875,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"forwardinginformationretweetingrepostingsharing_tn.jpg"}
+{"level":30,"time":1609377917547,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"forwardinginformationretweetingrepostingsharing.jpg"}
+{"level":30,"time":1609377918420,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"textmessagingemail_tn.jpg"}
+{"level":30,"time":1609377919187,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"textmessagingemail.jpg"}
+{"level":30,"time":1609377919908,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"socialmediachallenges_tn.jpg"}
+{"level":30,"time":1609377920713,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"socialmediachallenges.jpg"}
+{"level":30,"time":1609377921468,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mapsandmaptivism_tn.jpg"}
+{"level":30,"time":1609377922261,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mapsandmaptivism.jpg"}
+{"level":30,"time":1609377923164,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"walkouts_tn.jpg"}
+{"level":30,"time":1609377923916,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"walkouts.jpg"}
+{"level":30,"time":1609377924712,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mockawards_tn.jpg"}
+{"level":30,"time":1609377925639,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mockawards.jpg"}
+{"level":30,"time":1609377926386,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"hidingescapeandfalseidentities_tn.jpg"}
+{"level":30,"time":1609377927183,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"hidingescapeandfalseidentities.jpg"}
+{"level":30,"time":1609377927948,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"callandresponse_tn.jpg"}
+{"level":30,"time":1609377928603,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"callandresponse.jpg"}
+{"level":30,"time":1609377929360,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"rudetransgressivelanguage_tn.jpg"}
+{"level":30,"time":1609377930044,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"rudetransgressivelanguage.jpg"}
+{"level":30,"time":1609377930805,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sitin_tn.jpg"}
+{"level":30,"time":1609377931586,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sitin.jpg"}
+{"level":30,"time":1609377932361,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"buttons_tn.jpg"}
+{"level":30,"time":1609377933107,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"buttons.jpg"}
+{"level":30,"time":1609377933968,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"criticalmasscycling_tn.jpg"}
+{"level":30,"time":1609377934777,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"criticalmasscycling.jpg"}
+{"level":30,"time":1609377935629,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"makeupfacepainting_tn.jpg"}
+{"level":30,"time":1609377936384,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"makeupfacepainting.jpg"}
+{"level":30,"time":1609377937115,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"flowersinguns_tn.jpg"}
+{"level":30,"time":1609377937816,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"flowersinguns.jpg"}
+{"level":30,"time":1609377938741,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"prayins_tn.jpg"}
+{"level":30,"time":1609377939557,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"prayins.jpg"}
+{"level":30,"time":1609377940460,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"carhorns_tn.jpg"}
+{"level":30,"time":1609377941221,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"bloggingonlinearticlewriting_tn.jpg"}
+{"level":30,"time":1609377941966,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"bloggingonlinearticlewriting.jpg"}
+{"level":30,"time":1609377942737,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"teacherstrikes_tn.jpg"}
+{"level":30,"time":1609377943464,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"teacherstrikes.jpg"}
+{"level":30,"time":1609377944213,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"carhorns.jpg"}
+{"level":30,"time":1609377944922,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"peoplesmic_tn.jpg"}
+{"level":30,"time":1609377945721,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"peoplesmic.jpg"}
+{"level":30,"time":1609377946703,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"cacerolazo_tn.jpg"}
+{"level":30,"time":1609377948465,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"cacerolazo.jpg"}
+{"level":30,"time":1609377949258,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"musicalinstruments_tn.jpg"}
+{"level":30,"time":1609377950178,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"musicalinstruments.jpg"}
+{"level":30,"time":1609377951041,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"foodwasteasprotest_tn.jpg"}
+{"level":30,"time":1609377951908,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"foodwasteasprotest.jpg"}
+{"level":30,"time":1609377952706,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mascots_tn.jpg"}
+{"level":30,"time":1609377953466,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"mascots.jpg"}
+{"level":30,"time":1609377954343,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sculpturesandmonuments_tn.jpg"}
+{"level":30,"time":1609377955092,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sculpturesandmonuments.jpg"}
+{"level":30,"time":1609377955945,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"vehicleswith2dand3dart_tn.jpg"}
+{"level":30,"time":1609377956817,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"vehicleswith2dand3dart.jpg"}
+{"level":30,"time":1609377957840,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"die-ins_tn.jpg"}
+{"level":30,"time":1609377958742,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"die-ins.jpg"}
+{"level":30,"time":1609377959724,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"onepersonprotest_tn.jpg"}
+{"level":30,"time":1609377960457,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"onepersonprotest.jpg"}
+{"level":30,"time":1609377961211,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"traditionaltheater_tn.jpg"}
+{"level":30,"time":1609377962053,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"traditionaltheater.jpg"}
+{"level":30,"time":1609378006129,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sloganscaricaturesandsymbols_tn.jpg"}
+{"level":30,"time":1609378007182,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sloganscaricaturesandsymbols.jpg"}
+{"level":30,"time":1609378008798,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"trendingahashtag_tn.jpg"}
+{"level":30,"time":1609378009799,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"trendingahashtag.jpg"}
+{"level":30,"time":1609378010669,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"skywritingandearthwriting_tn.jpg"}
+{"level":30,"time":1609378011387,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"skywritingandearthwriting.jpg"}
+{"level":30,"time":1609378012505,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sit-downs_tn.jpg"}
+{"level":30,"time":1609378013236,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"sit-downs.jpg"}
+{"level":30,"time":1609378014054,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"symboliclights_tn.jpg"}
+{"level":30,"time":1609378014890,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"symboliclights.jpg"}
+{"level":30,"time":1609378015640,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"symbolicreclamations_tn.jpg"}
+{"level":30,"time":1609378016456,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"symbolicreclamations.jpg"}
+{"level":30,"time":1609378017327,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"livestreaming_tn.jpg"}
+{"level":30,"time":1609378018273,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"livestreaming.jpg"}
+{"level":30,"time":1609378018955,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"publicspeeches_tn.jpg"}
+{"level":30,"time":1609378019833,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"publicspeeches.jpg"}
+{"level":30,"time":1609378020684,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"shoutingdown_tn.jpg"}
+{"level":30,"time":1609378021645,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"shoutingdown.jpg"}
+{"level":30,"time":1609378022738,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"displaysofportraits_tn.jpg"}
+{"level":30,"time":1609378023495,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"displaysofportraits.jpg"}
+{"level":30,"time":1609378024225,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"divestment_tn.jpg"}
+{"level":30,"time":1609378025006,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"divestment.jpg"}
+{"level":30,"time":1609378026065,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"fraternalization_tn.jpg"}
+{"level":30,"time":1609378026798,"pid":41388,"hostname":"Scotts-MBP.Home","msg":"inflatables_tn.jpg"}
+{"level":30,"time":1609378380720,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"groupormasspetitions_tn.jpg"}
+{"level":30,"time":1609378381511,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"groupormasspetitions.jpg"}
+{"level":30,"time":1609378382461,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"silence_tn.jpg"}
+{"level":30,"time":1609378383234,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"silence.jpg"}
+{"level":30,"time":1609378383958,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"destructionofpublicproperty_tn.jpg"}
+{"level":30,"time":1609378384633,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"destructionofpublicproperty.jpg"}
+{"level":30,"time":1609378385308,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"marriageinclusion_tn.jpg"}
+{"level":30,"time":1609378385958,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"marriageinclusion.jpg"}
+{"level":30,"time":1609378386927,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"coinhoarding_tn.jpg"}
+{"level":30,"time":1609378387694,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"coinhoarding.jpg"}
+{"level":30,"time":1609378388456,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"digitalgames_tn.jpg"}
+{"level":30,"time":1609378389167,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"digitalgames.jpg"}
+{"level":30,"time":1609378390039,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"relayhungerstrikes_tn.jpg"}
+{"level":30,"time":1609378390678,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"relayhungerstrikes.jpg"}
+{"level":30,"time":1609378391455,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"teachins_tn.jpg"}
+{"level":30,"time":1609378392215,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"teachins.jpg"}
+{"level":30,"time":1609378392927,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"nonviolentlyhijackingsocialmedia_tn.jpg"}
+{"level":30,"time":1609378393633,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"nonviolentlyhijackingsocialmedia.jpg"}
+{"level":30,"time":1609378394385,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"influencinginternetsearchengines_tn.jpg"}
+{"level":30,"time":1609378395069,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"influencinginternetsearchengines.jpg"}
+{"level":30,"time":1609378395829,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"forwardinginformationretweetingrepostingsharing_tn.jpg"}
+{"level":30,"time":1609378396614,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"forwardinginformationretweetingrepostingsharing.jpg"}
+{"level":30,"time":1609378397369,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"textmessagingemail_tn.jpg"}
+{"level":30,"time":1609378398147,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"textmessagingemail.jpg"}
+{"level":30,"time":1609378398917,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"socialmediachallenges_tn.jpg"}
+{"level":30,"time":1609378399676,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"socialmediachallenges.jpg"}
+{"level":30,"time":1609378400428,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mapsandmaptivism_tn.jpg"}
+{"level":30,"time":1609378401323,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mapsandmaptivism.jpg"}
+{"level":30,"time":1609378402097,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"walkouts_tn.jpg"}
+{"level":30,"time":1609378402776,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"walkouts.jpg"}
+{"level":30,"time":1609378403516,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mockawards_tn.jpg"}
+{"level":30,"time":1609378404090,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mockawards.jpg"}
+{"level":30,"time":1609378404833,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"hidingescapeandfalseidentities_tn.jpg"}
+{"level":30,"time":1609378405544,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"hidingescapeandfalseidentities.jpg"}
+{"level":30,"time":1609378406394,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"callandresponse_tn.jpg"}
+{"level":30,"time":1609378407050,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"callandresponse.jpg"}
+{"level":30,"time":1609378407755,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"rudetransgressivelanguage_tn.jpg"}
+{"level":30,"time":1609378408491,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"rudetransgressivelanguage.jpg"}
+{"level":30,"time":1609378409236,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sitin_tn.jpg"}
+{"level":30,"time":1609378409861,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sitin.jpg"}
+{"level":30,"time":1609378410698,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"buttons_tn.jpg"}
+{"level":30,"time":1609378411355,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"buttons.jpg"}
+{"level":30,"time":1609378412107,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"criticalmasscycling_tn.jpg"}
+{"level":30,"time":1609378412912,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"criticalmasscycling.jpg"}
+{"level":30,"time":1609378413788,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"makeupfacepainting_tn.jpg"}
+{"level":30,"time":1609378414526,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"makeupfacepainting.jpg"}
+{"level":30,"time":1609378415299,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"flowersinguns_tn.jpg"}
+{"level":30,"time":1609378415854,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"flowersinguns.jpg"}
+{"level":30,"time":1609378416689,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"prayins_tn.jpg"}
+{"level":30,"time":1609378417496,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"prayins.jpg"}
+{"level":30,"time":1609378418400,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"carhorns_tn.jpg"}
+{"level":30,"time":1609378419186,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"bloggingonlinearticlewriting_tn.jpg"}
+{"level":30,"time":1609378419958,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"bloggingonlinearticlewriting.jpg"}
+{"level":30,"time":1609378420810,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"teacherstrikes_tn.jpg"}
+{"level":30,"time":1609378421502,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"teacherstrikes.jpg"}
+{"level":30,"time":1609378422244,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"carhorns.jpg"}
+{"level":30,"time":1609378423059,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"peoplesmic_tn.jpg"}
+{"level":30,"time":1609378423851,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"peoplesmic.jpg"}
+{"level":30,"time":1609378424707,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"cacerolazo_tn.jpg"}
+{"level":30,"time":1609378425625,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"cacerolazo.jpg"}
+{"level":30,"time":1609378426391,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"musicalinstruments_tn.jpg"}
+{"level":30,"time":1609378427273,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"musicalinstruments.jpg"}
+{"level":30,"time":1609378428016,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"foodwasteasprotest_tn.jpg"}
+{"level":30,"time":1609378428799,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"foodwasteasprotest.jpg"}
+{"level":30,"time":1609378429505,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mascots_tn.jpg"}
+{"level":30,"time":1609378430348,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"mascots.jpg"}
+{"level":30,"time":1609378431204,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sculpturesandmonuments_tn.jpg"}
+{"level":30,"time":1609378431978,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sculpturesandmonuments.jpg"}
+{"level":30,"time":1609378432694,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"vehicleswith2dand3dart_tn.jpg"}
+{"level":30,"time":1609378433568,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"vehicleswith2dand3dart.jpg"}
+{"level":30,"time":1609378434524,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"die-ins_tn.jpg"}
+{"level":30,"time":1609378435296,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"die-ins.jpg"}
+{"level":30,"time":1609378436273,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"onepersonprotest_tn.jpg"}
+{"level":30,"time":1609378436960,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"onepersonprotest.jpg"}
+{"level":30,"time":1609378437711,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"traditionaltheater_tn.jpg"}
+{"level":30,"time":1609378438413,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"traditionaltheater.jpg"}
+{"level":30,"time":1609378439140,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sloganscaricaturesandsymbols_tn.jpg"}
+{"level":30,"time":1609378439874,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sloganscaricaturesandsymbols.jpg"}
+{"level":30,"time":1609378440723,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"trendingahashtag_tn.jpg"}
+{"level":30,"time":1609378441478,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"trendingahashtag.jpg"}
+{"level":30,"time":1609378442308,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"skywritingandearthwriting_tn.jpg"}
+{"level":30,"time":1609378443142,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"skywritingandearthwriting.jpg"}
+{"level":30,"time":1609378444194,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sit-downs_tn.jpg"}
+{"level":30,"time":1609378444984,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"sit-downs.jpg"}
+{"level":30,"time":1609378445915,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"symboliclights_tn.jpg"}
+{"level":30,"time":1609378446601,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"symboliclights.jpg"}
+{"level":30,"time":1609378447344,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"symbolicreclamations_tn.jpg"}
+{"level":30,"time":1609378448172,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"symbolicreclamations.jpg"}
+{"level":30,"time":1609378449006,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"livestreaming_tn.jpg"}
+{"level":30,"time":1609378449767,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"livestreaming.jpg"}
+{"level":30,"time":1609378450494,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"publicspeeches_tn.jpg"}
+{"level":30,"time":1609378451328,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"publicspeeches.jpg"}
+{"level":30,"time":1609378452180,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"shoutingdown_tn.jpg"}
+{"level":30,"time":1609378453028,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"shoutingdown.jpg"}
+{"level":30,"time":1609378454123,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"displaysofportraits_tn.jpg"}
+{"level":30,"time":1609378454894,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"displaysofportraits.jpg"}
+{"level":30,"time":1609378455615,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"divestment_tn.jpg"}
+{"level":30,"time":1609378456518,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"divestment.jpg"}
+{"level":30,"time":1609378457647,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"fraternalization_tn.jpg"}
+{"level":30,"time":1609378458801,"pid":41541,"hostname":"Scotts-MBP.Home","msg":"inflatables_tn.jpg"}
+{"level":50,"time":1609509673700,"pid":43348,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609546681792,"pid":46382,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}

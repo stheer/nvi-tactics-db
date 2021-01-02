@@ -3,3 +3,35 @@
 {"level":50,"time":1600462358910,"pid":63689,"hostname":"Scotts-MBP.lan","msg":"Error: Error: ER_BAD_FIELD_ERROR: Unknown column 'c.category_i' in 'on clause'"}
 {"level":50,"time":1606940640522,"pid":59882,"hostname":"Scotts-MBP.lan","msg":"Drive API Error: Error: Invalid Credentials"}
 {"level":50,"time":1606951980483,"pid":60234,"hostname":"Scotts-MBP.lan","msg":"Drive API Error: Error: Project 781599762400 is not found and cannot be used for API calls. If it is recently created, enable Drive API by visiting https://console.developers.google.com/apis/api/drive.googleapis.com/overview?project=781599762400 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."}
+{"level":50,"time":1607332152359,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1607332272236,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1607332362211,"pid":73937,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608483416687,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1608483504272,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608483624273,"pid":2203,"hostname":"Scotts-MBP.lan","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1608630165374,"pid":6980,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1608719683947,"pid":9676,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609005009573,"pid":25462,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609016554894,"pid":26047,"hostname":"Scotts-MBP.lan","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609282331508,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609282332885,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282335860,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282337025,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282337028,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282338287,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282370499,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282372911,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282375187,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282375188,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282376803,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282378246,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282399448,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282408362,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282409889,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282409889,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282491777,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282491777,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282714936,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609282723071,"pid":34692,"hostname":"Scotts-MBP.Home","msg":"Error: Error: Cannot enqueue Query after fatal error."}
+{"level":50,"time":1609509673700,"pid":43348,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}
+{"level":50,"time":1609546681792,"pid":46382,"hostname":"Scotts-MBP.Home","msg":"Error: Error: read ECONNRESET"}

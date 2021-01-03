@@ -319,7 +319,7 @@ document.body.addEventListener("mousemove", function(e) {
 });
 
 document.getElementById("prev-tacticpage").addEventListener("click", function(){
-  ajaxCall("/getPrev/"+tactic, doNothing, doNothing);
+  ajaxCall("/getPrev/"+encodeURIComponent(tactic), doNothing, doNothing);
 });
 
 function doNothing(data){

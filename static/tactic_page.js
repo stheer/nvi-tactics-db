@@ -91,8 +91,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	document.getElementById("twitter-share-header").setAttribute('data-url', window.location.href);
 	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
 
-	window.onresize = resizeCategories;
-	window.onresize = resizeTacticSelectors;
+	window.onresize = resizePage;
 });
 
 document.getElementById("prev-tactic-example").addEventListener("click", function(){
@@ -157,7 +156,7 @@ function changeInfoColor(img){
 	}
 }
 
-function resizeCategories(){
+function resizePage(){
 	//Change category list layout for smaller screen - vertical stack instead of indented list
 	var categories = document.getElementsByClassName("category-list-tacticpage");
 	if(window.innerWidth >= 1000){
@@ -169,9 +168,6 @@ function resizeCategories(){
 			categories[i].style.marginLeft = "auto";
 		}
 	}
-}
-
-function resizeTacticSelectors(){
 	//Update location of next-tactic button to header and not picture div
 	var next = document.getElementById("next-tacticpage");
 	var prev = document.getElementById("prev-tacticpage");
@@ -180,7 +176,6 @@ function resizeTacticSelectors(){
 		prev.style.display = "inline-block";
 		if(window.innerWidth >= 1000){
 			var bool = document.getElementById("tacticinfo-container").contains(next);
-			console.log(bool);
 			if(bool){
 				document.getElementById("tacticinfo-container").removeChild(next);
 			}
@@ -202,6 +197,24 @@ function resizeTacticSelectors(){
 function loadPage(){
 	document.querySelector(".loader").style.display = "none";
 	document.getElementById("tacticpage-load-screen").style.display = "none";
+}
+
+function ajaxCall(url, callback, callbackError) {
+  var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+    	if (xmlhttp.readyState == XMLHttpRequest.DONE) { 
+        	if (xmlhttp.status == 200) {
+        		callback(xmlhttp.responseText);
+           	}
+        	else {
+        		callbackError();
+        	}
+    	}
+    };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
 }
 
 function getTacticDescription(n){
@@ -304,4 +317,13 @@ document.body.addEventListener("mousemove", function(e) {
 		}
 	}
 });
+
+document.getElementById("prev-tacticpage").addEventListener("click", function(){
+  ajaxCall("/getPrev/"+tactic, doNothing, doNothing);
+});
+
+function doNothing(data){
+	console.log(data);
+}
+
 

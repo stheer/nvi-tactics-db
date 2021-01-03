@@ -20,13 +20,13 @@ var streams = [
 var logger = pinoms(pinoms.multistream(streams));
 
 /*****************************Define Variables***************************/
-const hostname = '0.0.0.0';
-//const hostname = '127.0.0.1';
-//const port = 3000;
-const port = 8000;
-__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
+//const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
+const port = 3000;
+//const port = 8000;
+//__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
 //__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net'; //tactics-test address
-//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //localhost
+__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //localhost
 
 //const key = require('./nvi-tactics-test-d4263bf06b32.json'); //tactics-test service account
 const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json'); //tactics-deployed service account
@@ -131,6 +131,32 @@ app.get('/tacticsDB', function(req, res) {
 			logger.error("Error: " + err);
 		}else{
 			res.send(result);
+		}
+	});
+});
+
+//get previous tactic using alphabetical ordering
+app.get('/getPrev/:tactic', function(req, res){
+	connection.query(
+		'SELECT previous_name FROM (SELECT *, @prev AS previous_name, @prev := name ' +
+			'FROM nvi_tactics_deployed.tactics, (SELECT @prev:=NULL) vars ORDER BY name) subquery_alias ' +
+			'WHERE name = ?', [req.params.tactic], (err, result) => {
+		if(err){
+			logger.error("Error: " + err);
+		}else{
+			if(result[0]['previous_name'] != null){
+				res.send(result);
+			}else{
+				connection.query(
+					'SELECT name as previous_name FROM nvi_tactics_deployed.tactics ORDER BY name DESC LIMIT 1', (err, result) => {
+					if(err){
+						logger.error("Error: " + err);
+					}else{
+						console.log("ayo");
+						res.send(result);
+					}
+				});
+			}
 		}
 	});
 });

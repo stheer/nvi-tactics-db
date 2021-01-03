@@ -20,13 +20,13 @@ var streams = [
 var logger = pinoms(pinoms.multistream(streams));
 
 /*****************************Define Variables***************************/
-//const hostname = '0.0.0.0';
-const hostname = '127.0.0.1';
-const port = 3000;
-//const port = 8000;
-//__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
+const hostname = '0.0.0.0';
+//const hostname = '127.0.0.1';
+//const port = 3000;
+const port = 8000;
+__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
 //__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net'; //tactics-test address
-__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //localhost
+//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //localhost
 
 //const key = require('./nvi-tactics-test-d4263bf06b32.json'); //tactics-test service account
 const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json'); //tactics-deployed service account

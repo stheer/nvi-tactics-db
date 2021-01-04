@@ -2782,8 +2782,14 @@ strong {
   padding-bottom: 35px;
 }
 
+#created-by {
+  color: #696969;
+  margin-bottom: 20px;
+  font-size: .9em;
+}
+
 #logo-icon-bottom {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   max-height: 50px;
   max-width: 50px;
 }

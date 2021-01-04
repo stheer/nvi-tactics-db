@@ -319,11 +319,17 @@ document.body.addEventListener("mousemove", function(e) {
 });
 
 document.getElementById("prev-tacticpage").addEventListener("click", function(){
-  ajaxCall("/getPrev/"+encodeURIComponent(tactic), doNothing, doNothing);
+	//ajaxCall("/getPrev/"+tactic, prevTactic, nextPrevError);
+	ajaxCall("/getPrev/"+encodeURIComponent(tactic), prevTactic, nextPrevError);
 });
 
-function doNothing(data){
-	console.log(data);
+function prevTactic(data){
+	const tactic = JSON.parse(data)[0]['previous_name'];
+	console.log(tactic);
+	window.location.href="/tactics/"+encodeURIComponent(tactic);
 }
 
+function nextPrevError(data){
+	console.log(data);
+}
 

@@ -77,6 +77,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	}else{
 		document.getElementById("tacticinfo-container").appendChild(next);
 	}
+	
+	document.getElementById("next-tacticpage").addEventListener("click", function(){
+		ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
+	});
 
 	//Update sharing links to add specific tactic page attributes
 	document.getElementById("fb-share").setAttribute('data-href', window.location.href);
@@ -319,10 +323,10 @@ document.body.addEventListener("mousemove", function(e) {
 });
 
 document.getElementById("prev-tacticpage").addEventListener("click", function(){
-	ajaxCall("/getPrev/"+encodeURIComponent(tactic), prevTactic, nextPrevError);
+	ajaxCall("/getPrev/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
 });
 
-function prevTactic(data){
+function nextPrevTactic(data){
 	const tactic = JSON.parse(data)[0]['previous_name'];
 	window.location.href="/tactics/"+encodeURIComponent(tactic);
 }

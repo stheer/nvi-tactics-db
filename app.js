@@ -150,11 +150,41 @@ app.get('/getPrev/:tactic', function(req, res){
 				res.send(result);
 			}else{
 				connection.query(
-					'SELECT name as previous_name FROM nvi_tactics_deployed.tactics ORDER BY name DESC LIMIT 1', (err, result) => {
+					'SELECT DISTINCT(a.name) AS previous_name FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
+						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND ' +
+						'(t.picture IS NOT NULL AND t.picture != "NULL")) a ORDER BY name DESC LIMIT 1', (err, result) => {
 					if(err){
 						logger.error("Error: " + err);
 					}else{
-						console.log("ayo");
+						res.send(result);
+					}
+				});
+			}
+		}
+	});
+});
+
+//get next tactic using alphabetical ordering
+app.get('/getNext/:tactic', function(req, res){
+	connection.query(
+		'SELECT previous_name FROM (SELECT *, @prev AS previous_name, @prev := name ' +
+			'FROM (SELECT DISTINCT(a.name), a.tactic_id FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
+			'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a) b' +
+			', (SELECT @prev:=NULL) vars ORDER BY name DESC) subquery_alias ' +
+			'WHERE name = ?', [req.params.tactic], (err, result) => {
+		if(err){
+			logger.error("Error: " + err);
+		}else{
+			if(result[0]['previous_name'] != null){
+				res.send(result);
+			}else{
+				connection.query(
+					'SELECT DISTINCT(a.name) AS previous_name FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
+						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND ' +
+						'(t.picture IS NOT NULL AND t.picture != "NULL")) a ORDER BY name LIMIT 1', (err, result) => {
+					if(err){
+						logger.error("Error: " + err);
+					}else{
 						res.send(result);
 					}
 				});

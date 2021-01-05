@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	}else{
 		document.getElementById("tacticinfo-container").appendChild(next);
 	}
-	
+
 	document.getElementById("next-tacticpage").addEventListener("click", function(){
 		ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
 	});
@@ -287,7 +287,7 @@ document.body.addEventListener("mousemove", function(e) {
     var ratio = e.pageX/width;
     if(width >= 750){
 	    if(width >= 1000){
-		    if(ratio < .08 && (e.pageY > 230 && e.pageY < 365)) {
+		    if(ratio < .08 && (e.pageY > 215 && e.pageY < 380)) {
 		    	prev.style.visibility = "visible";
 		    	prev.style.opacity = "100";
 		    }else{
@@ -295,7 +295,7 @@ document.body.addEventListener("mousemove", function(e) {
 		    	prev.style.opacity = "0";
 		    }
 
-		    if(ratio > .92 && (e.pageY > 230 && e.pageY < 365)) {
+		    if(ratio > .92 && (e.pageY > 215 && e.pageY < 380)) {
 		    	next.style.visibility = "visible";
 		    	next.style.opacity = "100";
 		    }else{
@@ -303,7 +303,7 @@ document.body.addEventListener("mousemove", function(e) {
 		    	next.style.opacity = "0";
 		    }
 		}else{
-			if(ratio < .12 && (e.pageY > 65 && e.pageY < 200)) {
+			if(ratio < .12 && (e.pageY > 55 && e.pageY < 210)) {
 		    	prev.style.visibility = "visible";
 		    	prev.style.opacity = "100";
 		    }else{
@@ -311,7 +311,7 @@ document.body.addEventListener("mousemove", function(e) {
 		    	prev.style.opacity = "0";
 		    }
 
-		    if(ratio > .88 && (e.pageY > 65 && e.pageY < 200)) {
+		    if(ratio > .88 && (e.pageY > 55 && e.pageY < 210)) {
 		    	next.style.visibility = "visible";
 		    	next.style.opacity = "100";
 		    }else{
@@ -327,7 +327,7 @@ document.getElementById("prev-tacticpage").addEventListener("click", function(){
 });
 
 function nextPrevTactic(data){
-	const tactic = JSON.parse(data)[0]['previous_name'];
+	var tactic = JSON.parse(data)[0]['previous_name'];
 	window.location.href="/tactics/"+encodeURIComponent(tactic);
 }
 

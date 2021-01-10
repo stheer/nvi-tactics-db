@@ -84,7 +84,8 @@ app.get('/downloads', function(req, res) {
 app.get('/categoryTactics', function(req, res) {
 	connection.query(
 		'SELECT a.name, a.persuasive, a.coercive, c.parent_categories FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
-			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
+			//'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
+			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
 			logger.error("Error: " + err);
@@ -125,7 +126,8 @@ app.get('/tacticsDB', function(req, res) {
 	connection.query(
 		'SELECT DISTINCT(a.name), a.tactic_id, a.picture, a.summary, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' + 
 			'(SELECT t.name, t.tactic_id, t.picture, t.summary, t.category_submedium FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
-			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
+			//'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ' +
+			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a LEFT JOIN categories c ' +
 			'ON a.category_submedium = c.category_id ORDER BY a.name ASC', (err, result) => {
 		if(err){
 			logger.error("Error: " + err);
@@ -140,7 +142,8 @@ app.get('/getPrev/:tactic', function(req, res){
 	connection.query(
 		'SELECT CONVERT(previous_name USING utf8) AS previous_name FROM (SELECT *, @prev AS previous_name, @prev := name ' +
 			'FROM (SELECT DISTINCT(a.name), a.tactic_id FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
-			'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a) b' +
+			//'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a) b' +
+			'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a) b' +
 			', (SELECT @prev:=NULL) vars ORDER BY name) subquery_alias ' +
 			'WHERE name = ?', [req.params.tactic], (err, result) => {
 		if(err){
@@ -151,8 +154,9 @@ app.get('/getPrev/:tactic', function(req, res){
 			}else{
 				connection.query(
 					'SELECT DISTINCT(a.name) AS previous_name FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
-						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND ' +
-						'(t.picture IS NOT NULL AND t.picture != "NULL")) a ORDER BY name DESC LIMIT 1', (err, result) => {
+						//'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a' +
+						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a ' +
+						'ORDER BY name DESC LIMIT 1', (err, result) => {
 					if(err){
 						logger.error("Error: " + err);
 					}else{
@@ -169,7 +173,8 @@ app.get('/getNext/:tactic', function(req, res){
 	connection.query(
 		'SELECT CONVERT(previous_name USING utf8) AS previous_name FROM (SELECT *, @prev AS previous_name, @prev := name ' +
 			'FROM (SELECT DISTINCT(a.name), a.tactic_id FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
-			'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a) b' +
+			//'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a) b' +
+			'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a) b' +
 			', (SELECT @prev:=NULL) vars ORDER BY name DESC) subquery_alias ' +
 			'WHERE name = ?', [req.params.tactic], (err, result) => {
 		if(err){
@@ -180,8 +185,9 @@ app.get('/getNext/:tactic', function(req, res){
 			}else{
 				connection.query(
 					'SELECT DISTINCT(a.name) AS previous_name FROM (SELECT t.* FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id WHERE ' +
-						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND ' +
-						'(t.picture IS NOT NULL AND t.picture != "NULL")) a ORDER BY name LIMIT 1', (err, result) => {
+						//'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) a' +
+						'(tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) a ' +
+						'ORDER BY a.name LIMIT 1', (err, result) => {
 					if(err){
 						logger.error("Error: " + err);
 					}else{
@@ -197,8 +203,9 @@ app.get('/getNext/:tactic', function(req, res){
 app.get('/tactics/:tactic', function(req, res){
 	connection.query(
 		'SELECT a.*, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM (SELECT t.*, tl.title, tl.ex_description, tl.link FROM tactics t LEFT JOIN tactic_links tl ' +
-			'ON t.tactic_id = tl.tactic_id WHERE t.name = ? AND (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND ' +
-			'(t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ON ' +
+			'ON t.tactic_id = tl.tactic_id WHERE t.name = ? AND (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") ' +
+			//'AND (t.picture IS NOT NULL AND t.picture != "NULL")) a LEFT JOIN categories c ON ' +
+			') a LEFT JOIN categories c ON ' +
 			'a.category_submedium = c.category_id', [req.params.tactic], (err, result) => {
 		if(err){
 			logger.error("Error: " + err);
@@ -217,7 +224,8 @@ app.get('/downloadDataset', function(req, res) {
 	connection.query(
 		'SELECT a.*, CONCAT(c.category_name, "; ", c.parent_categories) AS categories FROM ' +
 			'(SELECT t.*, tl.title, tl.link, tl.ex_description FROM tactics t LEFT JOIN tactic_links tl ON t.tactic_id = tl.tactic_id ' +
-			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) ' +
+			//'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL") AND (t.picture IS NOT NULL AND t.picture != "NULL")) ' +
+			'WHERE (tl.ex_description IS NOT NULL AND tl.ex_description != "NULL")) ' +
 			'a LEFT JOIN categories c ON a.category_submedium = c.category_id', (err, result) => {
 		if(err){
 			logger.error("Error: " + err);

@@ -8,7 +8,14 @@ var quickSearch;
 var buttonFilter = "";
 var tacticOrdering = [];
 var numberOfDisplayedTactics = 20;
-
+/*const mutedPalette = [[229,228,226],  //grey
+                      [255,253,208], [244,244,224], [255,249,222], [240,217,208], [255,248,230], //tan
+                      [244,194,194], [245,213,251], [225,180,180], [249,193,175], [249,232,239], //red-pink
+                      [198,239,245], [199,238,230], [212,239,254], [203,230,255], //blue
+                      [209,242,192], [211,229,215], [238,255,229], //green
+                      [237,234,255], [203,212,255] //purple
+                      ];*/
+const palette = [[3,49,101], [181,214,253], [245,199,26]];
 
 /***************************REACT FUNCTIONS**********************************/
 class TacticBlock extends React.Component {
@@ -21,9 +28,18 @@ class TacticBlock extends React.Component {
     tactic.categories.split("; ").forEach((category) => {
       categoryString = categoryString + " " + category.replace(/\/|\s|\,|\'|\;|\-/g, '');
     });
-    return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
-      style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 
-      React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
+    console.log(tactic);
+    console.log(tactic.picture);
+    if(tactic.picture == null || tactic.picture == "NULL"){
+      var rgb = palette[Math.floor(Math.random() * palette.length)];
+      return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
+        style: {backgroundColor: 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')', zIndex: "99999"}}, 
+        React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
+    }else{
+      return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
+        style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 
+        React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -533,6 +549,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
     logo.classList.remove("centered-logo");
 	}
+
+  document.getElementById("load-screen").style.display = "none";
 
   //load tactics blocks from database
 	ajaxCall("/tacticsDB", loadTacticsBoxes, loadTacticsBoxesError);

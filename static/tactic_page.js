@@ -3,11 +3,28 @@ var sharpNum;
 var currentTacticDes = 0;
 var tactic;
 const colorThief = new ColorThief();
+const primaryPalette = [[209,17,65], [0,177,89], [0,174,219], [243,119,53], [255,196,37]];
+const coolbluePalette = [[0,80,115], [16,125,172], [24,154,211], [30,187,215], [113,199,236]];
+const twilightsparklePalette = [[54,59,116], [103,56,136], [239,79,145], [199,157,215], [77,27,123]];
+const redorangePalette = [[255,193,0], [255,154,0], [255,116,0], [255,77,0], [255,0,0]];
+const greenlovePalette = [[131,193,60], [134,195,141], [181,216,170], [211,229,215], [233,238,232]];
+const palette = [[0,80,115], [16,125,172], [24,154,211], [30,187,215], [113,199,236], //strong blue
+				[54,59,116], [103,56,136], [239,79,145], [199,157,215], [77,27,123], //strong purple-pink
+				[255,193,0], [255,154,0], [255,116,0], [255,77,0], //strong yellow-orange
+				[131,193,60], [134,195,141], [181,216,170], [211,229,215], [233,238,232], //strong green
+				[229,228,226],  //muted grey
+                [255,253,208], [244,244,224], [255,249,222], [240,217,208], [255,248,230], //muted tan
+                [244,194,194], [245,213,251], [225,180,180], [249,193,175], [249,232,239], //muted red-pink
+                [198,239,245], [199,238,230], [212,239,254], [203,230,255], //muted blue
+                [209,242,192], [211,229,215], [238,255,229], //muted green
+                [237,234,255], [203,212,255]]; //muted purple];
+//const otherPalette = [[91, 192, 190]];
 
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
+	console.log("ay");
 	window.addEventListener('beforeunload', function () {
 		document.getElementsByTagName("body")[0].style.display = "none";
-  		window.scroll(0, 0);
+  		window.scrollTo(0, 0);
 	});
 }
 
@@ -15,22 +32,35 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	var timer = setTimeout(loadPage, 3000);
 	var tacticPictureDiv = document.getElementById("tacticpage-pic-container");
 
-	//create image for color palette
-	var img = new Image();
-	img.src = "/static/tactic_pictures/"+pic+".jpg";
-	img.id = "tacticpage-image";
+	//if pic exists, use image palette color for description background
+	console.log(pic);
+	if(pic != null && pic != "NULL" && pic != " " && pic != ""){
+		//create image for color palette
+		var img = new Image();
+		img.src = "/static/tactic_pictures/"+pic+".jpg";
+		img.id = "tacticpage-image";
 
-	//set image as background of pic-div
-	tacticPictureDiv.style.backgroundImage = "url('/static/tactic_pictures/"+pic+".jpg')";
+		//set image as background of pic-div
+		tacticPictureDiv.style.backgroundImage = "url('/static/tactic_pictures/"+pic+".jpg')";
 
-	//change background of header to random color in image palette
-	if (img.complete) {
-	  changeInfoColor(img);
-	} else {
-	  img.addEventListener("load", function() {
-	  	changeInfoColor(img);
-	  });
+		//change background of header to random color in image palette
+		if (img.complete) {
+		  changeInfoColor(img);
+		} else {
+		  img.addEventListener("load", function() {
+		  	changeInfoColor(img);
+		  });
+		}
+	}else{
+		var rgb = palette[Math.floor(Math.random() * palette.length)];
+		tacticPictureDiv.style.backgroundColor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
+		document.getElementById('tacticinfo-container').style.backgroundColor = "#b5d6fd";
+		var headerText = document.getElementById("tacticinfo-sub-container");
+		for(var i = 0; i < headerText.children.length; i++){
+			headerText.children[i].style.color = "#033165";
+		}
 	}
+	
 
 	if(sharpNum != ""){
 		document.getElementById("sharp-container").insertAdjacentHTML("afterbegin", "Sharp Tactic ID: ");
@@ -136,6 +166,7 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 //change background of header to random color in image palette
 function changeInfoColor(img){
 	var rgb_array = colorThief.getPalette(img);
+	console.log(rgb_array);
 	var rgb = rgb_array[Math.floor(Math.random() * rgb_array.length)];
 	document.getElementById('tacticinfo-container').style.backgroundColor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
 	var sum = rgb.reduce(function(a, b){
@@ -186,7 +217,6 @@ function resizePage(){
 			document.getElementById("tacticpage-pic-container").appendChild(next);
 		}else{
 			var bool = document.getElementById("tacticpage-pic-container").contains(next);
-			console.log(bool);
 			if(bool){
 				document.getElementById("tacticpage-pic-container").removeChild(next);
 			}
@@ -249,7 +279,6 @@ function showTacticDescription(n) {
 
 function SmoothVerticalScrolling(e, time, where) {
     var eTop = e.getBoundingClientRect().top;
-    console.log(eTop);
     var eAmt = ((eTop + 200)/ 100);
     var curTime = 0;
     while (curTime <= time) {

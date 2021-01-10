@@ -841,7 +841,7 @@ textarea:focus, #tactic-category-search:focus {
 @media all and (min-width: 800px) {
   .tactic-block:hover {
     background-size: 0 0;
-    background-color: #fbfbfb;
+    background-color: #fbfbfb !important;
     color: #033165;
   }
 

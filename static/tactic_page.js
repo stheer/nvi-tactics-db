@@ -172,7 +172,7 @@ document.addEventListener('touchmove', function(){
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            /* left swipe */ 
+            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         } else {
             ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         }                       

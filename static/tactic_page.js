@@ -178,9 +178,9 @@ document.addEventListener('touchmove', function(){
         }                       
     } else {
         if ( yDiff > 0 ) {
-            /* up swipe */ 
+            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         } else { 
-            /* down swipe */
+            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         }                                                                 
     }
     /* reset values */

@@ -28,8 +28,6 @@ class TacticBlock extends React.Component {
     tactic.categories.split("; ").forEach((category) => {
       categoryString = categoryString + " " + category.replace(/\/|\s|\,|\'|\;|\-/g, '');
     });
-    console.log(tactic);
-    console.log(tactic.picture);
     if(tactic.picture == null || tactic.picture == "NULL"){
       var rgb = palette[Math.floor(Math.random() * palette.length)];
       return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,

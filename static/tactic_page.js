@@ -21,7 +21,6 @@ const palette = [[0,80,115], [16,125,172], [24,154,211], [30,187,215], [113,199,
 //const otherPalette = [[91, 192, 190]];
 
 if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
-	console.log("ay");
 	window.addEventListener('beforeunload', function () {
 		document.getElementsByTagName("body")[0].style.display = "none";
   		window.scrollTo(0, 0);
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	var tacticPictureDiv = document.getElementById("tacticpage-pic-container");
 
 	//if pic exists, use image palette color for description background
-	console.log(pic);
 	if(pic != null && pic != "NULL" && pic != " " && pic != ""){
 		//create image for color palette
 		var img = new Image();
@@ -166,7 +164,6 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 //change background of header to random color in image palette
 function changeInfoColor(img){
 	var rgb_array = colorThief.getPalette(img);
-	console.log(rgb_array);
 	var rgb = rgb_array[Math.floor(Math.random() * rgb_array.length)];
 	document.getElementById('tacticinfo-container').style.backgroundColor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
 	var sum = rgb.reduce(function(a, b){

@@ -508,6 +508,12 @@ function search(value){
 }
 
 /***************************EVENT LISTENERS**********************************/
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
+  window.addEventListener('beforeunload', function () {
+    document.getElementById("load-screen").style.display = "none";
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function(e) {
   var tacticLink = document.getElementById("tactics-link");
 	var dropdown = document.getElementById("tactic-dropdown-button");
@@ -547,8 +553,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
     logo.classList.remove("centered-logo");
 	}
-
-  document.getElementById("load-screen").style.display = "none";
 
   //load tactics blocks from database
 	ajaxCall("/tacticsDB", loadTacticsBoxes, loadTacticsBoxesError);

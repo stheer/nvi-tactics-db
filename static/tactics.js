@@ -284,7 +284,7 @@ function displayDropdown() {
   var filterContainerDiv = document.getElementById("tactic-filter-container");
 
 	if(window.innerWidth < 950){
-    if(window.innerWidth <= 800){
+    if(window.innerWidth <= 950){
       dropdown.style.display = "none";
       dropdownDiv.classList.remove("showDropdown");
       dropdownDiv.style.display = "none";
@@ -531,7 +531,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   //toggle dropdown and filter visibility based on screen width 
 	if(window.innerWidth < 950){
-    if(window.innerWidth <= 800){
+    if(window.innerWidth <= 950){
       dropdown.style.display = "none";
     }else{
       dropdown.style.display = "block";

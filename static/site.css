@@ -1069,6 +1069,7 @@ textarea:focus, #tactic-category-search:focus {
     text-align: center;
     color: #fbfbfb;
     width: 33.3333333333%;
+    width: ;
     height: 250px;
     display: block;
     float: left;
@@ -1827,6 +1828,7 @@ textarea:focus, #tactic-category-search:focus {
     position: relative;
     display: block;
     height: 50%;
+    overflow-y: auto;
   }
 
   #tacticpage-pic-container {

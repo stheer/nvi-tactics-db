@@ -89,12 +89,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		}
 	}
 
-	//Do not show next/previous tactic buttons if page width is less than 750px
-	if(window.innerWidth < 750){
-		document.getElementById("prev-tacticpage").style.display = "none";
-		document.getElementById("next-tacticpage").style.display = "none";
-	}
-
 	//add next tactic button to page - location of button dependent on width of screen
 	var next = document.createElement("span");
 	next.id = "next-tacticpage";
@@ -104,6 +98,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		document.getElementById("tacticpage-pic-container").appendChild(next);
 	}else{
 		document.getElementById("tacticinfo-container").appendChild(next);
+	}
+
+	//Do not show next/previous tactic buttons if page width is less than 750px
+	if(window.innerWidth < 750){
+		document.getElementById("prev-tacticpage").style.display = "none";
+		document.getElementById("next-tacticpage").style.display = "none";
+		document.getElementById("prev-tactic-example").style.display = "none";
+		document.getElementById("next-tactic-example").style.display = "none";
 	}
 
 	document.getElementById("next-tacticpage").addEventListener("click", function(){
@@ -136,11 +138,6 @@ document.getElementById("next-tactic-example").addEventListener("click", functio
 	showTacticDescription(currentTacticDes);
 });
 
-/*document.getElementById("tacticpage-down-arrow").addEventListener("click", () => window.scrollTo({
-  top: 700,
-  behavior: 'smooth',
-}));*/
-
 document.getElementById("tacticpage-down-arrow").addEventListener("click", function(){
 	SmoothVerticalScrolling(this, 300, "center");
 });	
@@ -159,6 +156,36 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 	}else{
 		window.location.href = "/tactics";
 	}
+});
+
+document.addEventListener('touchmove', function(){
+	var xDown = null;                                                        
+	var yDown = null;
+	if ( ! xDown || ! yDown ) {
+        return;
+    }
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+        } else {
+            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+        } else { 
+            /* down swipe */
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null; 
 });
 
 //change background of header to random color in image palette
@@ -206,6 +233,8 @@ function resizePage(){
 	if(window.innerWidth >= 750){
 		next.style.display = "inline-block";
 		prev.style.display = "inline-block";
+		document.getElementById("prev-tactic-example").style.display = "inline-block";
+		document.getElementById("next-tactic-example").style.display = "inline-block";
 		if(window.innerWidth >= 1000){
 			var bool = document.getElementById("tacticinfo-container").contains(next);
 			if(bool){
@@ -222,6 +251,8 @@ function resizePage(){
 	}else{
 		next.style.display = "none";
 		prev.style.display = "none";
+		document.getElementById("prev-tactic-example").style.display = "none";
+		document.getElementById("next-tactic-example").style.display = "none";
 	}
 }
 

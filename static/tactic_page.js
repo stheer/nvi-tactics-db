@@ -158,7 +158,7 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 	}
 });
 
-document.addEventListener('touchmove', function(){
+/*document.addEventListener('touchmove', function(){
 	var xDown = null;                                                        
 	var yDown = null;
 	if ( ! xDown || ! yDown ) {
@@ -170,7 +170,7 @@ document.addEventListener('touchmove', function(){
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
         if ( xDiff > 0 ) {
             ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         } else {
@@ -183,9 +183,11 @@ document.addEventListener('touchmove', function(){
             ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
         }                                                                 
     }
-    /* reset values */
     xDown = null;
     yDown = null; 
+});*/
+document.addEventListener('swiped-right', function(e) {
+	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
 });
 
 //change background of header to random color in image palette

@@ -186,7 +186,13 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
     xDown = null;
     yDown = null; 
 });*/
-document.addEventListener('swiped-right', function(e) {
+/*document.addEventListener('swiped-right', function(e) {
+	console.log("ay");
+	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
+});*/
+
+document.addEventListener('swiped-left', function(e) {
+	console.log("ay");
 	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
 });
 

@@ -183,6 +183,11 @@ a, u {
   outline: none;
 }
 
+.mobile-search {
+  position: absolute;
+  left: 60% !important;
+}
+
 #tactic-filter-button {
   position: absolute;
   right: 95%;

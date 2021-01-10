@@ -494,7 +494,7 @@ function tacticClick(event){
   }else{
     tactic = event.target.firstElementChild.innerHTML;
   }
-  document.getElementById("load-screen").style.display = "block";
+  /*document.getElementById("load-screen").style.display = "block";*/
   window.location.href="/tactics/"+encodeURIComponent(tactic);
 }
 
@@ -508,11 +508,11 @@ function search(value){
 }
 
 /***************************EVENT LISTENERS**********************************/
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
+/*if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
   window.addEventListener('beforeunload', function () {
     document.getElementById("load-screen").style.display = "none";
   });
-}
+}*/
 
 document.addEventListener("DOMContentLoaded", function(e) {
   var tacticLink = document.getElementById("tactics-link");

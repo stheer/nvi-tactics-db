@@ -2106,7 +2106,7 @@ textarea:focus, #tactic-category-search:focus {
   #tacticpage-scroll-header {
     position: fixed;
     top: 0px;
-    height: 45px;
+    height: 43px;
     width: 100%;
     border-bottom: 1px solid #B8B8B8;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);

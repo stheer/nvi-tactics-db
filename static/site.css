@@ -2102,20 +2102,40 @@ textarea:focus, #tactic-category-search:focus {
   color: #033165;
 }
 
-#tacticpage-scroll-header {
-  position: fixed;
-  top: 0px;
-  height: 38px;
-  width: 100%;
-  border-bottom: 1px solid #B8B8B8;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  border-color: #A9A9A9;
-  background-color: #fbfbfb;
-  transition: opacity 0.1s;
-  z-index: -1;
+@media all and (min-width: 0px) and (max-width: 749px){
+  #tacticpage-scroll-header {
+    position: fixed;
+    top: 0px;
+    height: 45px;
+    width: 100%;
+    border-bottom: 1px solid #B8B8B8;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    border-color: #A9A9A9;
+    background-color: #fbfbfb;
+    transition: opacity 0.1s;
+    z-index: -1;
+  }
+}
+
+@media all and (min-width: 750px) {
+  #tacticpage-scroll-header {
+    position: fixed;
+    top: 0px;
+    height: 38px;
+    width: 100%;
+    border-bottom: 1px solid #B8B8B8;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    border-color: #A9A9A9;
+    background-color: #fbfbfb;
+    transition: opacity 0.1s;
+    z-index: -1;
+  }
 }
 
 #tacticpage-categories-header {

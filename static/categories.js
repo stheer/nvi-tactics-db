@@ -397,7 +397,7 @@ function waitClickAllGrid(){
   }
 }
 
-//For recusrive CTE query, change out the uncommented with commented if conditions
+//For recursive CTE query, change out the uncommented with commented if conditions
 function toggleShowTactics(cat){
   ajaxCall('/categoryTactics', function(data) {
     var e, o, c;
@@ -408,7 +408,7 @@ function toggleShowTactics(cat){
       if(tactic[cat] == 1){
         var cats = tactic['parent_categories'].split("; ");
         var highestCat = cats[cats.length - 1];
-        console.log(highestCat);
+        //console.log(highestCat);
         if(highestCat == 'Acts of Expression' && e < 5){
         //if(tactic['category_name'] == 'Acts of Expression' && e < 5){
           var a = createLink(tactic.name);
@@ -421,7 +421,7 @@ function toggleShowTactics(cat){
         //}else if(tactic['category_name'] == 'Acts of Omission' && o < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-omission-tactics").append(a);
-          if(e != 4){ 
+          if(o != 4){ 
             document.getElementById(cat+"-omission-tactics").append(" | ");
           }
           o++;
@@ -429,7 +429,7 @@ function toggleShowTactics(cat){
         //}else if(tactic['category_name'] == 'Acts of Commission' && c < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-commission-tactics").append(a);
-          if(e != 4){ 
+          if(c != 4){ 
             document.getElementById(cat+"-commission-tactics").append(" | ");
           }
           c++;

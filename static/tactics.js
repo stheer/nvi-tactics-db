@@ -322,9 +322,9 @@ function displayDropdown() {
     logo.classList.add("centered-logo");
     dropdown.style.display = "none";
     filter.style.display = "none";
-    //search.style.display = "inline-block";
-    //search.classList.add("mobile-search");
-    search.style.display = "none";
+    search.style.display = "inline-block";
+    search.classList.add("mobile-search");
+    //search.style.display = "none";
     filterContainerDiv.style.display = "none";
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "none";
@@ -571,9 +571,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     logo.classList.add("centered-logo");
     dropdown.style.display = "none";
     filter.style.display = "none";
-    //search.style.display = "inline-block";
-    //search.classList.add("mobile-search");
-    search.style.display = "none";
+    search.style.display = "inline-block";
+    search.classList.add("mobile-search");
+    //search.style.display = "none";
     filterContainerDiv.style.display = "none";
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].style.display = "none";

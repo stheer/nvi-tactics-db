@@ -186,6 +186,7 @@ a, u {
 .mobile-search {
   position: absolute;
   left: 75% !important;
+  margin: 0 0 0 0;
 }
 
 #tactic-filter-button {

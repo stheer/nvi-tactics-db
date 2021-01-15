@@ -213,12 +213,11 @@ document.addEventListener('swiped-left', function(e) {
 	var leftSwipeArrow = document.createElement("span");
 	leftSwipeDiv.id = "mobile-left-swipe";
 	leftSwipeArrow.id = "left-swipe-arrow";
-	leftSwipeArrow.className = "material-icons";
+	leftSwipeArrow.className = "material-icons md-48";
 	leftSwipeArrow.innerHTML = "keyboard_arrow_right";
 	leftSwipeDiv.appendChild(leftSwipeArrow);
 	document.getElementById("tactic-container").appendChild(leftSwipeDiv);
-	document.getElementById("mobile-left-swipe").style.display = "inline-block";
-	document.getElementById("mobile-left-swipe").style.opacity = 100;
+	//document.getElementById("mobile-left-swipe").style.display = "inline-block";
 	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
 });
 

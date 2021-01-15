@@ -2011,22 +2011,23 @@ textarea:focus, #tactic-category-search:focus {
 }
 
 #mobile-left-swipe {
-  opacity: 0;
   height: 100%;
   width: 7%;
-  position: absolute;
-  right: 0;
-  transition: opacity .6s ease;
-  background-color: #033165;
+  position: fixed;
+  right: 5%;
+  /*transition: opacity .6s ease;
+  background-color: #033165;*/
   z-index: 99999;
 }
 
 #left-swipe-arrow {
-  position: absolute;
+  position: fixed;
   top: 46%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   color: #f5c71a;
+  transition: opacity .6s ease;
+  z-index: 99999;
 }
 
 /*@media all and (min-width: 715px) {

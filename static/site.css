@@ -2026,6 +2026,7 @@ textarea:focus, #tactic-category-search:focus {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   color: #f5c71a;
+  background-color: #033165;
   transition: opacity .6s ease;
   z-index: 99999;
 }

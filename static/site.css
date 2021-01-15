@@ -188,6 +188,8 @@ a, u {
   left: 85% !important;
   margin: 0;
   padding: 0;
+  /*left: 75% !important;
+  no padding item*/
 }
 
 #tactic-filter-button {
@@ -2006,6 +2008,25 @@ textarea:focus, #tactic-category-search:focus {
   top: 52%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+#mobile-left-swipe {
+  opacity: 0;
+  height: 100%;
+  width: 7%;
+  position: absolute;
+  right: 0;
+  transition: opacity .6s ease;
+  background-color: #033165;
+  z-index: 99999;
+}
+
+#left-swipe-arrow {
+  position: absolute;
+  top: 46%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #f5c71a;
 }
 
 /*@media all and (min-width: 715px) {

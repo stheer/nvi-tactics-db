@@ -244,7 +244,7 @@ function changeInfoColor(img){
 		}	
 	}else{
 		var pageLogoImage = document.getElementById("tacticpagesub-logo-img");
-		pageLogoImage.src = "/static/nvi-main-logo.png";
+		pageLogoImage.src = "/static/site_pictures/nvi-main-logo.png";
 	}
 }
 

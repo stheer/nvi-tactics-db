@@ -48,6 +48,7 @@ var server = app.listen(port, hostname, function() {
 });
 app.use('/static', express.static('static'));
 app.use('/static/tactic_pictures/', express.static('static'));
+app.use('/static/site_pictures/', express.static('static'));
 app.set('views', './templates');
 app.use(bodyParser.json());
 
@@ -284,7 +285,7 @@ app.get('/downloadDataset', function(req, res) {
 
 //download categories table picture 
 app.get('/downloadCategoriesTable', function(req, res) {
-   const r = fs.createReadStream(__dirname + '/static/NVI Nonviolent Tactic Categories Table.png');
+   const r = fs.createReadStream(__dirname + '/static/site_pictures/NVI Nonviolent Tactic Categories Table.png');
    const ps = new stream.PassThrough();
    stream.pipeline(r, ps, (err) => {
    	if (err) {

@@ -18,7 +18,7 @@ a, u {
 }
 
 .hero-image {
-  background-image: url('tactics_background_small.jpg');
+  background-image: url('./site_pictures/tactics_background_small.jpg');
   height: 100%;
   width: 100%;
   background-attachment: fixed;
@@ -29,7 +29,7 @@ a, u {
 
 @media (min-width: 768px) {
   .hero-image {
-    background-image: url('tactics_background_large.jpg');
+    background-image: url('./site_pictures/tactics_background_large.jpg');
     height: 100%;
     width: 100%;
     background-attachment: fixed;

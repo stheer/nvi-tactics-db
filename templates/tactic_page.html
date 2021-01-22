@@ -2,20 +2,20 @@
 
 	<head>
 	    <meta charset="UTF-8">
-	    <link rel="icon" href="/static/nvi_icon.png" />
+	    <link rel="icon" href="/static/site_pictures/nvi_icon.png" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	    <meta name="author" content="Scott Theer" />
 	    <title>NVI Nonviolent Tactics</title>
 	    <link rel="stylesheet" type="text/css" href="/static/site.css">
 	    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	    <script type="text/javascript" src="/static/nunjucks.min.js"></script>
-	    <script type="text/javascript" src="/static/swiped-events.min.js"></script>
-	    <script type="text/javascript" src="/static/color-thief.umd.js"></script>
+	    <script type="text/javascript" src="/static/packages/nunjucks.min.js"></script>
+	    <script type="text/javascript" src="/static/packages/swiped-events.min.js"></script>
+	    <script type="text/javascript" src="/static/packages/color-thief.umd.js"></script>
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="NVI Nonviolent Tactics" />
 		<meta property="og:description" content="{{data[0].name}}" />
-		<meta property="og:image" content="/static/nvi-logo.png" />
+		<meta property="og:image" content="/static/site_pictures/nvi-logo.png" />
 
 
 	    <script>
@@ -35,7 +35,7 @@
 				<span id="tacticpage-back-top" class="tacticpage-exit material-icons">arrow_back</span>
 				<div id="tacticinfo-container">
 
-					<img id="tacticpagesub-logo-img" src="/static/nvi-sub-logo.png" />
+					<img id="tacticpagesub-logo-img" src="/static/site_pictures/nvi-sub-logo.png" />
 
 					<div id="tacticinfo-sub-container">
 						<div id="tacticpage-name" class="tacticheader-text">{{data[0].name}}</div>
@@ -56,12 +56,13 @@
 			<div id="tacticpage-scroll-header">
 				<span id="tacticpage-back-header" class="tacticpage-exit material-icons">arrow_back</span>
 
-				<img id="tacticpagesub-header-img" src="/static/nvi-sub-logo.png" />
+				<img id="tacticpagesub-header-img" src="/static/site_pictures/nvi-sub-logo.png" />
 
 				<div id="social-media-header">
 					<div id="fb-share-header" class="fb-share-button" data-layout="button" data-size="small"><a target="_blank"class="fb-xfbml-parse-ignore">Share</a></div>
 			        <a id="twitter-share-header" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="NVIntl" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			        <a id="mail-share-header" class="mail-share-button" title="Share by Email" target="hidden-iframe">
+			        <!--<a id="mail-share-header" class="mail-share-button" title="Share by Email" target="_parent">-->
 			        	<iframe class="mail-iframe" name="hidden-iframe"></iframe>
 			        	<span class="material-icons">alternate_email</span>
 			    	</a>
@@ -134,9 +135,6 @@
 		<div id="tacticpage-load-screen">
 			<div class="loader"></div>
 		</div>
-
-		<!--<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>-->
 
 		<script src="/static/tactic_page.js"></script>
 

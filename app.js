@@ -19,25 +19,22 @@ var streams = [
 ]
 var logger = pinoms(pinoms.multistream(streams));
 
-/*****************************Define Variables***************************/
-const hostname = '0.0.0.0';
-//const hostname = '127.0.0.1';
-//const port = 3000;
-const port = 8000;
-__dirname = '/home/dh_b9ujea/tactics.nonviolenceinternational.net'; //tactics-deployed address
-//__dirname = '/home/dh_fpsyj8/tacticstest.nonviolenceinternational.net'; //tactics-test address
-//__dirname = '/Users/scotttheer/Documents/GitHub/NVITacticsDB'; //localhost
+//const config = require('./config_local.json') //localhost
+//const config = require('./config_test.json') //tactics_test
+const config = require('./config_deployed.json') //tactics_deployed
 
-//const key = require('./nvi-tactics-test-d4263bf06b32.json'); //tactics-test service account
-const key = require('./nvi-tactics-db-deployed-2c1cae79cf4c.json'); //tactics-deployed service account
+/*****************************Define Variables***************************/
+const hostname = config["HOST_NAME"];
+const port = config["HOST_PORT"];
+__dirname = config["HOST_DIR"];
+const key = config["GGL_SERVICE_KEY"];
 
 /****************************Manage DB Connection***********************/
 var connection = mysql.createConnection({
-	host: '208.97.163.43',
-	user: 'michaelbeer',
-	password: 'Gr33npen',
-	//database: 'nvi_tactics' //tactics-test db
-	database: 'nvi_tactics_deployed' //tactics-deployed db
+	host: config["MY_SQL_HOST"],
+	user: config["MY_SQL_USER"],
+	password: config["MY_SQL_PW"],
+	database: config["MS_SQL_DB"]
 });
 
 connection.connect(function(err){
@@ -318,15 +315,14 @@ function syncFromDive(){
     	const drive = google.drive({version: 'v3', 
     		auth: jwt,
     		params: {
-			    //key: 'AIzaSyBwx5rab6qN3AXOXb63jzgfucm0--7PSJQ' //tactic_test key
-			    key: 'AIzaSyBu4vsHG7Nz5J2rrkuaS2ZPjb-zTYXXUo0' //tactic_deployed key
+    			key: config["GGL_API_KEY"]
 			}});
     	drive.files.list({
     		auth: jwt,
     		corpora: 'drive',
 			supportsAllDrives: true,
 			includeItemsFromAllDrives: true,
-			driveId: '0AF0hsatILwu6Uk9PVA',
+			driveID: config["GGL_DRIVE_ID"],
 			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'",
 			fields: 'files(name, mimeType, id, modifiedTime, createdTime)'
 		}, (err, res) => {

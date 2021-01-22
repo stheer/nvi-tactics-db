@@ -1,1 +1,4 @@
 .DS_Store
+config_deployed.json
+config_local.json
+config_test.json

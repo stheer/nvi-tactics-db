@@ -313,6 +313,7 @@ function syncFromDive(){
     }
 
     function downloadPictures(jwt){
+    	console.log(config["GGL_DRIVE_ID"]);
     	const drive = google.drive({version: 'v3', 
     		auth: jwt,
     		params: {
@@ -323,7 +324,7 @@ function syncFromDive(){
     		corpora: 'drive',
 			supportsAllDrives: true,
 			includeItemsFromAllDrives: true,
-			driveID: config["GGL_DRIVE_ID"],
+			driveId: config["GGL_DRIVE_ID"]
 			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'",
 			fields: 'files(name, mimeType, id, modifiedTime, createdTime)'
 		}, (err, res) => {
@@ -374,7 +375,7 @@ function syncFromDive(){
 }
 
 cron.schedule("0 0 * * 6", function() {
-//cron.schedule("*/3 * * * *", function() { //for testing purposes
+//cron.schedule("*/1 * * * *", function() { //for testing purposes
 	syncFromDive();
 }); 
 

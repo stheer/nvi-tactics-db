@@ -19,9 +19,9 @@ var streams = [
 ]
 var logger = pinoms(pinoms.multistream(streams));
 
-//const config = require('./config_local.json') //localhost
+const config = require('./config_local.json') //localhost
 //const config = require('./config_test.json') //tactics_test
-const config = require('./config_deployed.json') //tactics_deployed
+//const config = require('./config_deployed.json') //tactics_deployed
 
 /*****************************Define Variables***************************/
 const hostname = config["HOST_NAME"];
@@ -324,7 +324,7 @@ function syncFromDive(){
     		corpora: 'drive',
 			supportsAllDrives: true,
 			includeItemsFromAllDrives: true,
-			driveId: config["GGL_DRIVE_ID"]
+			driveId: config["GGL_DRIVE_ID"],
 			q: "'1DcEcTtM6SagDHdFT4rMmjuMZ_ab1Yw9B' in parents and trashed=false and mimeType='image/jpeg'",
 			fields: 'files(name, mimeType, id, modifiedTime, createdTime)'
 		}, (err, res) => {

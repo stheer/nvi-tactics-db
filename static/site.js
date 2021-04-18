@@ -54,7 +54,7 @@ document.getElementById("main-dropdown-button").addEventListener("click", functi
 
 
 document.getElementById("learn-more").addEventListener("click", () => window.scrollTo({
-  top: 500,
+  top: 600,
   behavior: 'smooth',
 }));
 

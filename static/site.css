@@ -860,6 +860,12 @@ textarea:focus, #tactic-category-search:focus {
     text-shadow: none !important;
     font-weight: bold;
   }
+
+  .tactic-block:hover .tactic-number {
+    text-shadow: none !important;
+    display: flex;
+    font-weight: bold;
+  }
 }
 
 .material-icons.md-36 { 
@@ -1069,6 +1075,11 @@ textarea:focus, #tactic-category-search:focus {
   .tactic-block:hover .tactic-text {
      color: #033165;
   }
+
+  .tactic-block:hover .tactic-number {
+     color: #033165;
+     display: flex;
+  }
 }
 
 @media all and (min-width: 400px) and (max-width: 799px) {
@@ -1131,6 +1142,20 @@ textarea:focus, #tactic-category-search:focus {
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  transition: font-weight color .6s ease;
+}
+
+.tactic-number {
+  font-family: 'Arvo';
+  color: #fbfbfb;
+  display: flex;
+  text-shadow: 1px 1px 2px black;
+  margin: 0;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  /*-ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);*/
   transition: font-weight color .6s ease;
 }
 
@@ -2846,4 +2871,35 @@ strong {
   margin-bottom: 20px;
   max-height: 50px;
   max-width: 50px;
+}
+
+#picture-attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  font-family: 'Arvo';
+  font-size: 15px;
+  margin: 5px;
+  font-style: bold;
+  text-align: right;
+}
+
+#picture-attribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#picture-attribution a:hover {
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
+}
+
+#text-more-info a {
+  text-decoration: underline;
+}
+
+#text-more-info a:hover {
+  text-decoration: underline;
+  text-decoration-color: #f5c71a;
 }

@@ -409,27 +409,27 @@ function toggleShowTactics(cat){
         var cats = tactic['parent_categories'].split("; ");
         var highestCat = cats[cats.length - 1];
         //console.log(highestCat);
-        if(highestCat == 'Acts of Expression' && e < 5){
+        if(highestCat == 'Acts of Expression' && e < 4){
         //if(tactic['category_name'] == 'Acts of Expression' && e < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-expression-tactics").append(a);
-          if(e != 4){ 
+          if(e != 3){ 
             document.getElementById(cat+"-expression-tactics").append(" | ");
           }
           e++;
-        }else if(highestCat == 'Acts of Omission' && o < 5){
+        }else if(highestCat == 'Acts of Omission' && o < 4){
         //}else if(tactic['category_name'] == 'Acts of Omission' && o < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-omission-tactics").append(a);
-          if(o != 4){ 
+          if(o != 3){ 
             document.getElementById(cat+"-omission-tactics").append(" | ");
           }
           o++;
-        }else if(highestCat == 'Acts of Commission' && c < 5){
+        }else if(highestCat == 'Acts of Commission' && c < 4){
         //}else if(tactic['category_name'] == 'Acts of Commission' && c < 5){
           var a = createLink(tactic.name);
           document.getElementById(cat+"-commission-tactics").append(a);
-          if(c != 4){ 
+          if(c != 3){ 
             document.getElementById(cat+"-commission-tactics").append(" | ");
           }
           c++;
@@ -702,6 +702,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     tactics.forEach((tactic) => {
       var lastCategory = "";
+      console.log(tactic["categories"]);
       categories = tactic["categories"].split("; ").reverse();
 
       categories.forEach((category, i) => {

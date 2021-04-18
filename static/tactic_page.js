@@ -1,7 +1,14 @@
 var pic;
 var sharpNum;
+var num_examples;
 var currentTacticDes = 0;
 var tactic;
+var photographer;
+var pic_location;
+var pic_caption;
+var cc_link;
+var cc_license;
+var pic_link;
 const colorThief = new ColorThief();
 const primaryPalette = [[209,17,65], [0,177,89], [0,174,219], [243,119,53], [255,196,37]];
 const coolbluePalette = [[0,80,115], [16,125,172], [24,154,211], [30,187,215], [113,199,236]];
@@ -57,6 +64,20 @@ document.addEventListener("DOMContentLoaded", function(e) {
 		  	changeInfoColor(img);
 		  });
 		}
+
+
+		if (photographer != null && photographer != " " && photographer != ""){
+			var license = cc_license;
+			var licenseResult = license.link(cc_link);
+
+			var picPhotographer = photographer;
+			var photographerResult = picPhotographer.link(pic_link);
+			if (pic_location == null || pic_location == " " || pic_location == "") {
+				document.getElementById("picture-attribution").innerHTML = pic_caption +  " by " + photographerResult + " is licensed under " + licenseResult; 
+			}else{
+				document.getElementById("picture-attribution").innerHTML = pic_caption +  " by " + photographerResult + " is licensed under " + licenseResult + " / " + pic_location; 
+			}
+		}
 	}else{
 		var rgb = palette[Math.floor(Math.random() * palette.length)];
 		tacticPictureDiv.style.backgroundColor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
@@ -66,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 			headerText.children[i].style.color = "#033165";
 		}
 	}
-	
 
 	if(sharpNum != ""){
 		document.getElementById("sharp-container").insertAdjacentHTML("afterbegin", "Sharp Tactic ID: ");
@@ -112,26 +132,28 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	if(window.innerWidth < 750){
 		document.getElementById("prev-tacticpage").style.display = "none";
 		document.getElementById("next-tacticpage").style.display = "none";
-		document.getElementById("prev-tactic-example").style.display = "none";
-		document.getElementById("next-tactic-example").style.display = "none";
+		if(num_examples > 1){
+			document.getElementById("prev-tactic-example").style.display = "none";
+			document.getElementById("next-tactic-example").style.display = "none";
+		}
 	}
 
-	document.getElementById("next-tacticpage").addEventListener("click", function(){
+	/*document.getElementById("next-tacticpage").addEventListener("click", function(){
 		ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-	});
+	});*/
 
 	//Update sharing links to add specific tactic page attributes
 	document.getElementById("fb-share").setAttribute('data-href', window.location.href);
 	document.getElementById("fb-share").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
 	document.getElementById("mail-share").href = "mailto:?subject=Nonviolence International Tactic of Resistance&body=Check out this tactic of nonviolent resistance from Nonviolence International: "+tactic+" - "+encodeURIComponent(window.location.href);
 	document.getElementById("twitter-share").setAttribute('data-url', window.location.href);
-	document.getElementById("twitter-share").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
+	document.getElementById("twitter-share").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic);
 
 	document.getElementById("fb-share-header").setAttribute('data-href', window.location.href);
 	document.getElementById("fb-share-header").href = "https://www.facebook.com/sharer/sharer.php?u="+window.location.href+"&amp;src=sdkpreparse";
 	document.getElementById("mail-share-header").href = "mailto:?subject=Nonviolence International Tactic of Resistance&body=Check out this tactic of nonviolent resistance from Nonviolence International: "+tactic+" - "+encodeURIComponent(window.location.href);
 	document.getElementById("twitter-share-header").setAttribute('data-url', window.location.href);
-	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic+"\n");
+	document.getElementById("twitter-share-header").setAttribute('data-text', "Check out this tactic of nonviolent resistance from Nonviolence International! \n\n"+tactic);
 
 	//check if mobile - if so, change mailto functionality by removing iFrame
 	if(window.mobileCheck()){
@@ -175,40 +197,7 @@ document.getElementById("tacticpage-back-header").addEventListener("click", func
 	}
 });
 
-/*document.addEventListener('touchmove', function(){
-	var xDown = null;                                                        
-	var yDown = null;
-	if ( ! xDown || ! yDown ) {
-        return;
-    }
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
-
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-        if ( xDiff > 0 ) {
-            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-        } else {
-            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-        }                       
-    } else {
-        if ( yDiff > 0 ) {
-            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-        } else { 
-            ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-        }                                                                 
-    }
-    xDown = null;
-    yDown = null; 
-});*/
-/*document.addEventListener('swiped-right', function(e) {
-	console.log("ay");
-	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-});*/
-
-document.addEventListener('swiped-left', function(e) {
+/*document.addEventListener('swiped-left', function(e) {
 	var leftSwipeDiv = document.createElement("div");
 	var leftSwipeArrow = document.createElement("span");
 	leftSwipeDiv.id = "mobile-left-swipe";
@@ -219,7 +208,7 @@ document.addEventListener('swiped-left', function(e) {
 	document.getElementById("tactic-container").appendChild(leftSwipeDiv);
 	//document.getElementById("mobile-left-swipe").style.display = "inline-block";
 	ajaxCall("/getNext/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-});
+});*/
 
 //change background of header to random color in image palette
 function changeInfoColor(img){
@@ -233,10 +222,12 @@ function changeInfoColor(img){
 		var exitButton = document.getElementById("tacticpage-back-top");
 		var leftButton = document.getElementById("prev-tacticpage");
 		var rightButton = document.getElementById("next-tacticpage");
+		var attribution = document.getElementById("picture-attribution");
 		exitButton.style.color = "#033165";
 		leftButton.style.color = "#f5c71a";
 		rightButton.style.color = "#f5c71a";
 		if(sum > 600){
+			attribution.style.color = "#033165";
 			var headerText = document.getElementById("tacticinfo-sub-container");
 			for(var i = 0; i < headerText.children.length; i++){
 				headerText.children[i].style.color = "#033165";
@@ -266,8 +257,10 @@ function resizePage(){
 	if(window.innerWidth >= 750){
 		next.style.display = "inline-block";
 		prev.style.display = "inline-block";
-		document.getElementById("prev-tactic-example").style.display = "inline-block";
-		document.getElementById("next-tactic-example").style.display = "inline-block";
+		if(num_examples > 1){
+			document.getElementById("prev-tactic-example").style.display = "inline-block";
+			document.getElementById("next-tactic-example").style.display = "inline-block";
+		}
 		if(window.innerWidth >= 1000){
 			var bool = document.getElementById("tacticinfo-container").contains(next);
 			if(bool){
@@ -284,8 +277,10 @@ function resizePage(){
 	}else{
 		next.style.display = "none";
 		prev.style.display = "none";
-		document.getElementById("prev-tactic-example").style.display = "none";
-		document.getElementById("next-tactic-example").style.display = "none";
+		if(num_examples > 1){
+			document.getElementById("prev-tactic-example").style.display = "none";
+			document.getElementById("next-tactic-example").style.display = "none";
+		}
 	}
 }
 
@@ -412,9 +407,9 @@ document.body.addEventListener("mousemove", function(e) {
 	}
 });
 
-document.getElementById("prev-tacticpage").addEventListener("click", function(){
+/*document.getElementById("prev-tacticpage").addEventListener("click", function(){
 	ajaxCall("/getPrev/"+encodeURIComponent(tactic), nextPrevTactic, nextPrevError);
-});
+});*/
 
 function nextPrevTactic(data){
 	var tactic = JSON.parse(data)[0]['previous_name'];

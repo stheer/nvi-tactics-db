@@ -31,11 +31,13 @@ class TacticBlock extends React.Component {
     if(tactic.picture == null || tactic.picture == "NULL"){
       var rgb = palette[Math.floor(Math.random() * palette.length)];
       return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
-        style: {backgroundColor: 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')', zIndex: "99999"}}, 
+        style: {backgroundColor: 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')', zIndex: "9999"}},
+        React.createElement("div", {id: "tactic-number"+tactic.tactic_id, className: "tactic-number"}, tactic.tactic_id),
         React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
     }else{
       return React.createElement("div", {id: "tactic-parent"+tactic.tactic_id, className: number + " tactic-block" + categoryString, onClick: tacticClick,
-        style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "99999"}}, 
+        style: {backgroundImage: `url("/static/tactic_pictures/`+tactic.picture+`_tn.jpg")`, zIndex: "9999"}},
+        React.createElement("div", {id: "tactic-number"+tactic.tactic_id, className: "tactic-number"}, tactic.tactic_id), 
         React.createElement("div", {id: "tactic-text"+tactic.tactic_id, className: "tactic-text"}, tactic.name));
     }
   }
@@ -510,8 +512,10 @@ function tacticClick(event){
   var tactic = "";
   if(event.target.id.includes("tactic-text")){
     tactic = event.target.innerHTML;
+  }else if(event.target.id.includes("tactic-number")){
+    tactic = event.target.nextSibling.innerHTML;
   }else{
-    tactic = event.target.firstElementChild.innerHTML;
+    tactic = event.target.childNodes[1].innerHTML;
   }
   /*document.getElementById("load-screen").style.display = "block";*/
   window.location.href="/tactics/"+encodeURIComponent(tactic);
@@ -661,9 +665,11 @@ document.getElementById("tactic-search-button").addEventListener("click", functi
   if(filterContainer.style.display == "none" || filterContainer.style.display == "" || filterContainer.style.display == "hidden"){
     filterContainer.style.display = "block";
     search.style.display = "block";
+    document.getElementById("tactic-category-search").focus();
   }else{
     if(search.style.display == "none" || search.style.display == "" || search.style.display == "hidden"){
       search.style.display = "block";
+      document.getElementById("tactic-category-search").focus();
     }else{
       search.style.display = "none";
       if(filter.style.display == "none" || filter.style.display == "" || filter.style.display == "hidden"){

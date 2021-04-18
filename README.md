@@ -19,7 +19,11 @@ Home page
 Tactics Page
 <img src="app-example-images/tactics.png">
 <img src="app-example-images/tactics2.png">
+
+Tactics Page Filtered by Category
 <img src="app-example-images/tactics-filtered.png">
+
+Tactics Page Filtered by Search
 <img src="app-example-images/tactics-search.png">
 
 Clicked Tactic Page
@@ -28,8 +32,12 @@ Clicked Tactic Page
 
 Categories Page
 <img src="app-example-images/categories.png">
+
+Categories Page Interactive Table
 <img src="app-example-images/categories-table.png">
 <img src="app-example-images/categories-clicked.png">
+
+Categories Page List View
 <img src="app-example-images/categories-list.png">
 
 Downloads Page

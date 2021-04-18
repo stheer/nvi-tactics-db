@@ -20,9 +20,9 @@ var streams = [
 ]
 var logger = pinoms(pinoms.multistream(streams));
 
-const config = require('./config_local.json') //localhost
+//const config = require('./config_local.json') //localhost
 //const config = require('./config_test.json') //tactics_test
-//const config = require('./config_deployed.json') //tactics_deployed
+const config = require('./config_deployed.json') //tactics_deployed
 
 /*****************************Define Variables***************************/
 const hostname = config["HOST_NAME"];

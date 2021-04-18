@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N51XNRXN95"></script>
-	    <script>
-	      window.dataLayer = window.dataLayer || [];
-	      function gtag(){dataLayer.push(arguments);}
-	      gtag('js', new Date());
-
-	      gtag('config', 'G-N51XNRXN95');
-	    </script>
-	    
+	<head>	    
 	    <meta charset="UTF-8">
 	    <link rel="icon" href="/static/site_pictures/nvi_icon.png" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,12 +17,27 @@
 		<meta property="og:description" content="{{data[0].name}}" />
 		<meta property="og:image" content="/static/site_pictures/nvi-logo.png" />
 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKHK55SFTP"></script>
+	    <script>
+	      window.dataLayer = window.dataLayer || [];
+	      function gtag(){dataLayer.push(arguments);}
+	      gtag('js', new Date());
+
+	      gtag('config', 'G-DKHK55SFTP');
+	    </script>
 
 	    <script>
 	    	pic = "{{data[0].picture}}";
 	    	sharpNum = "{{data[0].gene_sharp_num}}";
 	    	num_examples = "{{data.length}}";
 	    	tactic = "{{data[0].name}}";
+	    	photographer = "{{data[0].photographer}}";
+	    	pic_location = "{{data[0].picture_location}}";
+	    	pic_caption = "{{data[0].picture_caption}}";
+	    	cc_link = "{{data[0].cc_link}}";
+	    	cc_license = "{{data[0].cc_license}}";
+	    	pic_link = "{{data[0].picture_link}}";
 	    </script>
 	</head>
 
@@ -58,6 +63,7 @@
 
 				<div id="tacticpage-pic-container">
 					<!--<span id="next-tacticpage" class="tacticpage-exit material-icons">keyboard_arrow_right</span>-->
+					<div id="picture-attribution"></div>
 				</div>
 			</div>
 

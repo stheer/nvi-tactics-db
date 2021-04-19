@@ -10,6 +10,12 @@ Clone this repository and run the below to install the required dependencies. No
 npm install
 ```
 
+The application is hosted on DreamHost servers running Passenger - to restart the application, run the following in the project directory.
+
+```bash
+mkdir -p tmp && touch tmp/restart.txt
+```
+
 ## Usage and Images
 
 Home page 

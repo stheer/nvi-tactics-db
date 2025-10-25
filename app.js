@@ -12,10 +12,13 @@ const errorHandler = require('errorhandler');
 
 const pinoms = require('pino-multi-stream');
 const stream = require('stream');
+
 var prettyStream = pinoms.prettyStream();
+const errorLogPath = path.join(os.homedir(), 'tactics.nonviolenceinternational.net', 'error.log');
+const debugLogPath = path.join(os.homedir(), 'tactics.nonviolenceinternational.net', 'debug.log');
 var streams = [
-  {level: 'error', stream: fs.createWriteStream('./logs/error.log', {flags: 'a'})},
-  {level: 'info', stream: fs.createWriteStream('./logs/debug.log', {flags: 'a'})},
+  {level: 'error', stream: fs.createWriteStream(errorLogPath, {flags: 'a'})},
+  {level: 'info', stream: fs.createWriteStream(debugLogPath, {flags: 'a'})},
   {stream: prettyStream }
 ]
 var logger = pinoms(pinoms.multistream(streams));
